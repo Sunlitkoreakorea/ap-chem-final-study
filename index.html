@@ -1,0 +1,1176 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AP Chemistry 기말 총정리 (Ch 13–15)</title>
+<meta name="description" content="AP Chemistry I 기말고사 대비: 13 Chemical Kinetics · 14 Chemical Equilibrium · 15 Acids and Bases 학습 노트, 개념 암기, 문제 풀이.">
+<meta name="theme-color" content="#1b4fb3">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b4fb3'/%3E%3Cpath d='M26 10h12v4h-2v12l12 22a6 6 0 0 1-5 9H21a6 6 0 0 1-5-9l12-22V14h-2z' fill='%23fff'/%3E%3Cpath d='M23 42h18l5 9a2 2 0 0 1-2 3H20a2 2 0 0 1-2-3z' fill='%230c8f63'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script>
+  // 테마: 저장된 값이 있으면 먼저 적용해 깜빡임 방지
+  try { var t = localStorage.getItem('apchem.theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (e) {}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand"><b>AP Chemistry I</b><span>기말 총정리 · Ch 13–15</span></div>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="화면 테마 전환" title="라이트/다크 전환">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="학습 메뉴">
+    <button class="tab" role="tab" id="tab-study" aria-controls="panel-study" aria-selected="true" data-tab="study">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/><path d="M9 8h6M9 12h6"/></svg>
+      <span>학습</span>
+    </button>
+    <button class="tab" role="tab" id="tab-memorize" aria-controls="panel-memorize" aria-selected="false" data-tab="memorize">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="M7 3h12a2 2 0 0 1 2 2v12"/><path d="M7 10h6M7 14h4"/></svg>
+      <span>개념 암기</span>
+    </button>
+    <button class="tab" role="tab" id="tab-practice" aria-controls="panel-practice" aria-selected="false" data-tab="practice">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+      <span>문제 풀이</span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+<!-- =====================================================================
+     TAB 1 — 학습
+     ===================================================================== -->
+<section class="tab-panel" id="panel-study" role="tabpanel" aria-labelledby="tab-study">
+  <div class="study-layout">
+
+    <nav class="toc" id="toc" aria-label="목차">
+      <h4>시작</h4>
+      <a href="#overview">시험 범위</a>
+      <h4>13 Kinetics</h4>
+      <a href="#ch13">13단원 개요</a>
+      <a href="#s13-1" class="sub">13.1 반응 속도</a>
+      <a href="#s13-2" class="sub">13.2 속도 법칙</a>
+      <a href="#s13-3" class="sub">13.3 농도–시간</a>
+      <a href="#s13-4" class="sub">13.4 활성화 에너지</a>
+      <a href="#s13-5" class="sub">13.5 반응 메커니즘</a>
+      <a href="#sum13" class="sub">13 요약표</a>
+      <h4>14 Equilibrium</h4>
+      <a href="#ch14">14단원 개요</a>
+      <a href="#s14-1" class="sub">14.1 평형과 K</a>
+      <a href="#s14-2" class="sub">14.2 K의 형태</a>
+      <a href="#s14-3" class="sub">14.3 속도론과 평형</a>
+      <a href="#s14-4" class="sub">14.4 Q · ICE</a>
+      <a href="#s14-5" class="sub">14.5 Le Châtelier</a>
+      <a href="#sum14" class="sub">14 요약표</a>
+      <h4>15 Acids &amp; Bases</h4>
+      <a href="#ch15">15단원 개요</a>
+      <a href="#s15-1" class="sub">15.1 Brønsted · Lewis</a>
+      <a href="#s15-2" class="sub">15.2 물과 K<sub>w</sub></a>
+      <a href="#s15-3" class="sub">15.3 pH</a>
+      <a href="#s15-4" class="sub">15.4 산·염기 세기</a>
+      <a href="#s15-5" class="sub">15.5 약산 K<sub>a</sub></a>
+      <a href="#s15-6" class="sub">15.6 약염기 K<sub>b</sub></a>
+      <a href="#s15-7" class="sub">15.7 K<sub>a</sub>K<sub>b</sub>=K<sub>w</sub></a>
+      <a href="#s15-8" class="sub">15.8 다양성자산</a>
+      <a href="#sum15" class="sub">15 요약표</a>
+      <h4>마무리</h4>
+      <a href="#pitfalls">자주 하는 실수</a>
+    </nav>
+
+    <div class="study-main">
+
+      <!-- ---------- overview ---------- -->
+      <div class="hero" id="overview">
+        <h1>AP Chemistry I 기말 총정리</h1>
+        <p>13 Chemical Kinetics → 14 Chemical Equilibrium → 15 Acids and Bases. 세 단원을 한 흐름으로 읽도록 정리했어요.</p>
+      </div>
+
+      <div class="scope-grid">
+        <div class="card scope-card c13">
+          <h3><span>13</span> Chemical Kinetics</h3>
+          <ul>
+            <li>13.1 Reaction rate</li>
+            <li>13.2 Rate law</li>
+            <li>13.3 농도–시간 관계 · 반감기</li>
+            <li>13.4 Arrhenius · 활성화 에너지</li>
+            <li>13.5 Reaction mechanism</li>
+            <li class="x">Experimental support for mechanisms</li>
+            <li class="x">13.6 Catalysis</li>
+          </ul>
+        </div>
+        <div class="card scope-card c14">
+          <h3><span>14</span> Chemical Equilibrium</h3>
+          <ul>
+            <li>14.1 평형 개념 · K<sub>c</sub>, K<sub>P</sub></li>
+            <li>14.2 K의 형태(역반응·계수·합)</li>
+            <li>14.3 속도론과 평형 (K = k<sub>f</sub>/k<sub>r</sub>)</li>
+            <li>14.4 Q vs K · ICE 계산</li>
+            <li>14.5 Le Châtelier 원리</li>
+            <li class="x">Heterogeneous equilibria *</li>
+            <li class="x">Multiple equilibria</li>
+          </ul>
+        </div>
+        <div class="card scope-card c15">
+          <h3><span>15</span> Acids and Bases</h3>
+          <ul>
+            <li>15.1 Brønsted · 15.12 Lewis</li>
+            <li>15.2 물의 자동이온화 · K<sub>w</sub></li>
+            <li>15.3 pH · pOH</li>
+            <li>15.4 강산/약산 · 강염기/약염기</li>
+            <li>15.5–15.7 K<sub>a</sub>, K<sub>b</sub>, K<sub>a</sub>K<sub>b</sub>=K<sub>w</sub></li>
+            <li>15.8 Diprotic · polyprotic acids</li>
+            <li class="x">15.9 분자 구조와 산의 세기</li>
+            <li class="x">15.10 염의 산·염기성</li>
+            <li class="x">15.11 산화물·수산화물</li>
+          </ul>
+        </div>
+      </div>
+      <p class="legend">취소선 항목은 수업 슬라이드에서 <b>빨간 X</b>가 표시된 부분이에요(시험 범위 제외로 보임). 그래도 참고용으로 짧게 적어 두었으니 ‘범위 제외’ 상자에서 확인하세요. * 단, 교재 문제 14.22(CaCO<sub>3</sub>)가 이 개념을 쓰기 때문에 한 줄만 알아두면 안전해요.</p>
+
+      <div class="callout tip" style="margin-top:18px">
+        <span class="ttl">이 사이트 쓰는 법</span>
+        <ul>
+          <li><b>학습</b> — 개념과 공식, 교재 예제 풀이를 단원 순서대로 읽기. (<span class="badge hw">HW</span> = 슬라이드에서 Homework 스티커가 붙은 예제)</li>
+          <li><b>개념 암기</b> — 선생님이 “개념을 써라” 유형을 내시니까, 영어 모범답안을 <i>플래시카드 · 쓰기 연습 · 빈칸 · 목록</i> 4가지 방식으로 외우기.</li>
+          <li><b>문제 풀이</b> — 교재·AP 기출 스타일 문제 + 숫자가 매번 바뀌는 랜덤 문제. 풀이와 정답 확인, 틀린 문제만 다시 풀기.</li>
+        </ul>
+      </div>
+
+<!-- ======================================================================
+     CHAPTER 13
+     ====================================================================== -->
+      <article class="chapter c13" id="ch13">
+        <header class="chapter-head">
+          <div class="num">13</div>
+          <div><h2>Chemical Kinetics</h2><p>반응이 <b>얼마나 빠르게</b> 일어나는가 — 속도, 속도 법칙, 반감기, 온도 의존성, 메커니즘</p></div>
+        </header>
+
+        <section class="sec" id="s13-1">
+          <h3><span class="sn">13.1</span> 반응 속도 (The Rate of a Reaction)</h3>
+          <div class="callout def"><span class="ttl">DEFINITION</span>
+            <p><b>Reaction rate</b> = 단위 시간당 반응물 또는 생성물의 <b>농도 변화</b>. 단위는 보통 <b>M/s</b> (= mol L<sup>−1</sup> s<sup>−1</sup>).</p>
+          </div>
+          <p>$\ce{A -> B}$ 에서 A는 줄고 B는 늘어요. 속도는 항상 양수로 쓰므로 <b>반응물에는 마이너스(−)</b>를 붙입니다.</p>
+          <div class="eq"><span class="cap">RATE</span>
+            $$\text{rate} = -\frac{\Delta[\mathrm{A}]}{\Delta t} = \frac{\Delta[\mathrm{B}]}{\Delta t}$$
+          </div>
+
+          <h4>평균 속도 · 순간 속도 · 초기 속도</h4>
+          <ul>
+            <li><b>Average rate</b> — 일정한 시간 구간의 평균. 농도–시간 그래프의 <i>두 점을 잇는 직선(할선)</i>의 기울기에 −를 붙인 값.</li>
+            <li><b>Instantaneous rate</b> — 특정 순간의 속도. 그 점에서 그은 <b>접선(tangent)의 기울기</b>.</li>
+            <li><b>Initial rate</b> — $t=0$ 에서의 순간 속도. 아직 생성물이 거의 없어 역반응 영향이 작아서 속도 법칙을 구할 때 쓴다.</li>
+          </ul>
+
+          <div class="callout">
+            <b>예: Br<sub>2</sub> + HCOOH (Table 13.1)</b>
+            $$\ce{Br2(aq) + HCOOH(aq) -> 2Br-(aq) + 2H+(aq) + CO2(g)}$$
+            <p>이 반응에서 $t=0\to50.0\,\mathrm{s}$ 동안 [Br<sub>2</sub>]가 0.0120 M → 0.0101 M 로 감소.</p>
+            $$\text{average rate} = -\frac{0.0101-0.0120}{50.0\ \mathrm{s}} = 3.80\times10^{-5}\ \mathrm{M/s}$$
+            <p>각 시각에서 rate/[Br<sub>2</sub>] 를 계산하면 거의 일정(≈ $3.50\times10^{-3}\,\mathrm{s^{-1}}$) → 속도는 농도에 <b>비례</b>: rate $=k[\ce{Br2}]$. 이 비례상수 $k$ 가 <b>rate constant</b>.</p>
+          </div>
+          <div class="callout warn"><span class="ttl">POINT</span>
+            <p>농도가 줄면 <b>rate</b>는 줄지만 <b>k는 그대로</b>예요(온도가 같다면). k는 농도의 영향을 받지 않는다 — 슬라이드에 형광펜으로 강조된 문장.</p>
+          </div>
+
+          <h4>기체가 포함된 반응은 압력으로</h4>
+          <p>$\ce{2H2O2(aq) -> 2H2O(l) + O2(g)}$ 에서 O<sub>2</sub> 의 $PV=nRT$ 를 이용하면 $[\ce{O2}]=P/RT$. 그래서</p>
+          <div class="eq">$$\text{rate}=\frac{\Delta[\mathrm{O_2}]}{\Delta t}=\frac{1}{RT}\,\frac{\Delta P}{\Delta t}$$</div>
+
+          <h4>계수가 다르면 나눠 주기 (Stoichiometry)</h4>
+          <p>$\ce{aA + bB -> cC + dD}$ 이면 각 물질의 농도 변화율을 <b>자기 계수로 나눠서</b> 하나의 “반응 속도”로 통일합니다.</p>
+          <div class="eq"><span class="cap">GENERAL</span>
+            $$\text{rate}=-\frac1a\frac{\Delta[\mathrm A]}{\Delta t}=-\frac1b\frac{\Delta[\mathrm B]}{\Delta t}=\frac1c\frac{\Delta[\mathrm C]}{\Delta t}=\frac1d\frac{\Delta[\mathrm D]}{\Delta t}$$
+          </div>
+          <p>예: $\ce{2A -> B}$ 이면 rate $=-\tfrac12\Delta[\mathrm A]/\Delta t=\Delta[\mathrm B]/\Delta t$ (B가 생기는 속도는 A가 사라지는 속도의 절반).</p>
+
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 13.1</span> 속도식 쓰기</div>
+            <div class="ex-q">
+              <p>다음 반응에 대해 반응물 소멸과 생성물 생성으로 속도식을 쓰시오.</p>
+              <p>(a) $\ce{I-(aq) + OCl-(aq) -> Cl-(aq) + OI-(aq)}$<br>(b) $\ce{4NH3(g) + 5O2(g) -> 4NO(g) + 6H2O(g)}$<br>(c) $\ce{CH4(g) + 1/2 Br2(g) -> CH3Br(g) + HBr(g)}$</p>
+            </div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body">
+                <p><b>(a)</b> 계수가 모두 1:
+                $\text{rate}=-\dfrac{\Delta[\ce{I-}]}{\Delta t}=-\dfrac{\Delta[\ce{OCl-}]}{\Delta t}=\dfrac{\Delta[\ce{Cl-}]}{\Delta t}=\dfrac{\Delta[\ce{OI-}]}{\Delta t}$</p>
+                <p><b>(b)</b> $\text{rate}=-\dfrac14\dfrac{\Delta[\ce{NH3}]}{\Delta t}=-\dfrac15\dfrac{\Delta[\ce{O2}]}{\Delta t}=\dfrac14\dfrac{\Delta[\ce{NO}]}{\Delta t}=\dfrac16\dfrac{\Delta[\ce{H2O}]}{\Delta t}$</p>
+                <p><b>(c)</b> Br<sub>2</sub> 의 계수가 $\tfrac12$ 이므로 “나누기 ½” = “×2”:
+                $\text{rate}=-\dfrac{\Delta[\ce{CH4}]}{\Delta t}=-2\dfrac{\Delta[\ce{Br2}]}{\Delta t}=\dfrac{\Delta[\ce{CH3Br}]}{\Delta t}=\dfrac{\Delta[\ce{HBr}]}{\Delta t}$</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 13.2</span> 속도 변환</div>
+            <div class="ex-q">
+              <p>$\ce{4NO2(g) + O2(g) -> 2N2O5(g)}$ 에서 어떤 순간 O<sub>2</sub> 가 0.024 M/s 로 소모되고 있다. (a) N<sub>2</sub>O<sub>5</sub> 의 생성 속도는? (b) NO<sub>2</sub> 의 소모 속도는?</p>
+            </div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body">
+                <p>$\text{rate}=-\dfrac{\Delta[\ce{O2}]}{\Delta t}=\dfrac12\dfrac{\Delta[\ce{N2O5}]}{\Delta t}=-\dfrac14\dfrac{\Delta[\ce{NO2}]}{\Delta t}$ 이고 $\text{rate}=0.024$ M/s.</p>
+                <p><b>(a)</b> $\Delta[\ce{N2O5}]/\Delta t = 2\times0.024 = \mathbf{0.048\ M/s}$</p>
+                <p><b>(b)</b> $-\Delta[\ce{NO2}]/\Delta t = 4\times0.024 = \mathbf{0.096\ M/s}$</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section class="sec" id="s13-2">
+          <h3><span class="sn">13.2</span> 속도 법칙 (The Rate Law)</h3>
+          <div class="callout def"><span class="ttl">DEFINITION</span>
+            <p><b>Rate law</b>: 반응 속도를 <b>rate constant $k$</b> 와 <b>반응물 농도의 거듭제곱</b>으로 나타낸 식.</p>
+          </div>
+          <div class="eq"><span class="cap">RATE LAW (13.1)</span>$$\text{rate}=k\,[\mathrm A]^x[\mathrm B]^y$$</div>
+          <ul>
+            <li>$x,\ y$ = 각 반응물에 대한 <b>reaction order</b> (A에 대해 x차, B에 대해 y차). $x+y$ = <b>overall order</b>.</li>
+            <li>$k$ = <b>rate constant</b>. 온도가 같으면 일정하고, <b>단위는 전체 차수에 따라 달라져요</b>.</li>
+          </ul>
+          <div class="callout warn"><span class="ttl">⚠ 가장 흔한 함정</span>
+            <p>차수는 <b>실험으로만</b> 결정됩니다. 균형 맞춘 반응식의 계수와는 <b>무관</b>해요. 예: $\ce{F2 + 2ClO2 -> 2FClO2}$ 에서 ClO<sub>2</sub> 계수는 2지만 ClO<sub>2</sub> 에 대해 <b>1차</b>.</p>
+          </div>
+
+          <h4>초기 속도법 (Method of initial rates)</h4>
+          <p>한 번에 <b>한 반응물만</b> 농도를 바꿔 가며 초기 속도를 비교해요.</p>
+          <div class="eq"><span class="cap">비교 공식</span>
+            $$\frac{\text{rate}_2}{\text{rate}_1}=\left(\frac{[\mathrm A]_2}{[\mathrm A]_1}\right)^{x}$$
+          </div>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>차수 n</th><th>농도 ×2 → 속도</th><th>농도 ×3 → 속도</th><th>농도 ×4 → 속도</th></tr></thead>
+            <tbody>
+              <tr><td>0</td><td>×1 (변화 없음)</td><td>×1</td><td>×1</td></tr>
+              <tr><td>1</td><td>×2</td><td>×3</td><td>×4</td></tr>
+              <tr><td>2</td><td>×4</td><td>×9</td><td>×16</td></tr>
+              <tr><td>3</td><td>×8</td><td>×27</td><td>×64</td></tr>
+            </tbody>
+          </table></div>
+          <div class="widget" data-widget="order-explorer"></div>
+
+          <div class="card" style="margin:14px 0">
+            <b>예: $\ce{F2(g) + 2ClO2(g) -> 2FClO2(g)}$ (Table 13.2)</b>
+            <div class="tbl-wrap"><table class="tbl">
+              <thead><tr><th>Exp</th><th>[F<sub>2</sub>] (M)</th><th>[ClO<sub>2</sub>] (M)</th><th>Initial rate (M/s)</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>0.10</td><td>0.010</td><td>$1.2\times10^{-3}$</td></tr>
+                <tr><td>2</td><td>0.10</td><td>0.040</td><td>$4.8\times10^{-3}$</td></tr>
+                <tr><td>3</td><td>0.20</td><td>0.010</td><td>$2.4\times10^{-3}$</td></tr>
+              </tbody>
+            </table></div>
+            <ul>
+              <li>Exp 1→2: [F<sub>2</sub>] 고정, [ClO<sub>2</sub>] ×4 → 속도 ×4 ⇒ ClO<sub>2</sub> <b>1차</b></li>
+              <li>Exp 1→3: [ClO<sub>2</sub>] 고정, [F<sub>2</sub>] ×2 → 속도 ×2 ⇒ F<sub>2</sub> <b>1차</b></li>
+            </ul>
+            <p>따라서 $\text{rate}=k[\ce{F2}][\ce{ClO2}]$, 전체 2차. $k=\dfrac{1.2\times10^{-3}}{(0.10)(0.010)}=1.2\ \mathrm{M^{-1}s^{-1}}$</p>
+          </div>
+
+          <h4>k의 단위</h4>
+          <p>$\text{rate}$ 의 단위는 M/s. 속도 법칙에 단위를 대입해 $k$ 의 단위를 거꾸로 구합니다.</p>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>전체 차수</th><th>rate law 예</th><th>k 의 단위</th></tr></thead>
+            <tbody>
+              <tr><td>0</td><td>$k$</td><td>M s<sup>−1</sup></td></tr>
+              <tr><td>1</td><td>$k[\mathrm A]$</td><td>s<sup>−1</sup></td></tr>
+              <tr><td>2</td><td>$k[\mathrm A]^2$ 또는 $k[\mathrm A][\mathrm B]$</td><td>M<sup>−1</sup> s<sup>−1</sup></td></tr>
+              <tr><td>3</td><td>$k[\mathrm A][\mathrm B]^2$</td><td>M<sup>−2</sup> s<sup>−1</sup></td></tr>
+              <tr><td>n</td><td>—</td><td>M<sup>1−n</sup> s<sup>−1</sup></td></tr>
+            </tbody>
+          </table></div>
+
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 13.3</span> 속도 법칙 · k · 속도</div>
+            <div class="ex-q">
+              <p>$\ce{2NO(g) + 2H2(g) -> N2(g) + 2H2O(g)}$ (1280 °C) 의 데이터로 (a) 속도 법칙 (b) 속도 상수 (c) [NO] = $12.0\times10^{-3}$ M, [H<sub>2</sub>] = $6.0\times10^{-3}$ M 일 때의 속도를 구하시오.</p>
+              <div class="tbl-wrap"><table class="tbl">
+                <thead><tr><th>Exp</th><th>[NO] (M)</th><th>[H<sub>2</sub>] (M)</th><th>Initial rate (M/s)</th></tr></thead>
+                <tbody>
+                  <tr><td>1</td><td>$5.0\times10^{-3}$</td><td>$2.0\times10^{-3}$</td><td>$1.3\times10^{-5}$</td></tr>
+                  <tr><td>2</td><td>$10.0\times10^{-3}$</td><td>$2.0\times10^{-3}$</td><td>$5.0\times10^{-5}$</td></tr>
+                  <tr><td>3</td><td>$10.0\times10^{-3}$</td><td>$4.0\times10^{-3}$</td><td>$10.0\times10^{-5}$</td></tr>
+                </tbody>
+              </table></div>
+            </div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body">
+                <ol class="steps">
+                  <li>Exp 1→2 ([H<sub>2</sub>] 고정): [NO] ×2 일 때 속도 $5.0/1.3\approx3.8\approx4$ ⇒ $2^x=4$, $x=2$.</li>
+                  <li>Exp 2→3 ([NO] 고정): [H<sub>2</sub>] ×2 일 때 속도 ×2 ⇒ $y=1$.</li>
+                </ol>
+                <p><b>(a)</b> $\text{rate}=k[\ce{NO}]^2[\ce{H2}]$ (3차)</p>
+                <p><b>(b)</b> Exp 2 대입: $k=\dfrac{5.0\times10^{-5}}{(1.0\times10^{-2})^2(2.0\times10^{-3})}=\mathbf{2.5\times10^{2}\ M^{-2}s^{-1}}$</p>
+                <p><b>(c)</b> $\text{rate}=(2.5\times10^2)(12.0\times10^{-3})^2(6.0\times10^{-3})=\mathbf{2.2\times10^{-4}\ M/s}$</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section class="sec" id="s13-3">
+          <h3><span class="sn">13.3</span> 농도와 시간의 관계 (Integrated Rate Laws)</h3>
+          <p>속도 법칙을 시간에 대해 적분하면 “시간 $t$ 에서의 농도”를 구하는 식이 나와요. 차수마다 <b>직선이 되는 그래프</b>가 다르다는 게 핵심입니다.</p>
+
+          <h4>① 1차 반응 (First-order)</h4>
+          <div class="eq"><span class="cap">1차 · 적분형</span>
+            $$\ln\frac{[\mathrm A]_t}{[\mathrm A]_0}=-kt$$
+            $$\ln[\mathrm A]_t=-kt+\ln[\mathrm A]_0$$
+          </div>
+          <ul>
+            <li>$\ln[\mathrm A]$ vs $t$ 가 <b>직선</b>, 기울기 $=-k$, 절편 $=\ln[\mathrm A]_0$. 단위 $k$: s<sup>−1</sup>.</li>
+            <li>기체 $\ce{A(g)}$ 는 $[\mathrm A]=P/RT$ 이므로 압력으로 대체: $\ln P_t=-kt+\ln P_0$</li>
+            <li>시간을 구할 땐: $t=\dfrac1k\ln\dfrac{[\mathrm A]_0}{[\mathrm A]_t}$</li>
+          </ul>
+          <details class="sol-toggle plain"><summary>미적분 유도 보기</summary>
+            <div class="ex-body">
+              <p>$-\dfrac{d[\mathrm A]}{dt}=k[\mathrm A]\ \Rightarrow\ -\dfrac{d[\mathrm A]}{[\mathrm A]}=k\,dt$ … 양변을 $t=0\to t$ 로 적분하면
+              $\displaystyle\int_{[\mathrm A]_0}^{[\mathrm A]_t}\frac{d[\mathrm A]}{[\mathrm A]}=-k\int_0^t dt\ \Rightarrow\ \ln[\mathrm A]_t-\ln[\mathrm A]_0=-kt$</p>
+            </div>
+          </details>
+
+          <div class="callout def"><span class="ttl">HALF-LIFE $t_{1/2}$</span>
+            <p>반응물 농도가 <b>처음의 절반</b>이 되는 데 걸리는 시간 (the time required for the concentration of a reactant to decrease to half of its initial concentration).</p>
+          </div>
+          <div class="eq"><span class="cap">1차 · 반감기</span>$$t_{1/2}=\frac{\ln 2}{k}=\frac{0.693}{k}$$</div>
+          <div class="callout warn"><span class="ttl">POINT</span><p>1차 반응의 반감기는 <b>초기 농도와 무관</b>해요. 그래서 반감기마다 항상 절반씩 줄어듭니다. $n$ 번 지나면 남은 비율 $=(1/2)^n$.</p></div>
+
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 13.4</span><span class="badge hw">HW</span> 시클로프로판 → 프로펜</div>
+            <div class="ex-q">
+              <p>기상 시클로프로판 → 프로펜은 1차 반응이며 500 °C에서 $k=6.7\times10^{-4}\ \mathrm{s^{-1}}$. (a) 처음 0.25 M일 때 8.8 min 후 농도는? (b) 0.25 M → 0.15 M 이 되는 데 몇 분? (c) 74 % 가 전환되는 데 몇 분?</p>
+            </div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body">
+                <p><b>(a)</b> $t=8.8\times60=528\ \mathrm s$. $\ln\dfrac{[\mathrm A]_t}{0.25}=-(6.7\times10^{-4})(528)=-0.354\ \Rightarrow\ [\mathrm A]_t=0.25\,e^{-0.354}=\mathbf{0.18\ M}$</p>
+                <p><b>(b)</b> $t=\dfrac1k\ln\dfrac{0.25}{0.15}=\dfrac{0.511}{6.7\times10^{-4}}=763\ \mathrm s=\mathbf{12.7\ min}$</p>
+                <p><b>(c)</b> 74 % 전환 ⇒ 26 % 남음, $[\mathrm A]_t/[\mathrm A]_0=0.26$. $t=\dfrac1k\ln\dfrac1{0.26}=\dfrac{1.347}{6.7\times10^{-4}}=2.0\times10^3\ \mathrm s=\mathbf{33.5\ min}$</p>
+                <p class="muted">단위가 s<sup>−1</sup> 이므로 분 → 초 변환을 잊지 마세요.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 13.6</span> 에탄의 반감기</div>
+            <div class="ex-q"><p>$\ce{C2H6(g) -> 2CH3(g)}$ 는 700 °C에서 1차, $k=5.36\times10^{-4}\ \mathrm{s^{-1}}$. 반감기를 분 단위로 구하시오.</p></div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body"><p>$t_{1/2}=\dfrac{0.693}{5.36\times10^{-4}}=1.29\times10^3\ \mathrm s=\mathbf{21.6\ min}$</p></div>
+            </details>
+          </div>
+
+          <h4>② 2차 반응 (Second-order)</h4>
+          <p>$\ce{A -> product}$, rate $=k[\mathrm A]^2$. (또는 $\ce{A + B -> product}$, rate $=k[\mathrm A][\mathrm B]$ — A, B 각각 1차, 전체 2차.)</p>
+          <div class="eq"><span class="cap">2차 · 적분형 (13.7)</span>$$\frac{1}{[\mathrm A]_t}=kt+\frac{1}{[\mathrm A]_0}$$</div>
+          <ul>
+            <li>$1/[\mathrm A]$ vs $t$ 가 <b>직선</b>, 기울기 $=+k$, 절편 $=1/[\mathrm A]_0$. 단위 $k$: M<sup>−1</sup>s<sup>−1</sup>.</li>
+          </ul>
+          <div class="eq"><span class="cap">2차 · 반감기 (13.8)</span>$$t_{1/2}=\frac{1}{k[\mathrm A]_0}$$</div>
+          <div class="callout warn"><span class="ttl">POINT</span><p>2차 반응의 반감기는 <b>초기 농도에 반비례</b>. 농도가 묽어질수록 반감기가 <b>길어져요</b> (다음 반감기는 2배).</p></div>
+
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 13.7</span><span class="badge hw">HW</span> 요오드 원자의 결합</div>
+            <div class="ex-q">
+              <p>$\ce{I(g) + I(g) -> I2(g)}$ 는 2차, 23 °C에서 $k=7.0\times10^{9}\ \mathrm{M^{-1}s^{-1}}$. (a) $[\mathrm I]_0=0.086$ M 일 때 2.0 min 후 농도? (b) $[\mathrm I]_0$ 가 0.60 M, 0.42 M 일 때 반감기?</p>
+            </div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body">
+                <p><b>(a)</b> $t=120\ \mathrm s$. $\dfrac1{[\mathrm I]_t}=(7.0\times10^9)(120)+\dfrac1{0.086}=8.4\times10^{11}+11.6\approx8.4\times10^{11}$ ⇒ $[\mathrm I]_t=\mathbf{1.2\times10^{-12}\ M}$</p>
+                <p><b>(b)</b> $t_{1/2}=\dfrac{1}{k[\mathrm A]_0}$: 0.60 M → $\mathbf{2.4\times10^{-10}\ s}$, 0.42 M → $\mathbf{3.4\times10^{-10}\ s}$ (농도가 낮을수록 반감기가 길다).</p>
+              </div>
+            </details>
+          </div>
+
+          <h4>③ 0차 반응 (Zero-order)</h4>
+          <p>드문 경우예요. rate $=k[\mathrm A]^0=k$ → <b>속도가 농도와 무관한 상수</b>.</p>
+          <div class="eq"><span class="cap">0차</span>$$[\mathrm A]_t=-kt+[\mathrm A]_0 \qquad t_{1/2}=\frac{[\mathrm A]_0}{2k}$$</div>
+          <ul><li>$[\mathrm A]$ vs $t$ 가 직선, 기울기 $=-k$, 단위 $k$: M s<sup>−1</sup>. 반감기는 초기 농도에 <b>비례</b>(점점 짧아짐).</li></ul>
+
+          <h4>한눈에 비교 (Table 13.3)</h4>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>Order</th><th>Rate law</th><th>Concentration–time</th><th>직선 그래프 (y vs t)</th><th>기울기</th><th>Half-life</th><th>k 단위</th></tr></thead>
+            <tbody>
+              <tr><td><b>0</b></td><td>$k$</td><td>$[\mathrm A]_t=-kt+[\mathrm A]_0$</td><td>$[\mathrm A]$</td><td>$-k$</td><td>$\dfrac{[\mathrm A]_0}{2k}$</td><td>M s<sup>−1</sup></td></tr>
+              <tr><td><b>1</b></td><td>$k[\mathrm A]$</td><td>$\ln\dfrac{[\mathrm A]_t}{[\mathrm A]_0}=-kt$</td><td>$\ln[\mathrm A]$</td><td>$-k$</td><td>$\dfrac{0.693}{k}$</td><td>s<sup>−1</sup></td></tr>
+              <tr><td><b>2</b></td><td>$k[\mathrm A]^2$</td><td>$\dfrac1{[\mathrm A]_t}=kt+\dfrac1{[\mathrm A]_0}$</td><td>$1/[\mathrm A]$</td><td>$+k$</td><td>$\dfrac{1}{k[\mathrm A]_0}$</td><td>M<sup>−1</sup>s<sup>−1</sup></td></tr>
+            </tbody>
+          </table></div>
+          <div class="callout tip"><span class="ttl">차수 찾는 법 (그래프)</span>
+            <p>$[\mathrm A]$, $\ln[\mathrm A]$, $1/[\mathrm A]$ 를 각각 $t$ 에 대해 그려 <b>직선이 나오는 것</b>이 그 반응의 차수. (AP 객관식에서 “2차 반응이면 어떤 그래프?” → $1/[\mathrm A]$ vs $t$, 우상향 직선.)</p>
+          </div>
+          <div class="widget" data-widget="order-plots"></div>
+        </section>
+
+        <section class="sec" id="s13-4">
+          <h3><span class="sn">13.4</span> 활성화 에너지와 온도 의존성 (Arrhenius)</h3>
+          <div class="callout def"><span class="ttl">ACTIVATION ENERGY $E_a$</span>
+            <p>반응물이 생성물로 가기 위해 넘어야 하는 <b>에너지 장벽</b>. 반응물 에너지에서 <b>활성화 복합체(activated complex, transition state, AB<sup>‡</sup>)</b> 의 꼭대기까지의 차이.</p>
+          </div>
+          <svg viewBox="0 0 420 220" role="img" aria-label="활성화 에너지 에너지 다이어그램" style="max-width:520px;width:100%;display:block;margin:10px auto">
+            <g stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round">
+              <path d="M40 16v170h360" stroke-width="1.5" opacity=".55"/>
+              <path d="M52 150h62C150 150 160 150 185 90S215 42 240 42S275 80 300 150S330 178 350 178h40" stroke="#1b4fb3" style="stroke:var(--primary)" stroke-width="3"/>
+              <path d="M120 150h120" stroke-dasharray="4 4" opacity=".6"/>
+              <path d="M222 144V50" stroke="var(--red)"/>
+              <path d="M222 50l-4 8M222 50l4 8M222 144l-4-8M222 144l4-8" stroke="var(--red)"/>
+            </g>
+            <g fill="currentColor" font-size="13" font-family="system-ui,sans-serif">
+              <text x="58" y="142">A + B</text>
+              <text x="212" y="32" text-anchor="middle">AB‡ (transition state)</text>
+              <text x="232" y="100" fill="var(--red)" font-weight="700">Eₐ</text>
+              <text x="338" y="168" text-anchor="middle">C + D</text>
+              <text x="220" y="208" text-anchor="middle" opacity=".7">Reaction progress</text>
+              <text x="14" y="104" transform="rotate(-90 14 104)" text-anchor="middle" opacity=".7">Potential energy</text>
+            </g>
+          </svg>
+
+          <div class="eq"><span class="cap">ARRHENIUS EQUATION</span>
+            $$k=A\,e^{-E_a/RT}$$
+            $$\ln k=\ln A-\frac{E_a}{R}\cdot\frac1T$$
+          </div>
+          <ul>
+            <li>$A$ : frequency factor, $R=8.314\ \mathrm{J\,K^{-1}mol^{-1}}$, $T$ : <b>절대온도(K)</b>.</li>
+            <li>$T$ 가 높을수록, $E_a$ 가 작을수록 $k$ 는 커진다. $E_a$ 가 클수록 온도에 더 민감하다.</li>
+            <li><b>그래프로 $E_a$ 구하기</b>: $\ln k$ vs $1/T$ 는 직선, 기울기 $=-E_a/R$ → $E_a=-(\text{slope})\times R$.</li>
+          </ul>
+          <div class="eq"><span class="cap">TWO-POINT FORM (13.14)</span>
+            $$\ln\frac{k_1}{k_2}=\frac{E_a}{R}\left(\frac1{T_2}-\frac1{T_1}\right)=\frac{E_a}{R}\,\frac{T_1-T_2}{T_1T_2}$$
+          </div>
+          <div class="callout warn"><span class="ttl">⚠ 단위 주의</span>
+            <p>$E_a$ 가 kJ/mol 로 주어지면 $R=8.314$ J/(mol·K) 와 맞추기 위해 <b>×1000</b> 해서 J/mol 로. 온도는 반드시 K ($°C+273.15$).</p>
+          </div>
+
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 13.8</span><span class="badge hw">HW</span> 아세트알데히드 분해 — ln k vs 1/T</div>
+            <div class="ex-q"><p>$\ce{CH3CHO(g) -> CH4(g) + CO(g)}$ 의 속도 상수를 5개 온도에서 측정했다. $\ln k$ 대 $1/T$ 를 그려 활성화 에너지(kJ/mol)를 구하시오. (슬라이드에는 표가 생략되어 있어요 — 직접 계산 연습은 <b>문제 탭의 13.40 문제</b>로!)</p></div>
+            <details class="sol-toggle"><summary>풀이 방법 보기</summary>
+              <div class="ex-body">
+                <ol class="steps">
+                  <li>각 온도 $T$ 를 $1/T$ (K<sup>−1</sup>) 로, 각 $k$ 를 $\ln k$ 로 바꾼다.</li>
+                  <li>$(1/T,\ \ln k)$ 점을 찍고 직선 회귀 → <b>기울기</b> 구하기 (음수).</li>
+                  <li>$E_a=-\text{slope}\times8.314\ \mathrm{J/mol}$ → $\div1000$ 으로 kJ/mol.</li>
+                </ol>
+                <p class="muted">참고: 이 반응은 $\tfrac32$ 차라서 k의 단위가 $\mathrm{M^{-1/2}s^{-1}}$ 이지만, $E_a$ 를 구하는 데는 단위가 영향을 주지 않아요.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 13.9</span><span class="badge hw">HW</span> 다른 온도에서의 k</div>
+            <div class="ex-q"><p>1차 반응의 속도 상수가 298 K에서 $3.46\times10^{-2}\ \mathrm{s^{-1}}$. $E_a=50.2$ kJ/mol 일 때 350 K 에서의 $k$ 는?</p></div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body">
+                <p>$\ln\dfrac{k_2}{k_1}=\dfrac{E_a}{R}\left(\dfrac1{T_1}-\dfrac1{T_2}\right)=\dfrac{50200}{8.314}\left(\dfrac1{298}-\dfrac1{350}\right)=6.04\times10^3\times4.99\times10^{-4}=3.01$</p>
+                <p>$k_2=k_1e^{3.01}=(3.46\times10^{-2})(20.3)=\mathbf{0.70\ s^{-1}}$ — 52 K 올렸더니 20배 빨라졌어요.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section class="sec" id="s13-5">
+          <h3><span class="sn">13.5</span> 반응 메커니즘 (Reaction Mechanisms)</h3>
+          <div class="callout def"><span class="ttl">VOCABULARY</span>
+            <ul>
+              <li><b>Elementary step</b> (elementary reaction): 분자 수준에서 실제로 일어나는 <b>단일 단계</b>.</li>
+              <li><b>Reaction mechanism</b>: 생성물을 만드는 <b>elementary step 들의 순서</b>. 균형 반응식은 출발지와 도착지만 말해 주고, 메커니즘은 “경로”.</li>
+              <li><b>Intermediate</b>: 한 단계에서 <b>생성되고 다음 단계에서 소모</b>되는 물질. 전체 반응식에는 안 나타남.</li>
+              <li><b>Rate-determining step (rds)</b>: 가장 <b>느린 단계</b>. 전체 속도를 결정한다.</li>
+            </ul>
+          </div>
+          <p><b>예:</b> $\ce{2NO(g) + O2(g) -> 2NO2(g)}$ 에서 $\ce{N2O2}$ 가 관찰된다 → 두 단계 메커니즘</p>
+          <div class="tbl-wrap"><table class="tbl">
+            <tbody>
+              <tr><td class="l">Step 1</td><td>$\ce{NO + NO -> N2O2}$</td></tr>
+              <tr><td class="l">Step 2</td><td>$\ce{N2O2 + O2 -> 2NO2}$</td></tr>
+              <tr><td class="l"><b>Overall</b></td><td>$\ce{2NO + O2 -> 2NO2}$ &nbsp;($\ce{N2O2}$ 는 양쪽에서 소거 → <b>intermediate</b>)</td></tr>
+            </tbody>
+          </table></div>
+
+          <h4>Elementary step 의 속도 법칙 (분자도, molecularity)</h4>
+          <p>전체 반응과 달리 <b>elementary step 에서는 계수가 곧 차수</b>예요.</p>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>Step</th><th>Molecularity</th><th>Rate law</th></tr></thead>
+            <tbody>
+              <tr><td>$\ce{A -> products}$</td><td>unimolecular</td><td>$k[\mathrm A]$</td></tr>
+              <tr><td>$\ce{A + A -> products}$</td><td>bimolecular</td><td>$k[\mathrm A]^2$</td></tr>
+              <tr><td>$\ce{A + B -> products}$</td><td>bimolecular</td><td>$k[\mathrm A][\mathrm B]$</td></tr>
+              <tr><td>$\ce{A + 2B -> products}$</td><td>termolecular (드묾)</td><td>$k[\mathrm A][\mathrm B]^2$</td></tr>
+            </tbody>
+          </table></div>
+          <p class="muted" style="font-size:.88rem">※ 슬라이드에는 ‘bimolecular reaction’ 언급만 있고 표는 교재 13.5 내용이에요. 기말에서 rds 로부터 속도 법칙을 만들 때 쓰입니다.</p>
+
+          <h4>Rate-determining step</h4>
+          <p>좁은 외길 도로에서 추월이 불가능하면 <b>가장 느린 차</b>가 전체 속도를 정하는 것과 같아요. 에너지 다이어그램에서는 <b>활성화 에너지가 가장 큰(가장 높은 봉우리) 단계</b>가 rds.</p>
+          <svg viewBox="0 0 460 230" role="img" aria-label="두 단계 반응의 에너지 다이어그램" style="max-width:560px;width:100%;display:block;margin:10px auto">
+            <g stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round">
+              <path d="M40 14v176h400" stroke-width="1.5" opacity=".55"/>
+              <path d="M50 150h40C115 150 120 100 145 100S175 130 195 130S225 128 245 128C270 128 275 42 305 42S335 180 360 180h70" style="stroke:var(--primary)" stroke-width="3"/>
+              <path d="M145 150V104M145 150l-3-7M145 150l3-7" stroke="var(--green)"/>
+              <path d="M305 132V46M305 132l-3-7M305 132l3-7" stroke="var(--red)"/>
+            </g>
+            <g fill="currentColor" font-size="12.5" font-family="system-ui,sans-serif">
+              <text x="46" y="142">Reactants</text>
+              <text x="146" y="92" text-anchor="middle">TS₁</text>
+              <text x="220" y="148" text-anchor="middle">Intermediate</text>
+              <text x="305" y="30" text-anchor="middle">TS₂</text>
+              <text x="372" y="172">Products</text>
+              <text x="152" y="144" fill="var(--green)" font-weight="700">Eₐ₁ (작음)</text>
+              <text x="328" y="88" fill="var(--red)" font-weight="700">Eₐ₂ (큼)</text>
+              <text x="328" y="104" fill="var(--red)" font-weight="700">= rds</text>
+              <text x="240" y="220" text-anchor="middle" opacity=".7">Reaction coordinate</text>
+              <text x="14" y="102" transform="rotate(-90 14 102)" text-anchor="middle" opacity=".7">Energy</text>
+            </g>
+          </svg>
+
+          <div class="callout tip"><span class="ttl">올바른 메커니즘의 두 조건</span>
+            <ol style="margin:4px 0">
+              <li>각 단계를 더하면 <b>전체 균형 반응식</b>이 된다.</li>
+              <li>rds 로부터 얻은 속도 법칙이 <b>실험으로 구한 속도 법칙과 일치</b>한다.</li>
+            </ol>
+          </div>
+
+          <h4>경우 A — 첫 단계가 rds (중간체가 속도식에 안 나옴)</h4>
+          <p>$\ce{2N2O -> 2N2 + O2}$: Step 1 $\ce{N2O -> N2 + O}$ (slow), Step 2 $\ce{N2O + O -> N2 + O2}$ (fast). rds = Step 1 이므로 rate $=k_1[\ce{N2O}]$ — 실험 결과와 일치.</p>
+
+          <h4>경우 B — 빠른 평형 뒤에 느린 단계 (중간체가 속도식에 나옴)</h4>
+          <p>rds 의 속도식에 <b>intermediate 농도</b>가 나오면 안 돼요(측정할 수 없으니까). 앞의 <b>빠른 가역 단계의 평형</b>(정반응 속도 = 역반응 속도)을 이용해 반응물 농도로 바꿔 줍니다.</p>
+          <div class="card" style="margin:10px 0">
+            <b>예: $\ce{H2 + I2 -> 2HI}$, 실험 rate $=k[\ce{H2}][\ce{I2}]$</b>
+            <div class="tbl-wrap"><table class="tbl"><tbody>
+              <tr><td class="l">Step 1 (fast, 평형)</td><td>$\ce{I2 <=> 2I}$ &nbsp; ($k_1$, $k_{-1}$)</td></tr>
+              <tr><td class="l">Step 2 (slow, rds)</td><td>$\ce{H2 + 2I -> 2HI}$ &nbsp; ($k_2$)</td></tr>
+            </tbody></table></div>
+            <ol class="steps">
+              <li>rds: $\text{rate}=k_2[\ce{H2}][\mathrm I]^2$ — 중간체 I 가 들어 있어서 안 된다.</li>
+              <li>Step 1 평형: $k_1[\ce{I2}]=k_{-1}[\mathrm I]^2\ \Rightarrow\ [\mathrm I]^2=\dfrac{k_1}{k_{-1}}[\ce{I2}]$</li>
+              <li>대입: $\text{rate}=\dfrac{k_1k_2}{k_{-1}}[\ce{H2}][\ce{I2}]=k[\ce{H2}][\ce{I2}]$ ✓ 실험과 일치</li>
+            </ol>
+          </div>
+
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 13.10</span><span class="badge hw">HW</span> N<sub>2</sub>O 분해</div>
+            <div class="ex-q">
+              <p>Step 1: $\ce{N2O ->[k_1] N2 + O}$, Step 2: $\ce{N2O + O ->[k_2] N2 + O2}$. 실험 속도 법칙은 rate $=k[\ce{N2O}]$. (a) 전체 반응식 (b) 중간체 (c) 단계 1·2 의 상대적 속도는?</p>
+            </div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body">
+                <p><b>(a)</b> 두 단계를 더하고 O 를 소거: $\mathbf{2N_2O\to2N_2+O_2}$</p>
+                <p><b>(b)</b> 한 단계에서 생겼다가 다음 단계에서 소모되는 <b>O (산소 원자)</b>.</p>
+                <p><b>(c)</b> 실험 속도식 $k[\ce{N2O}]$ 는 Step 1 만의 속도식이므로 <b>Step 1 이 느린 rds</b>이고, Step 2 는 Step 1 보다 훨씬 빠르다(fast).</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="callout excl"><span class="ttl">범위 제외 표시 (슬라이드 빨간 X)</span>
+            <p><b>Experimental support for mechanisms</b> — 중간체를 직접 검출(예: $\ce{IO-}$)하거나 조건을 바꿔 예측을 확인(예: I<sub>2</sub> 는 가시광선으로 I 원자로 해리 → 빛을 세게 하면 HI 생성 속도 증가)하여 메커니즘을 뒷받침.</p>
+            <p><b>13.6 Catalysis</b> — 촉매는 <b>활성화 에너지를 낮추는 다른 반응 경로</b>를 제공해 속도를 높이고, 한 단계에서 중간체를 만들었다가 다음 단계에서 재생되어 <b>소모되지 않는</b> 물질. (전체 반응식에 안 나타남.) 평형 위치(K)는 바꾸지 않는다.</p>
+          </div>
+        </section>
+
+        <section class="sec" id="sum13">
+          <h3><span class="sn">13</span> 한 장 요약</h3>
+          <div class="cheat">
+            <div class="card"><h4>속도 정의</h4>$\text{rate}=-\tfrac1a\tfrac{\Delta[\mathrm A]}{\Delta t}=\tfrac1c\tfrac{\Delta[\mathrm C]}{\Delta t}$<br>단위 M/s</div>
+            <div class="card"><h4>속도 법칙</h4>$\text{rate}=k[\mathrm A]^x[\mathrm B]^y$<br>차수는 <b>실험</b>으로. 초기 속도법: 한 변수씩 바꾼다.</div>
+            <div class="card"><h4>1차</h4>$\ln[\mathrm A]_t=-kt+\ln[\mathrm A]_0$<br>$t_{1/2}=0.693/k$ (농도 무관)</div>
+            <div class="card"><h4>2차</h4>$1/[\mathrm A]_t=kt+1/[\mathrm A]_0$<br>$t_{1/2}=1/(k[\mathrm A]_0)$</div>
+            <div class="card"><h4>0차</h4>$[\mathrm A]_t=-kt+[\mathrm A]_0$<br>$t_{1/2}=[\mathrm A]_0/2k$</div>
+            <div class="card"><h4>Arrhenius</h4>$\ln k=\ln A-E_a/RT$<br>$\ln(k_1/k_2)=\tfrac{E_a}{R}\tfrac{T_1-T_2}{T_1T_2}$</div>
+            <div class="card"><h4>메커니즘</h4>느린 단계 = rds. 중간체는 속도식에서 제거(빠른 평형 이용). 단계의 합 = 전체 반응식.</div>
+          </div>
+        </section>
+      </article>
+
+<!-- ======================================================================
+     CHAPTER 14
+     ====================================================================== -->
+      <article class="chapter c14" id="ch14">
+        <header class="chapter-head">
+          <div class="num">14</div>
+          <div><h2>Chemical Equilibrium</h2><p>반응은 <b>어디까지</b> 가는가 — 평형 상수 K, 반응 지수 Q, ICE 계산, Le Châtelier 원리</p></div>
+        </header>
+
+        <section class="sec" id="s14-1">
+          <h3><span class="sn">14.1</span> 평형의 개념과 평형 상수</h3>
+          <div class="callout def"><span class="ttl">DEFINITION</span>
+            <p><b>Chemical equilibrium</b>: 정반응과 역반응의 <b>속도가 같아지고</b>, 반응물과 생성물의 <b>농도가 일정하게 유지</b>되는 상태.</p>
+          </div>
+          <ul>
+            <li>멈춘 게 아니라 <b>dynamic equilibrium</b> — 두 반응이 같은 속도로 계속 일어나서 순변화(net change)가 없을 뿐.</li>
+            <li>예: $\ce{N2O4(g) <=> 2NO2(g)}$. $\ce{N2O4}$ 는 무색, $\ce{NO2}$ 는 갈색 → 색이 더 변하지 않으면 평형.</li>
+            <li>$\ce{N2O4}$ 에서 시작하든 $\ce{NO2}$ 에서 시작하든 <b>같은 평형</b>에 도달할 수 있다.</li>
+          </ul>
+
+          <h4>Table 14.1 — NO<sub>2</sub>–N<sub>2</sub>O<sub>4</sub> (25 °C)</h4>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th colspan="2">초기 농도 (M)</th><th colspan="2">평형 농도 (M)</th><th>$\dfrac{[\ce{NO2}]}{[\ce{N2O4}]}$</th><th>$\dfrac{[\ce{NO2}]^2}{[\ce{N2O4}]}$</th></tr>
+            <tr><th>[NO<sub>2</sub>]</th><th>[N<sub>2</sub>O<sub>4</sub>]</th><th>[NO<sub>2</sub>]</th><th>[N<sub>2</sub>O<sub>4</sub>]</th><th>(들쭉날쭉)</th><th>(거의 일정!)</th></tr></thead>
+            <tbody>
+              <tr><td>0.000</td><td>0.670</td><td>0.0547</td><td>0.643</td><td>0.0851</td><td>$4.65\times10^{-3}$</td></tr>
+              <tr><td>0.0500</td><td>0.446</td><td>0.0457</td><td>0.448</td><td>0.102</td><td>$4.66\times10^{-3}$</td></tr>
+              <tr><td>0.0300</td><td>0.500</td><td>0.0475</td><td>0.491</td><td>0.0967</td><td>$4.60\times10^{-3}$</td></tr>
+              <tr><td>0.0400</td><td>0.600</td><td>0.0523</td><td>0.594</td><td>0.0880</td><td>$4.60\times10^{-3}$</td></tr>
+              <tr><td>0.200</td><td>0.000</td><td>0.0204</td><td>0.0898</td><td>0.227</td><td>$4.63\times10^{-3}$</td></tr>
+            </tbody>
+          </table></div>
+          <p>시작 농도가 달라도 <b>계수를 지수로 한 비</b>는 일정 → 그 값이 <b>equilibrium constant K</b> ($4.63\times10^{-3}$).</p>
+
+          <div class="eq"><span class="cap">EQUILIBRIUM CONSTANT (14.2)</span>
+            $$\ce{aA + bB <=> cC + dD}$$
+            $$K=\frac{[\mathrm C]^c[\mathrm D]^d}{[\mathrm A]^a[\mathrm B]^b}$$
+          </div>
+          <ul>
+            <li><b>평형 농도</b>를 넣는다. K 는 <b>온도에만</b> 의존(같은 온도에서는 일정).</li>
+            <li><b>생성물 / 반응물</b>, 각 농도를 <b>계수만큼 거듭제곱</b>.</li>
+          </ul>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>K 의 크기</th><th>의미</th></tr></thead>
+            <tbody>
+              <tr><td>$K\gg1$</td><td>평형이 <b>오른쪽</b>에 — 생성물 쪽이 유리(favors products)</td></tr>
+              <tr><td>$K\approx1$</td><td>반응물·생성물이 모두 상당량</td></tr>
+              <tr><td>$K\ll1$</td><td>평형이 <b>왼쪽</b>에 — 반응물 쪽이 유리(favors reactants)</td></tr>
+            </tbody>
+          </table></div>
+
+          <h4>K<sub>c</sub> 와 K<sub>P</sub></h4>
+          <ul>
+            <li><b>Homogeneous equilibrium</b>: 모든 물질이 같은 상(phase)에 있는 평형.</li>
+            <li>$K_c$ : 농도(mol/L), $K_P$ : 기체의 <b>부분압(atm)</b> 으로 쓴 평형 상수. 예: $K_P=\dfrac{P_{\ce{NO2}}^2}{P_{\ce{N2O4}}}$</li>
+          </ul>
+          <div class="eq"><span class="cap">Kc ↔ KP (14.5)</span>
+            $$K_P=K_c\,(0.0821\,T)^{\Delta n}\qquad \Delta n=\text{(생성물 기체 mol)}-\text{(반응물 기체 mol)}$$
+          </div>
+          <details class="sol-toggle plain"><summary>유도 보기</summary>
+            <div class="ex-body"><p>이상기체: $P_{\mathrm A}=\dfrac{n_{\mathrm A}RT}{V}=[\mathrm A]RT$. $\ce{aA(g) <=> bB(g)}$ 에서 $K_P=\dfrac{([\mathrm B]RT)^b}{([\mathrm A]RT)^a}=\dfrac{[\mathrm B]^b}{[\mathrm A]^a}(RT)^{b-a}=K_c(RT)^{\Delta n}$.</p></div>
+          </details>
+          <div class="callout warn"><span class="ttl">POINT</span><p>$\Delta n$ 은 <b>기체만</b> 센다. $\Delta n=0$ 이면 $K_P=K_c$. 온도는 K 로.</p></div>
+
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 14.2</span> K<sub>c</sub> 계산</div>
+            <div class="ex-q"><p>230 °C에서 $\ce{2NO(g) + O2(g) <=> 2NO2(g)}$ 의 평형 농도가 [NO] = 0.0542 M, [O<sub>2</sub>] = 0.127 M, [NO<sub>2</sub>] = 15.5 M 이다. $K_c$ 는?</p></div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body"><p>$K_c=\dfrac{[\ce{NO2}]^2}{[\ce{NO}]^2[\ce{O2}]}=\dfrac{(15.5)^2}{(0.0542)^2(0.127)}=\mathbf{6.44\times10^{5}}$</p></div>
+            </details>
+          </div>
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 14.3</span> K<sub>P</sub> 로 부분압 구하기</div>
+            <div class="ex-q"><p>250 °C에서 $\ce{PCl5(g) <=> PCl3(g) + Cl2(g)}$ 의 $K_P=1.05$. 평형에서 $P_{\ce{PCl5}}=0.875$ atm, $P_{\ce{PCl3}}=0.463$ atm 이면 $P_{\ce{Cl2}}$ 는?</p></div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body"><p>$K_P=\dfrac{P_{\ce{PCl3}}P_{\ce{Cl2}}}{P_{\ce{PCl5}}}\ \Rightarrow\ P_{\ce{Cl2}}=\dfrac{K_P\,P_{\ce{PCl5}}}{P_{\ce{PCl3}}}=\dfrac{(1.05)(0.875)}{0.463}=\mathbf{1.98\ atm}$</p></div>
+            </details>
+          </div>
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 14.4</span> K<sub>c</sub> → K<sub>P</sub></div>
+            <div class="ex-q"><p>$\ce{CO(g) + 2H2(g) <=> CH3OH(g)}$ 의 $K_c=10.5$ (220 °C). 같은 온도에서 $K_P$ 는?</p></div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body"><p>$\Delta n=1-3=-2$, $T=220+273=493$ K.<br>$K_P=K_c(0.0821\,T)^{\Delta n}=10.5\,(0.0821\times493)^{-2}=10.5/(40.5)^2=\mathbf{6.41\times10^{-3}}$</p></div>
+            </details>
+          </div>
+
+          <div class="callout excl"><span class="ttl">범위 제외 표시 (슬라이드 빨간 X) — Heterogeneous equilibria</span>
+            <p>반응물·생성물의 <b>상이 다른</b> 평형. 예: $\ce{CaCO3(s) <=> CaO(s) + CO2(g)}$. 이때 <b>순수한 고체·액체는 K 식에 넣지 않는다</b>(농도가 일정) → $K_P=P_{\ce{CO2}}$, $K_c=[\ce{CO2}]$.</p>
+            <p>※ 그래도 교재 문제 <b>14.22</b>(CaCO<sub>3</sub>, $P_{\ce{CO2}}=0.105$ atm → $K_P$, $K_c$ 구하기)가 이 개념을 쓰기 때문에, 이 한 줄은 알아 두세요.</p>
+          </div>
+        </section>
+
+        <section class="sec" id="s14-2">
+          <h3><span class="sn">14.2</span> K 의 형태는 반응식에 따라 달라진다</h3>
+          <p>같은 평형도 <b>어떻게 쓰느냐</b>에 따라 K 가 달라져요. 아래 세 규칙을 외우면 변환 문제는 끝!</p>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>변경</th><th>새 K</th><th>예 (25 °C, $K_c=4.63\times10^{-3}$)</th></tr></thead>
+            <tbody>
+              <tr><td class="l">① 반응 <b>방향을 뒤집기</b></td><td>$K'=\dfrac1K$</td><td>$\ce{2NO2 <=> N2O4}$ : $K'=1/4.63\times10^{-3}=216$</td></tr>
+              <tr><td class="l">② 모든 계수에 <b>$n$ 을 곱하기</b></td><td>$K'=K^{\,n}$</td><td>$\ce{1/2N2O4 <=> NO2}$ : $K'=\sqrt K=0.0680$</td></tr>
+              <tr><td class="l">③ 반응식을 <b>더하기</b></td><td>$K=K_1\times K_2$</td><td>(14.3 의 $K=K'K''$)</td></tr>
+            </tbody>
+          </table></div>
+          <div class="callout tip"><span class="ttl">기억법</span><p>뒤집으면 <b>역수</b>, 2배 하면 <b>제곱</b>, 반으로 하면 <b>제곱근</b>, 합치면 <b>곱</b>.</p></div>
+          <div class="callout excl"><span class="ttl">범위 제외 표시 — Multiple equilibria</span>
+            <p>한 평형의 생성물이 다른 평형에 참여하는 경우: $\ce{A + B <=> C + D}$ ($K_c'$), $\ce{C + D <=> E + F}$ ($K_c''$) → 전체 $\ce{A + B <=> E + F}$ 의 $K_c=K_c'K_c''$. (위 규칙 ③ 과 같은 내용이라 알아 두면 좋아요.)</p>
+          </div>
+        </section>
+
+        <section class="sec" id="s14-3">
+          <h3><span class="sn">14.3</span> 화학 반응 속도론과 평형의 관계</h3>
+          <p>$\ce{A + 2B <=>[k_f][k_r] AB2}$ 가 정반응·역반응 모두 <b>한 단계(elementary)</b>라면</p>
+          <div class="eq">$$\text{rate}_f=k_f[\mathrm A][\mathrm B]^2\qquad\text{rate}_r=k_r[\mathrm{AB_2}]$$</div>
+          <p>평형에서는 $\text{rate}_f=\text{rate}_r$ 이므로</p>
+          <div class="eq"><span class="cap">K = kf / kr</span>$$k_f[\mathrm A][\mathrm B]^2=k_r[\mathrm{AB_2}]\ \Longrightarrow\ \frac{k_f}{k_r}=\frac{[\mathrm{AB_2}]}{[\mathrm A][\mathrm B]^2}=K_c$$</div>
+          <p>두 속도 상수는 (같은 온도에서) 상수이므로 비도 상수 → <b>평형 상수가 일정한 이유</b>.</p>
+          <div class="card" style="margin:12px 0"><b>여러 단계라면?</b> $\ce{2B <=> B2}$ ($K'=k_f'/k_r'$), $\ce{A + B2 <=> AB2}$ ($K''=k_f''/k_r''$)
+            <p>$K'K''=\dfrac{[\mathrm{B_2}]}{[\mathrm B]^2}\cdot\dfrac{[\mathrm{AB_2}]}{[\mathrm A][\mathrm{B_2}]}=\dfrac{[\mathrm{AB_2}]}{[\mathrm A][\mathrm B]^2}=K_c$ → 단계별 K 의 <b>곱</b>이 전체 K.</p>
+          </div>
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Review of Concepts</span> k<sub>r</sub> 구하기</div>
+            <div class="ex-q"><p>$\ce{A <=> B + C}$ 의 $K_c=4.8\times10^{-2}$ (80 °C). 정반응 속도 상수 $k_f=3.2\times10^2\ \mathrm{s^{-1}}$ 일 때 역반응 속도 상수는?</p></div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body"><p>$k_r=\dfrac{k_f}{K_c}=\dfrac{3.2\times10^2}{4.8\times10^{-2}}=\mathbf{6.7\times10^{3}\ M^{-1}s^{-1}}$ (역반응은 2차이므로 단위가 M<sup>−1</sup>s<sup>−1</sup>)</p></div>
+            </details>
+          </div>
+        </section>
+
+        <section class="sec" id="s14-4">
+          <h3><span class="sn">14.4</span> 반응 방향 예측(Q vs K)과 평형 농도 계산(ICE)</h3>
+          <div class="callout def"><span class="ttl">REACTION QUOTIENT Q</span>
+            <p>K 와 <b>같은 식</b>이지만, 평형이 아닐 수도 있는 <b>임의 시점(보통 초기)의 농도</b>를 넣은 값. $Q_c=\dfrac{[\mathrm C]_0^c[\mathrm D]_0^d}{[\mathrm A]_0^a[\mathrm B]_0^b}$</p>
+          </div>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>비교</th><th>의미</th><th>반응 방향</th></tr></thead>
+            <tbody>
+              <tr><td>$Q_c&lt;K_c$</td><td>생성물/반응물 비가 <b>너무 작다</b></td><td><b>정반응(→)</b>: 반응물 소모, 생성물 증가</td></tr>
+              <tr><td>$Q_c=K_c$</td><td>이미 평형</td><td>변화 없음</td></tr>
+              <tr><td>$Q_c>K_c$</td><td>생성물/반응물 비가 <b>너무 크다</b></td><td><b>역반응(←)</b>: 생성물 소모, 반응물 증가</td></tr>
+            </tbody>
+          </table></div>
+          <div class="widget" data-widget="qk-widget"></div>
+          <div class="callout warn"><span class="ttl">⚠ 함정</span><p>Q 에는 <b>mol 이 아니라 농도(M)</b> 를 넣어야 해요. 부피가 주어지면 mol ÷ L 먼저!</p></div>
+
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 예제</span> HI — 반응 방향</div>
+            <div class="ex-q"><p>430 °C에서 $\ce{H2(g) + I2(g) <=> 2HI(g)}$ 의 $K_c=54.3$. 1.00 L 용기에 H<sub>2</sub> 0.243 mol, I<sub>2</sub> 0.146 mol, HI 1.98 mol 을 넣었다. 순반응은 HI 쪽인가, H<sub>2</sub>·I<sub>2</sub> 쪽인가?</p></div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body"><p>부피가 1.00 L 이므로 mol = M. $Q_c=\dfrac{(1.98)^2}{(0.243)(0.146)}=111>K_c=54.3$ ⇒ <b>역반응</b>: HI 가 분해되어 <b>H<sub>2</sub>, I<sub>2</sub> 가 더 생긴다.</p></div>
+            </details>
+          </div>
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 14.8</span> N<sub>2</sub> + 3H<sub>2</sub> ⇌ 2NH<sub>3</sub></div>
+            <div class="ex-q"><p>375 °C에서 $K_c=1.2$. 3.50 L 용기에 N<sub>2</sub> 0.249 mol, H<sub>2</sub> $3.21\times10^{-2}$ mol, NH<sub>3</sub> $6.42\times10^{-4}$ mol 이 있다. 평형인가? 아니라면 어느 쪽으로 진행하는가?</p></div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body">
+                <p>농도: $[\ce{N2}]=0.249/3.50=0.0711$, $[\ce{H2}]=9.17\times10^{-3}$, $[\ce{NH3}]=1.83\times10^{-4}$ M.</p>
+                <p>$Q_c=\dfrac{(1.83\times10^{-4})^2}{(0.0711)(9.17\times10^{-3})^3}=0.61&lt;K_c=1.2$ ⇒ 평형 아님, <b>정반응</b>(NH<sub>3</sub> 가 더 생성).</p>
+              </div>
+            </details>
+          </div>
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Practice Exercise</span> NOCl 생성</div>
+            <div class="ex-q"><p>35 °C에서 $\ce{2NO(g) + Cl2(g) <=> 2NOCl(g)}$ 의 $K_c=6.5\times10^4$. 2.0 L 플라스크에 NO $2.0\times10^{-2}$ mol, Cl<sub>2</sub> $8.3\times10^{-3}$ mol, NOCl 6.8 mol 을 섞었다. 어느 방향으로 진행하는가?</p></div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body"><p>[NO] = 0.010 M, [Cl<sub>2</sub>] = $4.15\times10^{-3}$ M, [NOCl] = 3.4 M.<br>$Q_c=\dfrac{(3.4)^2}{(0.010)^2(4.15\times10^{-3})}=2.8\times10^{7}>K_c$ ⇒ <b>역반응</b>(NOCl 분해, 왼쪽으로).</p></div>
+            </details>
+          </div>
+
+          <h4>평형 농도 구하기 — ICE 방법</h4>
+          <div class="callout tip"><span class="ttl">ICE = Initial · Change · Equilibrium</span>
+            <ol style="margin:4px 0">
+              <li>균형 반응식과 K 식을 쓴다.</li>
+              <li><b>I</b>nitial 농도를 적는다. (없으면 0)</li>
+              <li><b>C</b>hange 를 계수 비율대로: 반응물 $-ax$, 생성물 $+cx$ (Q 로 방향 확인).</li>
+              <li><b>E</b>quilibrium = I + C 를 K 식에 대입해 $x$ 를 푼다.</li>
+              <li>답이 합리적인지(농도 ≥ 0) 확인하고 K 에 다시 넣어 검산.</li>
+            </ol>
+          </div>
+          <div class="callout warn"><span class="ttl">⚠ 슬라이드의 함정 (20.4 M?)</span>
+            <p>cis-stilbene ⇌ trans-stilbene, $K_c=24.0$, 처음 [cis] = 0.850 M. 초기 농도를 K 식에 그냥 넣어 [trans] = 24.0 × 0.850 = 20.4 M 이라고 하면 <b>틀립니다</b>(처음 양보다 많을 수 없음). 평형에서는 <b>cis 도 줄어 있기 때문</b>이에요 → ICE.</p>
+          </div>
+          <div class="card" style="margin:12px 0"><b>예: cis-stilbene ⇌ trans-stilbene, $K_c=24.0$ (200 °C), [cis]$_0=0.850$ M</b>
+            <div class="tbl-wrap"><table class="tbl"><thead><tr><th></th><th>cis</th><th>trans</th></tr></thead>
+              <tbody><tr><td class="l">Initial</td><td>0.850</td><td>0</td></tr>
+              <tr><td class="l">Change</td><td>$-x$</td><td>$+x$</td></tr>
+              <tr><td class="l">Equilibrium</td><td>$0.850-x$</td><td>$x$</td></tr></tbody></table></div>
+            <p>$24.0=\dfrac{x}{0.850-x}\ \Rightarrow\ x=0.816$ M → [trans] = 0.816 M, [cis] = 0.034 M.</p>
+          </div>
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 14.9</span><span class="badge hw">HW</span> H<sub>2</sub> + I<sub>2</sub> ⇌ 2HI 평형 농도</div>
+            <div class="ex-q"><p>H<sub>2</sub> 0.500 mol 과 I<sub>2</sub> 0.500 mol 을 1.00 L 스테인리스 용기에 넣고 430 °C 로 가열. $K_c=54.3$ 일 때 평형에서 [H<sub>2</sub>], [I<sub>2</sub>], [HI] 는?</p></div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body">
+                <div class="tbl-wrap"><table class="tbl"><thead><tr><th></th><th>H<sub>2</sub></th><th>I<sub>2</sub></th><th>HI</th></tr></thead>
+                  <tbody><tr><td class="l">Initial</td><td>0.500</td><td>0.500</td><td>0</td></tr>
+                  <tr><td class="l">Change</td><td>$-x$</td><td>$-x$</td><td>$+2x$</td></tr>
+                  <tr><td class="l">Equilibrium</td><td>$0.500-x$</td><td>$0.500-x$</td><td>$2x$</td></tr></tbody></table></div>
+                <p>$54.3=\dfrac{(2x)^2}{(0.500-x)^2}$ — 양변이 <b>완전제곱</b>이므로 제곱근: $\dfrac{2x}{0.500-x}=7.37\ \Rightarrow\ x=0.393$</p>
+                <p>$[\ce{H2}]=[\ce{I2}]=0.500-0.393=\mathbf{0.107\ M}$, $[\ce{HI}]=2x\approx\mathbf{0.787\ M}$ <span class="muted">(x 를 0.393 으로 쓰면 0.786)</span></p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section class="sec" id="s14-5">
+          <h3><span class="sn">14.5</span> 평형에 영향을 주는 요인 — Le Châtelier 원리</h3>
+          <div class="callout def"><span class="ttl">LE CHÂTELIER'S PRINCIPLE</span>
+            <p>평형 상태의 계에 <b>외부 스트레스(stress)</b>를 가하면, 계는 그 스트레스가 <b>부분적으로 상쇄되는 방향</b>으로 이동해 <b>새로운 평형</b>에 도달한다. (스트레스 = 농도·압력·부피·온도의 변화)</p>
+          </div>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th class="l">스트레스</th><th class="l">평형 이동 방향</th><th>K 변화</th></tr></thead>
+            <tbody>
+              <tr><td class="l">반응물 <b>추가</b> / 생성물 <b>제거</b></td><td class="l">→ 오른쪽 (정반응) — 추가한 것을 소모</td><td>없음</td></tr>
+              <tr><td class="l">생성물 <b>추가</b> / 반응물 <b>제거</b></td><td class="l">← 왼쪽 (역반응)</td><td>없음</td></tr>
+              <tr><td class="l">압력 ↑ (부피 ↓)</td><td class="l"><b>기체 몰수가 적은 쪽</b>으로</td><td>없음</td></tr>
+              <tr><td class="l">압력 ↓ (부피 ↑)</td><td class="l"><b>기체 몰수가 많은 쪽</b>으로</td><td>없음</td></tr>
+              <tr><td class="l">온도 ↑ — <b>흡열</b>($\Delta H>0$)</td><td class="l">→ 오른쪽 (열을 흡수하는 방향)</td><td><b>K 증가</b></td></tr>
+              <tr><td class="l">온도 ↑ — <b>발열</b>($\Delta H<0$)</td><td class="l">← 왼쪽</td><td><b>K 감소</b></td></tr>
+              <tr><td class="l">온도 ↓ — 흡열 / 발열</td><td class="l">← 왼쪽 / → 오른쪽</td><td>K 감소 / 증가</td></tr>
+              <tr><td class="l">촉매 <span class="badge">교재 보충</span></td><td class="l">이동 없음 (평형에 더 빨리 도달할 뿐)</td><td>없음</td></tr>
+              <tr><td class="l">비활성 기체를 <b>부피 일정</b>하게 추가 <span class="badge">교재 보충</span></td><td class="l">이동 없음 (반응 기체들의 부분압·농도가 그대로)</td><td>없음</td></tr>
+            </tbody>
+          </table></div>
+          <div class="callout warn"><span class="ttl">핵심</span>
+            <p><b>K 를 바꾸는 것은 온도뿐</b>이에요. 농도·압력·부피 변화는 평형 <b>위치(position)</b>만 옮기고 K 값은 그대로. 농도 변화는 <b>Q</b> 를 바꾸고, 계는 $Q=K$ 가 될 때까지 이동합니다.</p>
+          </div>
+
+          <h4>대표 사례 3가지</h4>
+          <ul>
+            <li><b>농도 — $\ce{FeSCN^2+(aq) <=> Fe^3+(aq) + SCN-(aq)}$</b> (적색 / 연한 황색 / 무색). NaSCN 을 넣으면 [SCN<sup>−</sup>] ↑ → <b>왼쪽</b>으로 이동 → 붉은색이 진해짐. Fe(NO<sub>3</sub>)<sub>3</sub> 를 넣어도 왼쪽. $\ce{H2C2O4}$ 는 Fe<sup>3+</sup> 와 결합해 [Fe<sup>3+</sup>] 를 줄이므로 <b>오른쪽</b> → 붉은색이 옅어지고 노란색 $\ce{Fe(C2O4)3^3-}$ 가 나타남.</li>
+            <li><b>압력 — $\ce{N2O4(g) <=> 2NO2(g)}$</b>. 피스톤으로 압축하면 부피 ↓ → 두 농도 모두 ↑ 인데 $Q_c=[\ce{NO2}]^2/[\ce{N2O4}]$ 는 분자가 제곱이라 더 커져 $Q_c>K_c$ → <b>왼쪽</b>(기체 몰수가 적은 N<sub>2</sub>O<sub>4</sub>) 으로 이동. 반대로 부피를 늘리면 $Q_c&lt;K_c$ → 오른쪽.</li>
+            <li><b>온도 — $\ce{N2O4(g) <=> 2NO2(g)}$, $\Delta H^\circ=+58.0$ kJ/mol</b> (흡열). 가열하면 오른쪽(갈색 ↑), K 증가. $\ce{Co(H2O)6^2+}$(분홍) ⇌ $\ce{CoCl4^2-}$(파랑): 가열하면 <b>파란색</b>, 얼음물에서는 <b>분홍색</b>이 유리.</li>
+          </ul>
+          <div class="callout tip"><span class="ttl">풀이 요령</span>
+            <p>열을 <b>반응물 또는 생성물</b>처럼 취급하세요. 흡열 반응은 “열 + 반응물 ⇌ 생성물”, 발열 반응은 “반응물 ⇌ 생성물 + 열”. 그러면 열을 가하는 건 “반응물/생성물 추가”와 똑같이 생각할 수 있어요.</p>
+          </div>
+        </section>
+
+        <section class="sec" id="sum14">
+          <h3><span class="sn">14</span> 한 장 요약</h3>
+          <div class="cheat">
+            <div class="card"><h4>평형</h4>정반응 속도 = 역반응 속도, 농도 일정(동적 평형)</div>
+            <div class="card"><h4>K</h4>$K=\dfrac{[\mathrm C]^c[\mathrm D]^d}{[\mathrm A]^a[\mathrm B]^b}$, 온도에만 의존. $K\gg1$ → 생성물 유리</div>
+            <div class="card"><h4>Kc ↔ Kp</h4>$K_P=K_c(0.0821T)^{\Delta n}$<br>$\Delta n$ = 기체 생성물 − 기체 반응물</div>
+            <div class="card"><h4>K 변환</h4>뒤집기 $1/K$ · $n$ 배 $K^n$ · 합 $K_1K_2$</div>
+            <div class="card"><h4>속도론과 연결</h4>$K_c=k_f/k_r$ (한 단계), 여러 단계는 곱</div>
+            <div class="card"><h4>Q vs K</h4>$Q&lt;K$ → 오른쪽 / $Q=K$ → 평형 / $Q&gt;K$ → 왼쪽</div>
+            <div class="card"><h4>ICE</h4>I(초기) → C(계수 비율 $\pm x$) → E 를 K 식에 대입</div>
+            <div class="card"><h4>Le Châtelier</h4>스트레스를 상쇄하는 쪽으로 이동. K 를 바꾸는 건 <b>온도</b>뿐.</div>
+          </div>
+        </section>
+      </article>
+
+<!-- ======================================================================
+     CHAPTER 15
+     ====================================================================== -->
+      <article class="chapter c15" id="ch15">
+        <header class="chapter-head">
+          <div class="num">15</div>
+          <div><h2>Acids and Bases</h2><p>산·염기의 정의, 물의 이온화, pH, 강/약, K<sub>a</sub>·K<sub>b</sub>, 다양성자산</p></div>
+        </header>
+
+        <section class="sec" id="s15-1">
+          <h3><span class="sn">15.1</span> Brønsted 산·염기 &amp; <span class="sn">15.12</span> Lewis 산·염기</h3>
+          <div class="callout def"><span class="ttl">BRØNSTED–LOWRY</span>
+            <ul>
+              <li><b>Acid</b>: 양성자(proton, H<sup>+</sup>)를 <b>내놓는</b> 물질 (proton donor)</li>
+              <li><b>Base</b>: 양성자를 <b>받는</b> 물질 (proton acceptor) — H<sup>+</sup> 를 받는 원자에는 <b>비공유 전자쌍(lone pair)</b>이 있어야 한다.</li>
+              <li><b>Conjugate acid–base pair</b>: H<sup>+</sup> 하나 차이 나는 산과 염기. 산이 H<sup>+</sup> 를 잃고 남은 것 = <b>conjugate base</b>, 염기가 H<sup>+</sup> 를 얻은 것 = <b>conjugate acid</b>.</li>
+            </ul>
+          </div>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>반응</th><th>acid₁</th><th>base₂</th><th>conj. base (of acid₁)</th><th>conj. acid (of base₂)</th></tr></thead>
+            <tbody>
+              <tr><td class="l">$\ce{HCl + H2O -> H3O+ + Cl-}$</td><td>HCl</td><td>H<sub>2</sub>O</td><td>Cl<sup>−</sup></td><td>H<sub>3</sub>O<sup>+</sup></td></tr>
+              <tr><td class="l">$\ce{CH3COOH + H2O <=> CH3COO- + H3O+}$</td><td>CH<sub>3</sub>COOH</td><td>H<sub>2</sub>O</td><td>CH<sub>3</sub>COO<sup>−</sup></td><td>H<sub>3</sub>O<sup>+</sup></td></tr>
+              <tr><td class="l">$\ce{NH3 + H2O <=> NH4+ + OH-}$</td><td>H<sub>2</sub>O</td><td>NH<sub>3</sub></td><td>OH<sup>−</sup></td><td>NH<sub>4</sub><sup>+</sup></td></tr>
+            </tbody>
+          </table></div>
+          <p>세 번째 줄에서 <b>NH<sub>3</sub> 는 H<sup>+</sup> 를 받아서</b> 염기, 물은 H<sup>+</sup> 를 내놓아서 산. 즉 <b>물은 상황에 따라 산도 염기도</b> 될 수 있어요 (amphoteric).</p>
+
+          <div class="callout def"><span class="ttl">LEWIS (15.12)</span>
+            <ul>
+              <li><b>Lewis acid</b>: 전자쌍을 <b>받는(accept)</b> 물질</li>
+              <li><b>Lewis base</b>: 전자쌍을 <b>주는(donate)</b> 물질</li>
+            </ul>
+            <p>H<sup>+</sup> 에 결합하는 $\ce{OH-}$, $\ce{NH3}$ 는 비공유 전자쌍을 줘서 결합 → Brønsted 염기는 모두 Lewis 염기.</p>
+          </div>
+          <p>Lewis 정의가 더 <b>일반적</b>인 이유: <b>양성자가 없는</b> 반응도 산–염기로 설명할 수 있어서.</p>
+          <ul>
+            <li>$\ce{BF3 + NH3 -> F3B-NH3}$ : NH<sub>3</sub>(전자쌍 제공, <b>base</b>) → BF<sub>3</sub>(빈 오비탈, <b>acid</b>) — 새 배위 결합으로 <b>adduct</b> 생성.</li>
+            <li>$\ce{CO2 + H2O -> H2CO3}$ : H<sub>2</sub>O 의 O 가 전자쌍을 CO<sub>2</sub> 의 C 에 줌 → <b>H<sub>2</sub>O = Lewis base, CO<sub>2</sub> = Lewis acid</b>. 이어서 양성자가 이동해 H<sub>2</sub>CO<sub>3</sub>.</li>
+          </ul>
+        </section>
+
+        <section class="sec" id="s15-2">
+          <h3><span class="sn">15.2</span> 물의 산·염기 성질 — 자동이온화와 K<sub>w</sub></h3>
+          <p>순수한 물도 아주 조금 이온화합니다(<b>autoionization</b>).</p>
+          <div class="eq">$$\ce{H2O + H2O <=> H3O+ + OH-}$$</div>
+          <p>짝쌍은 ① $\ce{H2O}$(acid) / $\ce{OH-}$(base), ② $\ce{H3O+}$(acid) / $\ce{H2O}$(base).</p>
+          <div class="eq"><span class="cap">ION-PRODUCT CONSTANT (15.3)</span>$$K_w=[\mathrm H^+][\mathrm{OH^-}]=1.0\times10^{-14}\quad(25\,\mathrm{^\circ C})$$</div>
+          <ul>
+            <li>순수한 물(25 °C): $[\mathrm H^+]=[\mathrm{OH^-}]=1.0\times10^{-7}$ M.</li>
+            <li>산·염기가 녹아 있어도 25 °C 에서는 <b>항상</b> $[\mathrm H^+][\mathrm{OH^-}]=1.0\times10^{-14}$. 둘을 따로 마음대로 바꿀 수 없고, 하나가 커지면 다른 하나는 작아진다.</li>
+          </ul>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>용액</th><th>조건</th></tr></thead>
+            <tbody>
+              <tr><td><b>Neutral</b></td><td>$[\mathrm H^+]=[\mathrm{OH^-}]$</td></tr>
+              <tr><td><b>Acidic</b></td><td>$[\mathrm H^+]&gt;[\mathrm{OH^-}]$</td></tr>
+              <tr><td><b>Basic</b></td><td>$[\mathrm H^+]&lt;[\mathrm{OH^-}]$</td></tr>
+            </tbody>
+          </table></div>
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 15.2</span> [OH<sup>−</sup>] → [H<sup>+</sup>]</div>
+            <div class="ex-q"><p>가정용 암모니아 세제의 $[\mathrm{OH^-}]=0.0025$ M. $[\mathrm H^+]$ 는?</p></div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body"><p>$[\mathrm H^+]=\dfrac{K_w}{[\mathrm{OH^-}]}=\dfrac{1.0\times10^{-14}}{0.0025}=\mathbf{4.0\times10^{-12}\ M}$ (염기성이라 H<sup>+</sup> 가 매우 작음)</p></div>
+            </details>
+          </div>
+        </section>
+
+        <section class="sec" id="s15-3">
+          <h3><span class="sn">15.3</span> pH — 산성도의 척도</h3>
+          <div class="eq"><span class="cap">pH · pOH</span>
+            $$\mathrm{pH}=-\log[\mathrm H^+]\qquad[\mathrm H^+]=10^{-\mathrm{pH}}$$
+            $$\mathrm{pOH}=-\log[\mathrm{OH^-}]\qquad[\mathrm{OH^-}]=10^{-\mathrm{pOH}}$$
+          </div>
+          <div class="eq"><span class="cap">25 °C</span>$$\mathrm{pH}+\mathrm{pOH}=14.00$$</div>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>pH</th><th>$[\mathrm H^+]$ 비교</th><th>성질</th></tr></thead>
+            <tbody>
+              <tr><td>&lt; 7</td><td>$&gt;1.0\times10^{-7}$ M</td><td>acidic</td></tr>
+              <tr><td>= 7</td><td>$=1.0\times10^{-7}$ M</td><td>neutral</td></tr>
+              <tr><td>&gt; 7</td><td>$&lt;1.0\times10^{-7}$ M</td><td>basic</td></tr>
+            </tbody>
+          </table></div>
+          <div class="widget" data-widget="ph-slider"></div>
+          <div class="callout tip"><span class="ttl">유효숫자 규칙</span><p>pH 의 <b>소수점 아래 자리 수</b> = $[\mathrm H^+]$ 의 <b>유효숫자 개수</b>. 예: $[\mathrm H^+]=3.2\times10^{-4}$ M (2자리) → pH = 3.49 (소수 2자리).</p></div>
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 15.3</span> 와인의 pH</div>
+            <div class="ex-q"><p>와인의 $[\mathrm H^+]$ 가 코르크를 딴 직후 $3.2\times10^{-4}$ M, 한 달 방치 후 $1.0\times10^{-3}$ M. 두 시점의 pH 는?</p></div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body"><p>직후: $\mathrm{pH}=-\log(3.2\times10^{-4})=\mathbf{3.49}$<br>한 달 후: $\mathrm{pH}=-\log(1.0\times10^{-3})=\mathbf{3.00}$ (산성이 더 강해짐)</p></div>
+            </details>
+          </div>
+        </section>
+
+        <section class="sec" id="s15-4">
+          <h3><span class="sn">15.4</span> 산과 염기의 세기</h3>
+          <div class="callout def"><span class="ttl">STRONG vs WEAK</span>
+            <ul>
+              <li><b>Strong acid / base</b>: 강전해질, 물에서 <b>사실상 100 % 이온화</b>.</li>
+              <li><b>Weak acid / base</b>: 약전해질, <b>일부만 이온화</b> → 평형 상태에서 이온화되지 않은 분자 + 이온이 섞여 있음 (Figure 15.3: HCl 은 전부 H<sup>+</sup>·Cl<sup>−</sup>, HF 는 대부분 HF 로 남음).</li>
+            </ul>
+          </div>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th></th><th class="l">외워야 할 목록</th></tr></thead>
+            <tbody>
+              <tr><td><b>강산</b></td><td class="l">HCl, HBr, HI, HNO<sub>3</sub>, HClO<sub>4</sub>, H<sub>2</sub>SO<sub>4</sub> (<b>첫 번째 H</b> 만 완전 이온화; HSO<sub>4</sub><sup>−</sup> 는 약산 $K_a=1.3\times10^{-2}$)</td></tr>
+              <tr><td><b>약산</b></td><td class="l">HF, CH<sub>3</sub>COOH, HNO<sub>2</sub>, HCOOH, HCN, NH<sub>4</sub><sup>+</sup>, HSO<sub>4</sub><sup>−</sup> … (대부분의 산)</td></tr>
+              <tr><td><b>강염기</b></td><td class="l">1족(알칼리 금속) 수산화물 NaOH, KOH 등, Ba(OH)<sub>2</sub> (Ca(OH)<sub>2</sub>·Sr(OH)<sub>2</sub> 는 약간 용해 / Be(OH)<sub>2</sub>·Mg(OH)<sub>2</sub> 는 불용)</td></tr>
+              <tr><td><b>약염기</b></td><td class="l">NH<sub>3</sub> (물에서 H<sup>+</sup> 를 <b>받아</b> NH<sub>4</sub><sup>+</sup> + OH<sup>−</sup>), 아민류</td></tr>
+            </tbody>
+          </table></div>
+          <h4>Table 15.2 — 짝산·짝염기의 세기</h4>
+          <p><b>산이 강할수록 그 짝염기는 약하다</b> (반대도 성립). 예: HCl(강산) → Cl<sup>−</sup> 는 매우 약한 염기, HCN(약산) → CN<sup>−</sup> 는 비교적 강한 염기.</p>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>Acid (강 → 약)</th><th>Conjugate base (약 → 강)</th></tr></thead>
+            <tbody>
+              <tr><td>HClO<sub>4</sub>, HI, HBr, HCl, H<sub>2</sub>SO<sub>4</sub>, HNO<sub>3</sub> <span class="badge">strong</span></td><td>ClO<sub>4</sub><sup>−</sup>, I<sup>−</sup>, Br<sup>−</sup>, Cl<sup>−</sup>, HSO<sub>4</sub><sup>−</sup>, NO<sub>3</sub><sup>−</sup></td></tr>
+              <tr><td>H<sub>3</sub>O<sup>+</sup></td><td>H<sub>2</sub>O</td></tr>
+              <tr><td>HSO<sub>4</sub><sup>−</sup>, HF, HNO<sub>2</sub>, HCOOH, CH<sub>3</sub>COOH, NH<sub>4</sub><sup>+</sup>, HCN <span class="badge">weak</span></td><td>SO<sub>4</sub><sup>2−</sup>, F<sup>−</sup>, NO<sub>2</sub><sup>−</sup>, HCOO<sup>−</sup>, CH<sub>3</sub>COO<sup>−</sup>, NH<sub>3</sub>, CN<sup>−</sup></td></tr>
+              <tr><td>H<sub>2</sub>O, NH<sub>3</sub></td><td>OH<sup>−</sup>, NH<sub>2</sub><sup>−</sup></td></tr>
+            </tbody>
+          </table></div>
+          <div class="callout tip"><span class="ttl">강산·강염기의 pH 는 간단!</span>
+            <ul>
+              <li>강산 $\ce{HA}$ : $[\mathrm H^+]=C_{\ce{HA}}$ (완전 이온화)</li>
+              <li>강염기 $\ce{M(OH)_n}$ : $[\mathrm{OH^-}]=n\cdot C$ → pOH → $\mathrm{pH}=14-\mathrm{pOH}$ <span class="muted">(예: 0.010 M Ba(OH)<sub>2</sub> → $[\mathrm{OH^-}]=0.020$ M → pOH 1.70 → pH 12.30)</span></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="sec" id="s15-5">
+          <h3><span class="sn">15.5</span> 약산과 산 이온화 상수 K<sub>a</sub></h3>
+          <div class="eq"><span class="cap">ACID IONIZATION CONSTANT (15.10)</span>
+            $$\ce{HA(aq) <=> H+(aq) + A-(aq)}\qquad K_a=\frac{[\mathrm H^+][\mathrm A^-]}{[\mathrm{HA}]}$$
+          </div>
+          <ul>
+            <li>$K_a$ 가 클수록 강한 산(같은 온도에서 H<sup>+</sup> 를 더 많이 내놓는다). <b>약산에만</b> $K_a$ 를 쓴다.</li>
+            <li>예: HF $7.1\times10^{-4}$, HNO<sub>2</sub> $4.5\times10^{-4}$, HCOOH $1.7\times10^{-4}$, CH<sub>3</sub>COOH $1.8\times10^{-5}$, HCN $4.9\times10^{-10}$ (교재 표 15.3).</li>
+          </ul>
+
+          <div class="callout tip"><span class="ttl">약산의 pH 구하기 — 5단계</span>
+            <ol style="margin:4px 0">
+              <li>이온화 반응식과 $K_a$ 식을 쓴다.</li>
+              <li>ICE: $\ce{HA}$ : $C_0-x$, $\ce{H+}$ : $x$, $\ce{A-}$ : $x$.</li>
+              <li>$K_a=\dfrac{x^2}{C_0-x}$ 에서 <b>근사</b> $C_0-x\approx C_0$ ⇒ $x=\sqrt{K_aC_0}$.</li>
+              <li><b>5 % 검사</b>: $\dfrac{x}{C_0}\times100\%<5\%$ 이면 근사 OK. 아니면 <b>이차방정식</b> $x^2+K_ax-K_aC_0=0$ 을 푼다 → $x=\dfrac{-K_a+\sqrt{K_a^2+4K_aC_0}}{2}$ (음수 해 버림).</li>
+              <li>$\mathrm{pH}=-\log x$.</li>
+            </ol>
+          </div>
+
+          <div class="card" style="margin:12px 0"><b>예: HF, $K_a=7.1\times10^{-4}$</b>
+            <ul>
+              <li><b>0.50 M</b>: $x=\sqrt{(7.1\times10^{-4})(0.50)}=0.019$ M → $0.019/0.50=3.8\%<5\%$ ✓ → $\mathrm{pH}=1.72$ ($[\ce{HF}]=0.48$ M).</li>
+              <li><b>0.050 M</b>: 근사하면 $x=6.0\times10^{-3}$ → $12\%>5\%$ ✗ → 이차방정식 → $x=5.6\times10^{-3}$ M, $\mathrm{pH}=2.25$.</li>
+            </ul>
+            <p class="muted" style="margin:4px 0 0">더 묽을수록(또는 $K_a$ 가 클수록) 이온화 비율이 커져 근사가 깨져요.</p>
+          </div>
+          <div class="callout warn"><span class="ttl">⚠ 함정 (슬라이드 손글씨의 √ 물음표)</span>
+            <p>손글씨의 $1.4\times10^{-3}$ 은 $K_a$ 를 0.50 으로 <b>나눈</b> 값이라 방향이 거꾸로예요. $K_a=\dfrac{[\mathrm H^+][\mathrm F^-]}{[\mathrm{HF}]}$ 이므로 $[\mathrm H^+][\mathrm F^-]=K_a\times[\mathrm{HF}]=7.1\times10^{-4}\times0.50=3.6\times10^{-4}$ (곱하기!).</p>
+            <p>또 [HF] 를 0.50 M 로 두는 건 “$x$ 가 작아서 $0.50-x\approx0.50$” 이라는 <b>근사</b>입니다. 그러니 먼저 ICE 로 $\dfrac{x^2}{0.50-x}$ 를 세우고, 나중에 5 % 검사로 근사가 맞는지 확인하세요.</p>
+          </div>
+
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 15.8</span> HNO<sub>2</sub> 의 pH</div>
+            <div class="ex-q"><p>0.036 M 아질산(HNO<sub>2</sub>) 용액의 pH. ($K_a=4.5\times10^{-4}$, 교재 표 15.3)</p></div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body">
+                <p>$\dfrac{x^2}{0.036-x}=4.5\times10^{-4}$. 근사하면 $x=\sqrt{(4.5\times10^{-4})(0.036)}=4.0\times10^{-3}$, $\dfrac{4.0\times10^{-3}}{0.036}=11\%>5\%$ ✗.</p>
+                <p>이차방정식: $x^2+4.5\times10^{-4}x-1.62\times10^{-5}=0\Rightarrow x=3.8\times10^{-3}$ M<br>$\mathrm{pH}=-\log(3.8\times10^{-3})=\mathbf{2.42}$</p>
+              </div>
+            </details>
+          </div>
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 15.9</span> pH 로부터 K<sub>a</sub></div>
+            <div class="ex-q"><p>0.10 M 포름산(HCOOH) 용액의 pH 가 2.39 이다. $K_a$ 는?</p></div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body"><p>$[\mathrm H^+]=10^{-2.39}=4.1\times10^{-3}$ M $=[\ce{HCOO-}]$, $[\ce{HCOOH}]=0.10-0.0041=0.096$ M.<br>$K_a=\dfrac{(4.1\times10^{-3})^2}{0.096}=\mathbf{1.7\times10^{-4}}$</p></div>
+            </details>
+          </div>
+        </section>
+
+        <section class="sec" id="s15-6">
+          <h3><span class="sn">15.6</span> 약염기와 염기 이온화 상수 K<sub>b</sub></h3>
+          <p>약염기도 약산과 똑같이 다룹니다. $\ce{NH3(aq) + H2O(l) <=> NH4+(aq) + OH-(aq)}$ 에서 물의 농도는 (거의) 일정해서 K 에 합쳐 버려요.</p>
+          <div class="eq"><span class="cap">BASE IONIZATION CONSTANT</span>$$K_b=K[\ce{H2O}]=\frac{[\ce{NH4+}][\mathrm{OH^-}]}{[\ce{NH3}]}=1.8\times10^{-5}$$</div>
+          <div class="card" style="margin:12px 0"><b>예: 0.40 M 암모니아의 pH</b>
+            <ol class="steps">
+              <li>ICE: $\ce{NH3}$ $0.40-x$ / $\ce{NH4+}$ $x$ / $\ce{OH-}$ $x$</li>
+              <li>$1.8\times10^{-5}=\dfrac{x^2}{0.40-x}\approx\dfrac{x^2}{0.40}\Rightarrow x=2.7\times10^{-3}$ M $=[\mathrm{OH^-}]$ (0.7 % 라서 근사 OK)</li>
+              <li>$\mathrm{pOH}=-\log(2.7\times10^{-3})=2.57\ \Rightarrow\ \mathrm{pH}=14.00-2.57=\mathbf{11.43}$</li>
+            </ol>
+          </div>
+          <div class="callout warn"><span class="ttl">POINT</span><p>염기에서는 $x$ 가 <b>[OH<sup>−</sup>]</b> 이므로 pOH 를 먼저 구하고 14 에서 빼야 pH!</p></div>
+        </section>
+
+        <section class="sec" id="s15-7">
+          <h3><span class="sn">15.7</span> 산과 짝염기의 이온화 상수 관계</h3>
+          <p>$\ce{CH3COOH <=> H+ + CH3COO-}$ ($K_a$) 와 그 짝염기 반응 $\ce{CH3COO- + H2O <=> CH3COOH + OH-}$ ($K_b$) 를 곱하면 CH<sub>3</sub>COOH · CH<sub>3</sub>COO<sup>−</sup> 가 약분되어</p>
+          <div class="eq"><span class="cap">Ka · Kb = Kw</span>
+            $$K_aK_b=\frac{[\mathrm H^+][\cancel{\ce{A-}}]}{[\cancel{\ce{HA}}]}\cdot\frac{[\cancel{\ce{HA}}][\mathrm{OH^-}]}{[\cancel{\ce{A-}}]}=[\mathrm H^+][\mathrm{OH^-}]=K_w$$
+            $$K_a=\frac{K_w}{K_b}\qquad K_b=\frac{K_w}{K_a}\qquad \mathrm pK_a+\mathrm pK_b=14.00$$
+          </div>
+          <ul>
+            <li>산이 약할수록($K_a$ ↓) 짝염기는 강하다($K_b$ ↑).</li>
+            <li>예: 포름산 $K_a=1.7\times10^{-4}$ vs HCN $K_a=4.9\times10^{-10}$ → HCN 이 훨씬 약한 산이므로 <b>CN<sup>−</sup> 가 더 강한 염기</b> (HCOO<sup>−</sup> 보다).</li>
+            <li>예: $K_b(\ce{F-})=\dfrac{1.0\times10^{-14}}{7.1\times10^{-4}}=1.4\times10^{-11}$</li>
+          </ul>
+        </section>
+
+        <section class="sec" id="s15-8">
+          <h3><span class="sn">15.8</span> 이양성자산·다양성자산 (Diprotic &amp; Polyprotic Acids)</h3>
+          <p>H<sup>+</sup> 를 <b>한 번에 하나씩 차례로(stepwise)</b> 내놓고, 단계마다 K 가 있어요. 보통 $K_{a_1}\gg K_{a_2}\gg K_{a_3}$ (음이온에서 양성자를 떼기가 더 어렵기 때문).</p>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>산</th><th>단계</th><th>K<sub>a</sub></th></tr></thead>
+            <tbody>
+              <tr><td rowspan="2">H<sub>2</sub>CO<sub>3</sub></td><td>$\ce{H2CO3 <=> H+ + HCO3-}$</td><td>$K_{a_1}=4.2\times10^{-7}$</td></tr>
+              <tr><td>$\ce{HCO3- <=> H+ + CO3^2-}$</td><td>$K_{a_2}=4.8\times10^{-11}$</td></tr>
+              <tr><td rowspan="2">H<sub>2</sub>C<sub>2</sub>O<sub>4</sub> (oxalic)</td><td>$\ce{H2C2O4 <=> H+ + HC2O4-}$</td><td>$6.5\times10^{-2}$</td></tr>
+              <tr><td>$\ce{HC2O4- <=> H+ + C2O4^2-}$</td><td>$6.1\times10^{-5}$</td></tr>
+              <tr><td rowspan="3">H<sub>3</sub>PO<sub>4</sub></td><td>$\ce{H3PO4 <=> H+ + H2PO4-}$</td><td>$7.5\times10^{-3}$</td></tr>
+              <tr><td>$\ce{H2PO4- <=> H+ + HPO4^2-}$</td><td>$6.2\times10^{-8}$</td></tr>
+              <tr><td>$\ce{HPO4^2- <=> H+ + PO4^3-}$</td><td>$4.8\times10^{-13}$</td></tr>
+            </tbody>
+          </table></div>
+          <div class="callout tip"><span class="ttl">푸는 요령</span>
+            <ol style="margin:4px 0">
+              <li><b>1단계</b> 이온화만으로 $[\mathrm H^+]$ 를 구한다 (ICE, 보통 이차방정식).</li>
+              <li><b>2단계</b>: 1단계 결과를 초기값으로 해서 다시 ICE. $K_{a_2}$ 가 매우 작아 변화량 $y$ 가 작으므로 $[\mathrm H^+]\approx$ 1단계 값, $[\ce{HA-}]\approx$ 1단계 값 → <b>$[\mathrm A^{2-}]\approx K_{a_2}$</b>.</li>
+            </ol>
+          </div>
+          <div class="exbox">
+            <div class="ex-head"><span class="badge book">교재 Ex 15.11</span> 0.10 M 옥살산의 모든 화학종</div>
+            <div class="ex-q"><p>옥살산 $\ce{H2C2O4}$ 0.10 M 용액에서 평형 농도를 모두 구하시오. ($K_{a_1}=6.5\times10^{-2}$, $K_{a_2}=6.1\times10^{-5}$)</p></div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body">
+                <ol class="steps">
+                  <li><b>1단계</b>: $\dfrac{x^2}{0.10-x}=6.5\times10^{-2}$ → $x^2+0.065x-6.5\times10^{-3}=0$ → $x=0.054$ M. (근사 불가: $x/0.10=54\%$)</li>
+                  <li>그래서 $[\mathrm H^+]=[\ce{HC2O4-}]=0.054$ M, $[\ce{H2C2O4}]=0.10-0.054=0.046$ M.</li>
+                  <li><b>2단계</b>: $\ce{HC2O4-}$ 초기 0.054, $\mathrm H^+$ 초기 0.054, $\ce{C2O4^2-}$ 초기 0. $\dfrac{(0.054+y)(y)}{0.054-y}=6.1\times10^{-5}$, $y$ 가 매우 작으니 $\approx\dfrac{0.054\,y}{0.054}$ ⇒ $y=6.1\times10^{-5}$ M.</li>
+                </ol>
+                <p>결과: $[\ce{H2C2O4}]=0.046$, $[\ce{HC2O4-}]=0.054$, $[\mathrm H^+]=0.054$, $[\ce{C2O4^2-}]=6.1\times10^{-5}$, $[\mathrm{OH^-}]=1.0\times10^{-14}/0.054=1.9\times10^{-13}$ M.</p>
+                <p><span class="badge hw">HW</span> <b>Practice Exercise (0.20 M)</b>: $x^2+0.065x-0.013=0$ → $x=0.086$ ⇒ $[\mathrm H^+]=[\ce{HC2O4-}]=0.086$ M, $[\ce{H2C2O4}]=0.114$ M, $[\ce{C2O4^2-}]=6.1\times10^{-5}$ M.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="callout excl"><span class="ttl">범위 제외 표시 (슬라이드 빨간 X)</span>
+            <p><b>15.9 분자 구조와 산의 세기</b> — H–X 결합이 약하고 극성일수록, 그리고 짝염기가 안정할수록 산이 강하다.</p>
+            <p><b>15.10 염의 산·염기 성질 (salt hydrolysis)</b> — 강산+강염기에서 온 염(NaCl 등)은 중성, 약산의 음이온(CH<sub>3</sub>COO<sup>−</sup>)은 염기성, 약염기의 양이온(NH<sub>4</sub><sup>+</sup>)은 산성.</p>
+            <p><b>15.11 산화물·수산화물</b> — 금속 산화물은 염기성, 비금속 산화물(CO<sub>2</sub>, SO<sub>3</sub>)은 산성, Al<sub>2</sub>O<sub>3</sub> 는 양쪽성.</p>
+          </div>
+        </section>
+
+        <section class="sec" id="sum15">
+          <h3><span class="sn">15</span> 한 장 요약</h3>
+          <div class="cheat">
+            <div class="card"><h4>Brønsted</h4>acid = H<sup>+</sup> donor, base = H<sup>+</sup> acceptor. 짝쌍은 H<sup>+</sup> 하나 차이.</div>
+            <div class="card"><h4>Lewis</h4>acid = 전자쌍 <b>받개</b>, base = 전자쌍 <b>주개</b></div>
+            <div class="card"><h4>물</h4>$K_w=[\mathrm H^+][\mathrm{OH^-}]=1.0\times10^{-14}$ (25 °C)</div>
+            <div class="card"><h4>pH</h4>$\mathrm{pH}=-\log[\mathrm H^+]$, $\mathrm{pH}+\mathrm{pOH}=14$</div>
+            <div class="card"><h4>강산·강염기</h4>완전 이온화. 강산: $[\mathrm H^+]=C$. 강염기: $[\mathrm{OH^-}]=nC$</div>
+            <div class="card"><h4>약산</h4>$K_a=\dfrac{x^2}{C_0-x}$. 5 % 규칙 → 안 되면 이차방정식</div>
+            <div class="card"><h4>약염기</h4>$K_b=\dfrac{x^2}{C_0-x}$, $x=[\mathrm{OH^-}]$ → pOH → pH</div>
+            <div class="card"><h4>짝쌍</h4>$K_aK_b=K_w$, $\mathrm pK_a+\mathrm pK_b=14$</div>
+            <div class="card"><h4>다양성자산</h4>$K_{a_1}\gg K_{a_2}$. $[\mathrm H^+]$ 는 1단계가 지배, $[\mathrm A^{2-}]\approx K_{a_2}$</div>
+          </div>
+        </section>
+      </article>
+
+<!-- ======================================================================
+     PITFALLS
+     ====================================================================== -->
+      <article class="chapter" id="pitfalls" style="--accent:var(--red)">
+        <header class="chapter-head">
+          <div class="num">!</div>
+          <div><h2>자주 하는 실수 체크리스트</h2><p>시험 직전에 한 번 훑어보세요</p></div>
+        </header>
+        <div class="card sec" style="margin-top:0">
+          <ol style="margin:0">
+            <li><b>차수 ≠ 계수.</b> 속도 법칙의 지수는 실험(초기 속도법)으로만 정한다. 단, <i>elementary step 하나</i>일 때는 계수가 곧 차수.</li>
+            <li><b>속도를 계수로 나누기.</b> $-\tfrac1a\Delta[\mathrm A]/\Delta t=\tfrac1c\Delta[\mathrm C]/\Delta t$. $\ce{2A -> B}$ 에서 A 는 B 보다 2배 빨리 사라진다.</li>
+            <li><b>k 의 단위</b>로 차수를 역추적: s<sup>−1</sup> → 1차, M<sup>−1</sup>s<sup>−1</sup> → 2차, M s<sup>−1</sup> → 0차.</li>
+            <li><b>시간 단위 통일.</b> k 가 s<sup>−1</sup> 인데 시간이 분이면 ×60 (또는 k 를 min<sup>−1</sup> 로).</li>
+            <li><b>ln 과 log 구분.</b> 적분식과 Arrhenius 는 자연로그 ln. pH 는 상용로그 log.</li>
+            <li><b>Arrhenius</b>: T 는 K, $E_a$ kJ → J 변환, $R=8.314$ J/(mol·K).</li>
+            <li><b>반감기</b>: 1차는 농도 무관(0.693/k). 2차·0차는 <b>초기 농도</b>를 꼭 넣는다.</li>
+            <li><b>메커니즘</b>: rds 의 속도식에 <b>중간체</b>가 나오면 앞 단계의 빠른 평형으로 치환한다.</li>
+            <li><b>K 식</b>: 평형 농도만! 생성물/반응물, 계수는 지수. (순수 고체·액체는 제외.) 반응식을 뒤집거나 곱하면 K 도 변한다.</li>
+            <li><b>Q 를 쓸 때는 mol 이 아니라 농도(M)</b>. 부피로 나눴는지 확인.</li>
+            <li><b>$\Delta n$</b> 은 기체 mol 수만. $K_P=K_c(0.0821T)^{\Delta n}$, T 는 K.</li>
+            <li><b>Le Châtelier</b>: K 가 바뀌는 건 오직 <b>온도</b>. 압력 변화는 기체 몰수가 다를 때만 영향, 촉매는 위치를 못 바꾼다.</li>
+            <li><b>약산 근사</b>는 5 % 검사 후에만 사용. $x$ 가 크면 이차방정식(음수 해는 버린다).</li>
+            <li><b>염기 문제</b>는 pOH 먼저 → 14 에서 빼서 pH. Ba(OH)<sub>2</sub> 는 OH<sup>−</sup> 가 <b>2배</b>.</li>
+            <li><b>H<sub>2</sub>SO<sub>4</sub></b> 는 1단계는 강산(완전), 2단계(HSO<sub>4</sub><sup>−</sup>)는 약산 $K_a=1.3\times10^{-2}$.</li>
+          </ol>
+        </div>
+      </article>
+
+    </div><!-- /study-main -->
+  </div><!-- /study-layout -->
+</section>
+
+<!-- =====================================================================
+     TAB 2 — 개념 암기
+     ===================================================================== -->
+<section class="tab-panel" id="panel-memorize" role="tabpanel" aria-labelledby="tab-memorize" hidden>
+  <div class="hero" style="padding-top:0">
+    <h1>개념 암기</h1>
+    <p>“…을 정의하시오 / 설명하시오” 유형 대비. <b>영어 모범답안</b>의 <span class="key">핵심 용어</span>를 정확히 쓰는 연습이에요.</p>
+  </div>
+  <div id="memorizeApp"></div>
+</section>
+
+<!-- =====================================================================
+     TAB 3 — 문제 풀이
+     ===================================================================== -->
+<section class="tab-panel" id="panel-practice" role="tabpanel" aria-labelledby="tab-practice" hidden>
+  <div class="hero" style="padding-top:0">
+    <h1>문제 풀이</h1>
+    <p>교재 예제·숙제 유형, AP 기출 스타일, 그리고 숫자가 매번 바뀌는 랜덤 문제. 답을 넣어 바로 채점하고 풀이를 확인하세요.</p>
+  </div>
+  <div id="practiceApp"></div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <hr>
+  <p>AP Chemistry I 기말 대비 노트 · 수업 슬라이드(Chang <i>Chemistry</i> 기반)를 바탕으로 직접 정리한 자료입니다. 문제는 출처 유형만 표시하고 문장은 새로 썼어요. 정답은 직접 계산해 검증했지만, 시험 전에는 선생님 풀이와 꼭 대조하세요.</p>
+</footer>
+
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/mhchem.min.js"></script>
+<script defer src="vendor/katex/auto-render.min.js"></script>
+<script defer src="js/data-concepts.js"></script>
+<script defer src="js/data-problems.js"></script>
+<script defer src="js/generators.js"></script>
+<script defer src="js/app.js"></script>
+</body>
+</html>
