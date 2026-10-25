@@ -189,7 +189,7 @@
         <p>(d) $\text{rate}=k[\mathrm A]_0=(0.01625)(0.400)=6.5\times10^{-3}$ M/min</p>
         <p>(e) $t_{1/2}=\dfrac{0.693}{0.01625}=42.7$ min</p>` },
 
-    { id: "p13-20", out: "1·2차 반응", ch: 13, topic: "13.3 농도–시간", src: "concept", srcLabel: "개념 확인", level: 1,
+    { id: "p13-20", ch: 13, topic: "13.3 농도–시간", src: "concept", srcLabel: "개념 확인", level: 1,
       stem: R`<p>어떤 1차 반응의 반감기가 20.0 min 이다.</p>`,
       parts: [
         { label: "(a)", prompt: "속도 상수 k", type: "num", answer: 0.03466, unit: "min<sup>−1</sup>", tol: 0.02 },
@@ -197,13 +197,51 @@
       ],
       solution: R`<p>(a) $k=\dfrac{0.693}{20.0}=3.47\times10^{-2}\ \mathrm{min^{-1}}$ &nbsp; (b) 60 min = 반감기 3번 ⇒ $(1/2)^3=1/8=0.125$</p>` },
 
-    { id: "p13-21", out: "1·2차 반응", ch: 13, topic: "13.3 농도–시간", src: "concept", srcLabel: "개념 확인", level: 2,
+    { id: "p13-21", ch: 13, topic: "13.3 농도–시간", src: "concept", srcLabel: "개념 확인", level: 2,
       stem: R`<p>0차 반응에서 $k=0.025\ \mathrm{M\,s^{-1}}$, $[\mathrm A]_0=0.50$ M 이다.</p>`,
       parts: [
         { label: "(a)", prompt: "반감기", type: "num", answer: 10, unit: "s", tol: 0.02 },
         { label: "(b)", prompt: "A 가 모두 소모될 때까지 걸리는 시간", type: "num", answer: 20, unit: "s", tol: 0.02 }
       ],
       solution: R`<p>(a) $t_{1/2}=\dfrac{[\mathrm A]_0}{2k}=\dfrac{0.50}{2(0.025)}=10$ s &nbsp; (b) $[\mathrm A]_t=0$ ⇒ $t=\dfrac{[\mathrm A]_0}{k}=20$ s (반감기의 2배: 0차는 반감기가 짧아지므로 두 번째 반감기는 5 s, … 합이 20 s).</p>` },
+
+    { id: "p13-24", ch: 13, topic: "13.3 농도–시간 (0차)", src: "concept", srcLabel: "개념 확인", level: 2,
+      stem: R`<p>어떤 반응이 반응물 A 에 대해 <b>0차</b>이다.</p>`,
+      parts: [
+        { label: "(a)", prompt: "다음 중 옳은 설명은?", type: "mc", options: [
+          "[A] 를 2배로 하면 반응 속도도 2배가 된다",
+          R`$[\mathrm A]$ 대 $t$ 그래프가 기울기 $-k$ 인 직선이다`,
+          "시간이 지날수록 반응 속도가 점점 느려진다",
+          "반응이 진행될수록 반감기가 길어진다"], answer: 1 },
+        { label: "(b)", prompt: R`$k=0.040\ \mathrm{M\,s^{-1}}$, $[\mathrm A]_0=0.60$ M 일 때 9.0 s 후의 $[\mathrm A]$`, type: "num", answer: 0.24, unit: "M", tol: 0.03 }
+      ],
+      solution: R`<p>(a) 0차: rate $=k$ 로 <b>농도와 무관한 일정한 값</b>이므로 속도는 2배가 되지도, 느려지지도 않아요. $[\mathrm A]_t=-kt+[\mathrm A]_0$ 이므로 $[\mathrm A]$ 대 $t$ 는 기울기 $-k$ 인 직선. 반감기 $[\mathrm A]_0/2k$ 는 농도가 줄수록 <b>짧아집니다</b>.</p>
+        <p>(b) $[\mathrm A]_t=[\mathrm A]_0-kt=0.60-(0.040)(9.0)=0.24$ M</p>` },
+
+    { id: "p13-25", ch: 13, topic: "13.4 활성화 에너지", src: "concept", srcLabel: "개념 확인 (슬라이드 필기: 오답률 80 %)", level: 2,
+      stem: R`<p>$k=Ae^{-E_a/RT}$ 에서 다른 조건은 그대로 두고 한 가지만 바꾼다.</p>`,
+      parts: [
+        { label: "(a)", prompt: R`활성화 에너지 $E_a$ 를 크게 하면 속도 상수 $k$ 는?`, type: "mc", options: ["커진다", "작아진다", "변하지 않는다"], answer: 1 },
+        { label: "(b)", prompt: R`온도 $T$ 를 높이면 속도 상수 $k$ 는?`, type: "mc", options: ["커진다", "작아진다", "변하지 않는다"], answer: 0 },
+        { label: "(c)", prompt: R`같은 온도에서 $E_a$ 가 50 kJ/mol 인 반응 X 와 80 kJ/mol 인 반응 Y 중 $k$ 가 더 큰 것은? ($A$ 값은 같다고 가정)`, type: "mc", options: ["X", "Y", "같다"], answer: 0 }
+      ],
+      solution: R`<p>(a) $E_a$ ↑ ⇒ $-E_a/RT$ 가 더 음수 ⇒ $e^{-E_a/RT}$ 값 ↓ ⇒ <b>$k$ ↓</b>. (b) $T$ ↑ ⇒ $-E_a/RT$ 가 덜 음수 ⇒ $e^{-E_a/RT}$ 값 ↑ ⇒ <b>$k$ ↑</b>. (c) 장벽이 낮은 X 가 $e^{-E_a/RT}$ 가 더 커서 $k$ 도 더 크다.</p>` },
+
+    { id: "p13-26", ch: 13, topic: "13.4 활성화 에너지", src: "concept", srcLabel: "변수 5개 주고 하나 구하기", level: 3,
+      stem: R`<p>어떤 반응의 속도 상수가 300 K 에서 $2.0\times10^{-3}$, 320 K 에서 $1.0\times10^{-2}$ 이다 (단위는 생략). 활성화 에너지를 kJ/mol 로 구하시오.</p>`,
+      parts: [{ type: "num", answer: 64.23, unit: "kJ/mol", tol: 0.03 }],
+      solution: R`<p>$\ln\dfrac{k_2}{k_1}=\dfrac{E_a}{R}\left(\dfrac1{T_1}-\dfrac1{T_2}\right)$ ⇒ $E_a=\dfrac{R\ln(k_2/k_1)}{1/T_1-1/T_2}=\dfrac{8.314\ln5.0}{1/300-1/320}=6.42\times10^{4}$ J/mol $=64$ kJ/mol</p>` },
+
+    { id: "p13-27", ch: 13, topic: "13.3·13.4 0차 + Arrhenius", src: "concept", srcLabel: "0차 반응 + Arrhenius", level: 3,
+      stem: R`<p>0차 반응의 활성화 에너지가 50.0 kJ/mol 이다. 300 K 에서 $[\mathrm A]_0=0.80$ M 일 때 반감기가 40.0 s 였다.</p>`,
+      parts: [
+        { label: "(a)", prompt: "300 K 에서의 속도 상수", type: "num", answer: 0.010, unit: "M s<sup>−1</sup>", tol: 0.03 },
+        { label: "(b)", prompt: "320 K 에서의 속도 상수", type: "num", answer: 0.0350, unit: "M s<sup>−1</sup>", tol: 0.03 },
+        { label: "(c)", prompt: "320 K 에서 같은 처음 농도일 때의 반감기", type: "num", answer: 11.43, unit: "s", tol: 0.03 }
+      ],
+      solution: R`<p>(a) 0차: $t_{1/2}=\dfrac{[\mathrm A]_0}{2k}$ ⇒ $k=\dfrac{0.80}{2(40.0)}=0.010\ \mathrm{M\,s^{-1}}$</p>
+        <p>(b) $\ln\dfrac{k_2}{k_1}=\dfrac{50000}{8.314}\left(\dfrac1{300}-\dfrac1{320}\right)=1.253$ ⇒ $k_2=0.010\,e^{1.253}=0.035\ \mathrm{M\,s^{-1}}$</p>
+        <p>(c) $t_{1/2}=\dfrac{0.80}{2(0.035)}=11.4$ s — $k$ 가 3.5 배가 되니 반감기는 3.5 배 짧아져요.</p>` },
 
     { id: "p13-22", out: "1·2차 반응", ch: 13, topic: "13.3 농도–시간", src: "concept", srcLabel: "개념 확인", level: 2,
       stem: R`<p>2차 반응($\ce{A -> product}$)에서 $[\mathrm A]_0=0.20$ M 일 때 첫 번째 반감기가 100 s 였다. 그 다음(두 번째) 반감기는 얼마인가?</p>`,

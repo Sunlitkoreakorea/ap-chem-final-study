@@ -54,7 +54,7 @@
       <a href="#ch13">13단원 개요</a>
       <a href="#s13-1" class="sub">13.1 반응 속도</a>
       <a href="#s13-2" class="sub">13.2 속도 법칙</a>
-      <a href="#s13-3" class="sub out">13.3 농도–시간 (제외)</a>
+      <a href="#s13-3" class="sub">13.3 농도–시간 (0차)</a>
       <a href="#s13-4" class="sub">13.4 활성화 에너지</a>
       <a href="#s13-5" class="sub">13.5 반응 메커니즘</a>
       <a href="#sum13" class="sub">13 요약표</a>
@@ -95,7 +95,8 @@
           <ul>
             <li>13.1 Reaction rate</li>
             <li>13.2 Rate law</li>
-            <li class="x">13.3 농도–시간 관계 (0·1·2차 반응 · 반감기)</li>
+            <li>13.3 반감기 · <b>0차 반응</b> · Table 13.3</li>
+            <li class="x">13.3 1·2차 반응 본문 · Ex 13.4 / 13.6 / 13.7</li>
             <li>13.4 Arrhenius · 활성화 에너지</li>
             <li>13.5 Reaction mechanism</li>
             <li class="x">Experimental support for mechanisms</li>
@@ -129,7 +130,7 @@
           </ul>
         </div>
       </div>
-      <p class="legend">취소선 항목은 시험 범위 밖이에요 — 수업 슬라이드에 <b>빨간 X</b>가 표시된 부분과, 선생님이 범위가 아니라고 하신 <b>1·2차 반응(13.3)</b>이에요. 참고용으로만 ‘범위 제외’ 상자에 접어 두었어요. 개념 암기·문제 풀이 탭에서도 이런 항목은 기본으로 숨겨져 있고, 필요하면 ‘범위 밖 항목 포함’을 켜서 볼 수 있어요.</p>
+      <p class="legend">취소선 항목은 시험 범위 밖이에요 — 수업 슬라이드에 <b>큰 빨간 X</b>가 그어진 부분이에요(<b>1차·2차 반응 본문과 예제</b> 포함. 반감기·<b>0차 반응</b>·Table 13.3 은 X 표시가 없어서 범위 안). 참고용으로만 ‘범위 제외’ 상자에 접어 두었어요. 개념 암기·문제 풀이 탭에서도 이런 항목은 기본으로 숨겨져 있고, 필요하면 ‘범위 밖 항목 포함’을 켜서 볼 수 있어요.</p>
 
       <div class="callout tip" style="margin-top:18px">
         <span class="ttl">이 사이트 쓰는 법</span>
@@ -146,7 +147,7 @@
       <article class="chapter c13" id="ch13">
         <header class="chapter-head">
           <div class="num">13</div>
-          <div><h2>Chemical Kinetics</h2><p>반응이 <b>얼마나 빠르게</b> 일어나는가 — 속도, 속도 법칙, 온도 의존성(Arrhenius), 메커니즘</p></div>
+          <div><h2>Chemical Kinetics</h2><p>반응이 <b>얼마나 빠르게</b> 일어나는가 — 속도, 속도 법칙, 0차 반응, 온도 의존성(Arrhenius), 메커니즘</p></div>
         </header>
 
         <section class="sec" id="s13-1">
@@ -187,6 +188,9 @@
             $$\text{rate}=-\frac1a\frac{\Delta[\mathrm A]}{\Delta t}=-\frac1b\frac{\Delta[\mathrm B]}{\Delta t}=\frac1c\frac{\Delta[\mathrm C]}{\Delta t}=\frac1d\frac{\Delta[\mathrm D]}{\Delta t}$$
           </div>
           <p>예: $\ce{2A -> B}$ 이면 rate $=-\tfrac12\Delta[\mathrm A]/\Delta t=\Delta[\mathrm B]/\Delta t$ (B가 생기는 속도는 A가 사라지는 속도의 절반).</p>
+          <div class="callout tip"><span class="ttl">★ 슬라이드 필기 (별표 친 부분)</span>
+            <p>$\ce{2A -> B}$ 에서 A 가 0.20 M → 0.10 M, B 가 0.00 M → 0.05 M 로 변했다면 A 는 0.10 M 감소, B 는 0.05 M 증가 → <b>A 의 변화율이 B 의 2배</b>. 그래서 반응 속도를 하나로 쓰려면 $-\tfrac12\dfrac{\Delta[\mathrm A]}{\Delta t}=\dfrac{\Delta[\mathrm B]}{\Delta t}$ — 즉 <b>반응 속도 = 농도 변화율 ÷ 화학양론 계수</b>.</p>
+          </div>
 
           <div class="exbox">
             <div class="ex-head"><span class="badge book">교재 Ex 13.1</span> 속도식 쓰기</div>
@@ -238,6 +242,9 @@
           <p>한 번에 <b>한 반응물만</b> 농도를 바꿔 가며 초기 속도를 비교해요.</p>
           <div class="eq"><span class="cap">비교 공식</span>
             $$\frac{\text{rate}_2}{\text{rate}_1}=\left(\frac{[\mathrm A]_2}{[\mathrm A]_1}\right)^{x}$$
+          </div>
+          <div class="callout tip"><span class="ttl">★ 비교할 두 실험 고르기 (슬라이드 필기)</span>
+            <p><b>한 반응물의 농도만 달라진 두 실험</b>끼리 비교해야 해요. 둘 다 바뀐 실험끼리는 비교할 수 없어요. 예: 아래 Ex 13.3 에서 Exp 1·3 은 [NO] 와 [H<sub>2</sub>] 가 <b>동시에</b> 달라서 비교 불가 → Exp 1·2 ([NO] 만 변화), Exp 2·3 ([H<sub>2</sub>] 만 변화)을 쓴다. 차수를 구한 뒤 $k=\dfrac{\text{rate}}{[\ce{NO}]^x[\ce{H2}]^y}$ 에 한 실험의 값을 대입.</p>
           </div>
           <div class="tbl-wrap"><table class="tbl">
             <thead><tr><th>차수 n</th><th>농도 ×2 → 속도</th><th>농도 ×3 → 속도</th><th>농도 ×4 → 속도</th></tr></thead>
@@ -308,13 +315,58 @@
         </section>
 
         <section class="sec" id="s13-3">
-          <h3 class="out-title"><span class="sn">13.3</span> <span class="strike">농도와 시간의 관계 (Integrated Rate Laws)</span> <span class="badge hw">범위 제외</span></h3>
-          <div class="callout excl"><span class="ttl">범위 제외 (선생님 안내)</span>
-            <p><b>1차·2차 반응</b>(적분 속도식 · 반감기 · 직선 그래프로 차수 찾기)과 같은 묶음인 <b>0차 반응 · Table 13.3</b> 은 시험 범위가 아니에요. 참고용으로만 아래에 접어 두었으니 공부할 필요는 없어요.</p>
+          <h3><span class="sn">13.3</span> 농도와 시간의 관계 — 0차 반응 (Zero-order)</h3>
+          <div class="callout excl"><span class="ttl">범위 안내 (슬라이드의 빨간 X 기준)</span>
+            <p>이 절에서 <b>범위 안</b>인 것: <b>반감기</b>, <b>0차 반응</b>(필기가 가득한 슬라이드), <b>Table 13.3</b> 요약표. <b>범위 밖</b>(슬라이드에 큰 빨간 X): <b>1차 반응</b> 본문(속도식·단위·적분식·그래프·기체 압력식)과 Ex 13.4·13.6, <b>2차 반응</b> 본문·반감기와 Ex 13.7. 범위 밖 부분은 이 절 맨 아래에 접어 두었어요.</p>
           </div>
-          <details class="sol-toggle plain excl-sec"><summary>참고용으로 펼쳐 보기 — 0·1·2차 적분 속도식, 반감기</summary>
+          <p>속도 법칙을 시간에 대해 적분하면 “시간 $t$ 에서의 농도”를 구하는 식이 나와요. 0차 반응은 가장 단순해요.</p>
+
+          <div class="callout def"><span class="ttl">HALF-LIFE $t_{1/2}$ (슬라이드에서 노란 형광펜)</span>
+            <p>반응물 농도가 <b>처음의 절반</b>이 되는 데 걸리는 시간 (the time required for the concentration of a reactant to decrease to half of its initial concentration). 정의상 $t=t_{1/2}$ 일 때 $[\mathrm A]_t=[\mathrm A]_0/2$.</p>
+          </div>
+          <div class="eq"><span class="cap">반감기 슬라이드에 나오는 1차 반응 공식</span>$$t_{1/2}=\frac{\ln2}{k}=\frac{0.693}{k}$$</div>
+          <p class="muted" style="font-size:.88rem">※ 이 반감기 슬라이드는 X 표시가 없어서 공식만 남겼어요. 1차 반응의 적분식·그래프·계산 예제(Ex 13.6)는 X 표시라 범위 밖이에요. 1차 반응의 반감기는 <b>초기 농도와 무관</b>하다는 점만 알아두면 돼요.</p>
+
+          <h4>0차 반응 (Zero-order)</h4>
+          <p>드문 경우예요. $\ce{A -> product}$ 에서 rate $=k[\mathrm A]^0=k$ → <b>속도가 반응물 농도와 무관한 상수</b>예요 (어떤 수의 0제곱은 1).</p>
+          <div class="eq"><span class="cap">0차 · 농도–시간 (13.9)</span>$$[\mathrm A]_t=-kt+[\mathrm A]_0$$</div>
+          <ul>
+            <li>$[\mathrm A]$ vs $t$ 가 <b>직선</b>, 기울기 $=-k$, $y$ 절편 $=[\mathrm A]_0$. 단위 $k$: M s<sup>−1</sup> (= M/s).</li>
+            <li>$[\mathrm A]$ 가 0 이 되어 다 소모되는 시간: $t=[\mathrm A]_0/k$.</li>
+          </ul>
+          <div class="eq"><span class="cap">0차 · 반감기 (13.10)</span>$$t_{1/2}=\frac{[\mathrm A]_0}{2k}$$</div>
+          <div class="callout warn"><span class="ttl">POINT</span><p>$[\mathrm A]_t=[\mathrm A]_0/2$ 를 (13.9)에 넣어 얻어요. 0차 반응의 반감기는 <b>초기 농도에 비례</b> → 반응이 진행되어 농도가 줄수록 반감기가 <b>점점 짧아져요</b> (다음 반감기는 절반).</p></div>
+          <details class="sol-toggle plain"><summary>미적분 유도 보기</summary>
+            <div class="ex-body">
+              <p>$-\dfrac{d[\mathrm A]}{dt}=k\ \Rightarrow\ d[\mathrm A]=-k\,dt$. 양변을 $t=0\to t$ 로 적분하면 $\displaystyle\int_{[\mathrm A]_0}^{[\mathrm A]_t}d[\mathrm A]=-k\int_0^t dt\ \Rightarrow\ [\mathrm A]_t-[\mathrm A]_0=-kt$.</p>
+            </div>
+          </details>
+
+          <div class="exbox">
+            <div class="ex-head"><span class="badge">개념 확인</span> 0차 반응 계산</div>
+            <div class="ex-q"><p>0차 반응에서 $k=0.025\ \mathrm{M\,s^{-1}}$, $[\mathrm A]_0=0.50$ M 이다. (a) 반감기는? (b) A 가 모두 소모될 때까지 걸리는 시간은?</p></div>
+            <details class="sol-toggle"><summary>풀이 보기</summary>
+              <div class="ex-body">
+                <p><b>(a)</b> $t_{1/2}=\dfrac{[\mathrm A]_0}{2k}=\dfrac{0.50}{2(0.025)}=\mathbf{10\ s}$</p>
+                <p><b>(b)</b> $[\mathrm A]_t=0$ ⇒ $t=\dfrac{[\mathrm A]_0}{k}=\dfrac{0.50}{0.025}=\mathbf{20\ s}$. 첫 반감기 10 s 동안 0.25 M, 남은 0.25 M 의 반감기는 5 s … 처럼 반감기가 짧아지며 합이 20 s 가 돼요.</p>
+              </div>
+            </details>
+          </div>
+
+          <h4>한눈에 비교 (Table 13.3)</h4>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>Order</th><th>Rate law</th><th>Concentration–time equation</th><th>Half-life</th></tr></thead>
+            <tbody>
+              <tr><td><b>0</b></td><td>$\text{Rate}=k$</td><td>$[\mathrm A]_t=-kt+[\mathrm A]_0$</td><td>$\dfrac{[\mathrm A]_0}{2k}$</td></tr>
+              <tr class="dim"><td>1</td><td>$\text{Rate}=k[\mathrm A]$</td><td>$\ln\dfrac{[\mathrm A]_t}{[\mathrm A]_0}=-kt$</td><td>$\dfrac{0.693}{k}$</td></tr>
+              <tr class="dim"><td>2<sup>†</sup></td><td>$\text{Rate}=k[\mathrm A]^2$</td><td>$\dfrac1{[\mathrm A]_t}=kt+\dfrac1{[\mathrm A]_0}$</td><td>$\dfrac{1}{k[\mathrm A]_0}$</td></tr>
+            </tbody>
+          </table></div>
+          <p class="muted" style="font-size:.88rem">† A → product. 표 자체는 X 표시가 없어서 남겼지만, <b>시험 범위의 중심은 0차 행</b>이에요 (흐리게 표시한 1·2차 행은 본문·예제가 X 표시라 참고용).</p>
+
+          <details class="sol-toggle plain excl-sec"><summary>범위 제외 (참고용) — 1·2차 반응 본문: 적분 속도식 · 직선 그래프 · 예제 (슬라이드에 빨간 X)</summary>
           <div class="ex-body">
-          <p>속도 법칙을 시간에 대해 적분하면 “시간 $t$ 에서의 농도”를 구하는 식이 나와요. 차수마다 <b>직선이 되는 그래프</b>가 다르다는 게 핵심입니다.</p>
+          <p>아래는 슬라이드에 <b>큰 빨간 X</b>가 그어진 1차·2차 반응 내용이에요. 참고용으로만 접어 두었으니 공부할 필요는 없어요.</p>
 
           <h4>① 1차 반응 (First-order)</h4>
           <div class="eq"><span class="cap">1차 · 적분형</span>
@@ -333,11 +385,7 @@
             </div>
           </details>
 
-          <div class="callout def"><span class="ttl">HALF-LIFE $t_{1/2}$</span>
-            <p>반응물 농도가 <b>처음의 절반</b>이 되는 데 걸리는 시간 (the time required for the concentration of a reactant to decrease to half of its initial concentration).</p>
-          </div>
-          <div class="eq"><span class="cap">1차 · 반감기</span>$$t_{1/2}=\frac{\ln 2}{k}=\frac{0.693}{k}$$</div>
-          <div class="callout warn"><span class="ttl">POINT</span><p>1차 반응의 반감기는 <b>초기 농도와 무관</b>해요. 그래서 반감기마다 항상 절반씩 줄어듭니다. $n$ 번 지나면 남은 비율 $=(1/2)^n$.</p></div>
+          <p class="muted">1차 반응의 반감기($t_{1/2}=0.693/k$)는 위 ‘반감기’ 부분에 있어요. $n$ 번의 반감기 뒤 남은 비율은 $(1/2)^n$.</p>
 
           <div class="exbox">
             <div class="ex-head"><span class="badge book">교재 Ex 13.4</span><span class="badge hw">HW</span> 시클로프로판 → 프로펜</div>
@@ -384,20 +432,6 @@
             </details>
           </div>
 
-          <h4>③ 0차 반응 (Zero-order)</h4>
-          <p>드문 경우예요. rate $=k[\mathrm A]^0=k$ → <b>속도가 농도와 무관한 상수</b>.</p>
-          <div class="eq"><span class="cap">0차</span>$$[\mathrm A]_t=-kt+[\mathrm A]_0 \qquad t_{1/2}=\frac{[\mathrm A]_0}{2k}$$</div>
-          <ul><li>$[\mathrm A]$ vs $t$ 가 직선, 기울기 $=-k$, 단위 $k$: M s<sup>−1</sup>. 반감기는 초기 농도에 <b>비례</b>(점점 짧아짐).</li></ul>
-
-          <h4>한눈에 비교 (Table 13.3)</h4>
-          <div class="tbl-wrap"><table class="tbl">
-            <thead><tr><th>Order</th><th>Rate law</th><th>Concentration–time</th><th>직선 그래프 (y vs t)</th><th>기울기</th><th>Half-life</th><th>k 단위</th></tr></thead>
-            <tbody>
-              <tr><td><b>0</b></td><td>$k$</td><td>$[\mathrm A]_t=-kt+[\mathrm A]_0$</td><td>$[\mathrm A]$</td><td>$-k$</td><td>$\dfrac{[\mathrm A]_0}{2k}$</td><td>M s<sup>−1</sup></td></tr>
-              <tr><td><b>1</b></td><td>$k[\mathrm A]$</td><td>$\ln\dfrac{[\mathrm A]_t}{[\mathrm A]_0}=-kt$</td><td>$\ln[\mathrm A]$</td><td>$-k$</td><td>$\dfrac{0.693}{k}$</td><td>s<sup>−1</sup></td></tr>
-              <tr><td><b>2</b></td><td>$k[\mathrm A]^2$</td><td>$\dfrac1{[\mathrm A]_t}=kt+\dfrac1{[\mathrm A]_0}$</td><td>$1/[\mathrm A]$</td><td>$+k$</td><td>$\dfrac{1}{k[\mathrm A]_0}$</td><td>M<sup>−1</sup>s<sup>−1</sup></td></tr>
-            </tbody>
-          </table></div>
           <div class="callout tip"><span class="ttl">차수 찾는 법 (그래프)</span>
             <p>$[\mathrm A]$, $\ln[\mathrm A]$, $1/[\mathrm A]$ 를 각각 $t$ 에 대해 그려 <b>직선이 나오는 것</b>이 그 반응의 차수. (AP 객관식에서 “2차 반응이면 어떤 그래프?” → $1/[\mathrm A]$ vs $t$, 우상향 직선.)</p>
           </div>
@@ -438,6 +472,14 @@
             <li>$T$ 가 높을수록, $E_a$ 가 작을수록 $k$ 는 커진다. $E_a$ 가 클수록 온도에 더 민감하다.</li>
             <li><b>그래프로 $E_a$ 구하기</b>: $\ln k$ vs $1/T$ 는 직선, 기울기 $=-E_a/R$ → $E_a=-(\text{slope})\times R$.</li>
           </ul>
+          <div class="callout warn"><span class="ttl">★ 슬라이드 필기: “오답률 80 % 문항!”</span>
+            <ul>
+              <li><b>$E_a$ ↑</b> → $-E_a/RT$ 가 더 음수 → $e^{-E_a/RT}$ 값 ↓ → <b>$k$ ↓</b> (느려진다)</li>
+              <li><b>$T$ ↑</b> → $-E_a/RT$ 가 덜 음수 → $e^{-E_a/RT}$ 값 ↑ → <b>$k$ ↑</b> (빨라진다)</li>
+              <li>$e$ 는 자연상수(≈ 2.718). 식의 변수는 $k_1,k_2,T_1,T_2,E_a,R$ <b>6개</b> — 그중 <b>5개를 주고 나머지 하나를 구하는</b> 문제가 나와요 (미지수가 $k_2$, $E_a$, $T_2$ …무엇이든 될 수 있어요).</li>
+              <li>0차 반응과 묶이면: $t_{1/2}=[\mathrm A]_0/2k$ 이므로 온도가 올라 $k$ 가 커질수록 <b>반감기는 짧아진다</b>.</li>
+            </ul>
+          </div>
           <div class="eq"><span class="cap">TWO-POINT FORM (13.14)</span>
             $$\ln\frac{k_1}{k_2}=\frac{E_a}{R}\left(\frac1{T_2}-\frac1{T_1}\right)=\frac{E_a}{R}\,\frac{T_1-T_2}{T_1T_2}$$
           </div>
@@ -577,6 +619,7 @@
           <div class="cheat">
             <div class="card"><h4>속도 정의</h4>$\text{rate}=-\tfrac1a\tfrac{\Delta[\mathrm A]}{\Delta t}=\tfrac1c\tfrac{\Delta[\mathrm C]}{\Delta t}$<br>단위 M/s</div>
             <div class="card"><h4>속도 법칙</h4>$\text{rate}=k[\mathrm A]^x[\mathrm B]^y$<br>차수는 <b>실험</b>으로. 초기 속도법: 한 변수씩 바꾼다.</div>
+            <div class="card"><h4>반감기 · 0차</h4>반감기: $[\mathrm A]_t=[\mathrm A]_0/2$ 가 되는 시간<br>0차: rate $=k$ (농도 무관), $[\mathrm A]_t=-kt+[\mathrm A]_0$, $t_{1/2}=[\mathrm A]_0/2k$ (농도에 비례), $k$: M/s</div>
             <div class="card"><h4>Arrhenius</h4>$\ln k=\ln A-E_a/RT$<br>$\ln(k_1/k_2)=\tfrac{E_a}{R}\tfrac{T_1-T_2}{T_1T_2}$</div>
             <div class="card"><h4>메커니즘</h4>느린 단계 = rds. 중간체는 속도식에서 제거(빠른 평형 이용). 단계의 합 = 전체 반응식.</div>
           </div>
@@ -1121,7 +1164,9 @@
             <li><b>차수 ≠ 계수.</b> 속도 법칙의 지수는 실험(초기 속도법)으로만 정한다. 단, <i>elementary step 하나</i>일 때는 계수가 곧 차수.</li>
             <li><b>속도를 계수로 나누기.</b> $-\tfrac1a\Delta[\mathrm A]/\Delta t=\tfrac1c\Delta[\mathrm C]/\Delta t$. $\ce{2A -> B}$ 에서 A 는 B 보다 2배 빨리 사라진다.</li>
             <li><b>k 의 단위</b>로 차수를 역추적: s<sup>−1</sup> → 1차, M<sup>−1</sup>s<sup>−1</sup> → 2차, M s<sup>−1</sup> → 0차.</li>
+            <li><b>시간 단위 통일.</b> 0차의 $k$ 가 M/s 인데 시간이 분이면 ×60 (또는 $k$ 를 M/min 으로).</li>
             <li><b>ln 과 log 구분.</b> Arrhenius 는 자연로그 ln. pH 는 상용로그 log.</li>
+            <li><b>0차 반응의 반감기</b> $[\mathrm A]_0/2k$ 는 <b>초기 농도</b>를 넣고, 반응이 진행될수록 짧아진다.</li>
             <li><b>Arrhenius</b>: T 는 K, $E_a$ kJ → J 변환, $R=8.314$ J/(mol·K).</li>
             <li><b>메커니즘</b>: rds 의 속도식에 <b>중간체</b>가 나오면 앞 단계의 빠른 평형으로 치환한다.</li>
             <li><b>K 식</b>: 평형 농도만! 생성물/반응물, 계수는 지수. (순수 고체·액체는 제외.) 반응식을 뒤집거나 곱하면 K 도 변한다.</li>

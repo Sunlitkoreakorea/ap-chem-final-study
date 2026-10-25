@@ -33,6 +33,26 @@
   /* ====================== 13 ====================== */
   const gens = [];
 
+  gens.push({ key: "k0", label: "0차 반응: 농도·반감기·소진 시간", ch: 13, make() {
+    const k = pw(rint(11, 98) / 10, -rint(2, 3));
+    const A0 = sig(rnd(0.2, 2.0), 2);
+    const tend = A0 / k;
+    const t = sig(rnd(0.15, 0.85) * tend, 2);
+    const At = A0 - k * t;
+    const half = A0 / (2 * k);
+    return base("k0", 13, "13.3 농도–시간 (0차)", {
+      stem: R`<p>0차 반응에서 $k=${fmt(k)}\ \mathrm{M\,s^{-1}}$ 이고 처음 농도 $[\mathrm A]_0=${A0}$ M 이다.</p>`,
+      parts: [
+        { label: "(a)", prompt: R`$t=${fmt(t)}$ s 후의 $[\mathrm A]$`, type: "num", answer: At, unit: "M", tol: 0.03 },
+        { label: "(b)", prompt: "반감기", type: "num", answer: half, unit: "s", tol: 0.03 },
+        { label: "(c)", prompt: "A 가 모두 소모될 때까지 걸리는 시간", type: "num", answer: tend, unit: "s", tol: 0.03 }
+      ],
+      solution: R`<p>(a) $[\mathrm A]_t=[\mathrm A]_0-kt=${A0}-(${fmt(k)})(${fmt(t)})=${fmt(At)}$ M</p>
+        <p>(b) $t_{1/2}=\dfrac{[\mathrm A]_0}{2k}=\dfrac{${A0}}{2(${fmt(k)})}=${fmt(half)}$ s</p>
+        <p>(c) $[\mathrm A]_t=0$ ⇒ $t=\dfrac{[\mathrm A]_0}{k}=${fmt(tend)}$ s (반감기의 2배)</p>`
+    });
+  } });
+
   gens.push({ key: "k1", out: "1·2차 반응", label: "1차 반응: 농도·반감기", ch: 13, make() {
     const k = pw(rint(11, 98) / 10, -rint(2, 4));
     const A0 = sig(rnd(0.1, 2.0), 2);
@@ -114,21 +134,69 @@
     });
   } });
 
-  gens.push({ key: "a1", label: "Arrhenius: 다른 온도의 k", ch: 13, make() {
+  // 슬라이드 필기: Arrhenius 두 점 식의 변수(k1, k2, T1, T2, Ea, R) 중 5개를 주고 나머지 하나를 구하는 문제
+  gens.push({ key: "a1", label: "Arrhenius: 5개 변수 주고 하나 구하기 (k₂ · Eₐ · T₂)", ch: 13, level: 3, make() {
     const Ea = rint(8, 24) * 5;                     // kJ/mol
     const T1 = rint(56, 64) * 5;                    // 280–320 K
     const T2 = T1 + rint(3, 10) * 5;
     const k1 = pw(rint(11, 98) / 10, -rint(1, 4));
     const ratio = Math.exp(Ea * 1000 / RGAS * (1 / T1 - 1 / T2));
-    const k2 = k1 * ratio;
+    const k2 = sig(k1 * ratio, 3);                  // 문제에 주어지는 값(3자리)으로 답을 다시 계산
+    const variant = pick(["k2", "Ea", "T2"]);
+    const eq = R`\ln\dfrac{k_2}{k_1}=\dfrac{E_a}{R}\left(\dfrac1{T_1}-\dfrac1{T_2}\right)`;
+    if (variant === "k2") {
+      const k2x = k1 * ratio;
+      return base("a1", 13, "13.4 활성화 에너지", {
+        level: 3,
+        stem: R`<p>어떤 반응의 활성화 에너지는 ${Ea} kJ/mol 이고 ${T1} K 에서 속도 상수 $k=${fmt(k1)}$ (단위는 생략) 이다.</p>`,
+        parts: [
+          { label: "(a)", prompt: `${T2} K 에서의 k`, type: "num", answer: k2x, unit: "", tol: 0.03 },
+          { label: "(b)", prompt: "속도 상수는 몇 배가 되었는가?", type: "num", answer: ratio, unit: "배", tol: 0.03 }
+        ],
+        solution: R`<p>$${eq}=\dfrac{${Ea * 1000}}{8.314}\left(\dfrac1{${T1}}-\dfrac1{${T2}}\right)=${fmt(Math.log(ratio))}$</p>
+          <p>$k_2/k_1=${fmt(ratio)}$ ⇒ $k_2=${fmt(k2x)}$ &nbsp;(Ea 를 J 로 바꾸는 것 잊지 말기!)</p>`
+      });
+    }
+    if (variant === "Ea") {
+      const lnr = Math.log(k2 / k1);
+      const EaAns = RGAS * lnr / (1 / T1 - 1 / T2) / 1000;
+      return base("a1", 13, "13.4 활성화 에너지", {
+        level: 3,
+        stem: R`<p>어떤 반응의 속도 상수가 ${T1} K 에서 $k_1=${fmt(k1)}$, ${T2} K 에서 $k_2=${fmt(k2)}$ 이다 (단위는 생략). 활성화 에너지를 kJ/mol 로 구하시오.</p>`,
+        parts: [{ prompt: R`$E_a$`, type: "num", answer: EaAns, unit: "kJ/mol", tol: 0.03 }],
+        solution: R`<p>$${eq}$ 를 $E_a$ 에 대해 정리: $E_a=\dfrac{R\ln(k_2/k_1)}{1/T_1-1/T_2}=\dfrac{8.314\,\ln(${fmt(k2 / k1)})}{1/${T1}-1/${T2}}=${fmt(EaAns * 1000)}$ J/mol $=${fmt(EaAns)}$ kJ/mol</p>`
+      });
+    }
+    const T2Ans = 1 / (1 / T1 - RGAS * Math.log(k2 / k1) / (Ea * 1000));
     return base("a1", 13, "13.4 활성화 에너지", {
-      stem: R`<p>어떤 반응의 활성화 에너지는 ${Ea} kJ/mol 이고 ${T1} K 에서 속도 상수 $k=${fmt(k1)}$ (단위는 생략) 이다.</p>`,
+      level: 3,
+      stem: R`<p>활성화 에너지가 ${Ea} kJ/mol 인 반응의 속도 상수가 ${T1} K 에서 $k_1=${fmt(k1)}$ 이다 (단위는 생략). 속도 상수가 $k_2=${fmt(k2)}$ 가 되는 온도는 몇 K 인가?</p>`,
+      parts: [{ prompt: R`$T_2$`, type: "num", answer: T2Ans, unit: "K", tol: 0.01 }],
+      solution: R`<p>$\dfrac1{T_2}=\dfrac1{T_1}-\dfrac{R\ln(k_2/k_1)}{E_a}=\dfrac1{${T1}}-\dfrac{8.314\,\ln(${fmt(k2 / k1)})}{${Ea * 1000}}$ ⇒ $T_2=${fmt(T2Ans, 4)}$ K</p>`
+    });
+  } });
+
+  // 0차 반응 + Arrhenius (슬라이드 필기: Ex 13.9 옆에 t½ = [A]₀/2k)
+  gens.push({ key: "k0a", label: "0차 반응 + Arrhenius: 온도를 바꾸면 반감기?", ch: 13, level: 3, make() {
+    const Ea = rint(8, 22) * 5;
+    const T1 = rint(56, 64) * 5;
+    const T2 = T1 + rint(3, 9) * 5;
+    const A0 = sig(rnd(0.2, 2.0), 2);
+    const k1 = pw(rint(11, 98) / 10, -rint(2, 4));   // M/s
+    const ratio = Math.exp(Ea * 1000 / RGAS * (1 / T1 - 1 / T2));
+    const k2 = k1 * ratio;
+    const half1 = A0 / (2 * k1), half2 = A0 / (2 * k2);
+    return base("k0a", 13, "13.3·13.4 0차 + Arrhenius", {
+      level: 3,
+      stem: R`<p>0차 반응의 활성화 에너지는 ${Ea} kJ/mol 이다. ${T1} K 에서 $k=${fmt(k1)}\ \mathrm{M\,s^{-1}}$, 처음 농도는 $[\mathrm A]_0=${A0}$ M 이다.</p>`,
       parts: [
-        { label: "(a)", prompt: `${T2} K 에서의 k`, type: "num", answer: k2, unit: "", tol: 0.03 },
-        { label: "(b)", prompt: "속도 상수는 몇 배가 되었는가?", type: "num", answer: ratio, unit: "배", tol: 0.03 }
+        { label: "(a)", prompt: `${T1} K 에서의 반감기`, type: "num", answer: half1, unit: "s", tol: 0.03 },
+        { label: "(b)", prompt: `${T2} K 에서의 속도 상수`, type: "num", answer: k2, unit: "M s<sup>−1</sup>", tol: 0.03 },
+        { label: "(c)", prompt: `${T2} K 에서의 반감기 (같은 처음 농도)`, type: "num", answer: half2, unit: "s", tol: 0.03 }
       ],
-      solution: R`<p>$\ln\dfrac{k_2}{k_1}=\dfrac{E_a}{R}\left(\dfrac1{T_1}-\dfrac1{T_2}\right)=\dfrac{${Ea * 1000}}{8.314}\left(\dfrac1{${T1}}-\dfrac1{${T2}}\right)=${fmt(Math.log(ratio))}$</p>
-        <p>$k_2/k_1=${fmt(ratio)}$ ⇒ $k_2=${fmt(k2)}$ &nbsp;(Ea 를 J 로 바꾸는 것 잊지 말기!)</p>`
+      solution: R`<p>(a) $t_{1/2}=\dfrac{[\mathrm A]_0}{2k}=\dfrac{${A0}}{2(${fmt(k1)})}=${fmt(half1)}$ s</p>
+        <p>(b) $\ln\dfrac{k_2}{k_1}=\dfrac{E_a}{R}\left(\dfrac1{T_1}-\dfrac1{T_2}\right)=${fmt(Math.log(ratio))}$ ⇒ $k_2=${fmt(k2)}\ \mathrm{M\,s^{-1}}$</p>
+        <p>(c) $t_{1/2}=\dfrac{[\mathrm A]_0}{2k_2}=${fmt(half2)}$ s — 온도가 올라 $k$ 가 ${fmt(ratio)}$ 배가 되니 반감기는 ${fmt(ratio)}$ 배 <b>짧아져요</b>.</p>`
     });
   } });
 

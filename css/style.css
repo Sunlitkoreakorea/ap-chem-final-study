@@ -283,6 +283,7 @@ table.tbl { border-collapse: collapse; width: 100%; font-size: .93rem; font-vari
 .tbl tr:last-child td { border-bottom: 0; }
 .tbl td.l, .tbl th.l { text-align: left; }
 .tbl td .katex { display: inline-block; max-width: 100%; }
+.tbl tr.dim td { opacity: .55; }
 .tbl tbody tr:hover td { background: color-mix(in srgb, var(--primary-weak) 55%, transparent); }
 
 .exbox {

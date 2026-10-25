@@ -79,7 +79,7 @@ window.CONCEPTS = [
     a: "1/[A]t = kt + 1/[A]0. A plot of the [[reciprocal|1/[A]|inverse]] of the concentration versus [[time]] is a straight line with a [[positive]] slope equal to k and an intercept of 1/[A]0.",
     ko: "1/[A] 대 t 가 직선, 기울기 = +k, 절편 = 1/[A]₀." },
 
-  { id: "k15", ch: 13, out: "1·2차 반응", topic: "13.3 Integrated rate laws",
+  { id: "k15", ch: 13, topic: "13.3 Integrated rate laws",
     q: "Write the integrated rate law for a zero-order reaction and describe its linear plot.", qk: "0차 반응의 적분 속도식",
     a: "[A]t = −kt + [A]0. A plot of [[concentration|농도]] (not its logarithm or reciprocal) versus [[time]] is a straight line with a [[negative|−k|minus]] slope. The rate is [[constant|independent of concentration|does not depend on concentration]].",
     ko: "[A] 대 t 가 직선, 기울기 = −k. 속도는 농도와 무관한 상수." },
@@ -89,12 +89,12 @@ window.CONCEPTS = [
     a: "Plot the concentration, the [[natural logarithm|ln|log]] of the concentration, and the [[reciprocal|inverse|1/]] of the concentration against time. The plot that is a straight line identifies the order: concentration → [[zero]], ln → [[first]], reciprocal → [[second]].",
     ko: "[A], ln[A], 1/[A] 를 각각 t 에 대해 그려 직선이 되는 것이 차수(0, 1, 2차)." },
 
-  { id: "k17", ch: 13, out: "1·2차 반응", topic: "13.3 Half-life",
+  { id: "k17", ch: 13, topic: "13.3 Half-life",
     q: "Define half-life.", qk: "반감기의 정의",
     a: "The [[half-life]] (t1/2) is the [[time]] required for the [[concentration]] of a reactant to decrease to [[half|one-half|50%|1/2]] of its [[initial|original|starting]] value.",
     ko: "반응물 농도가 처음의 절반이 되는 데 걸리는 시간." },
 
-  { id: "k18", ch: 13, out: "1·2차 반응", topic: "13.3 Half-life",
+  { id: "k18", ch: 13, topic: "13.3 Half-life",
     q: "Give the half-life expression for a first-order reaction and explain what is special about it.", qk: "1차 반응의 반감기",
     a: "t1/2 = [[0.693/k|ln 2/k|ln2/k]]. It is [[independent of|does not depend on|not dependent on]] the initial concentration, so every successive half-life is the [[same|constant|equal]].",
     ko: "t½ = 0.693/k. 초기 농도와 무관 → 반감기마다 항상 절반." },
@@ -104,12 +104,12 @@ window.CONCEPTS = [
     a: "t1/2 = 1/(k[A]0). It is [[inversely proportional|inverse]] to the initial concentration, so each successive half-life is [[longer|doubles|twice as long]] than the one before.",
     ko: "t½ = 1/(k[A]₀). 농도가 묽어질수록 반감기가 길어진다(다음 반감기는 2배)." },
 
-  { id: "k20", ch: 13, out: "1·2차 반응", topic: "13.3 Half-life",
+  { id: "k20", ch: 13, topic: "13.3 Half-life",
     q: "Give the half-life expression for a zero-order reaction and describe how it changes as the reaction proceeds.", qk: "0차 반응의 반감기",
     a: "t1/2 = [A]0/2k. It is [[directly proportional|proportional]] to the initial concentration, so successive half-lives become [[shorter|smaller|halve]].",
     ko: "t½ = [A]₀/2k. 초기 농도에 비례, 반응이 진행될수록 반감기가 짧아진다." },
 
-  { id: "k21", ch: 13, out: "1·2차 반응", topic: "13.3 Half-life",
+  { id: "k21", ch: 13, out: "1차 반응 응용(슬라이드에 없음)", topic: "13.3 Half-life",
     q: "What fraction of a first-order reactant remains after three half-lives?", qk: "1차 반응, 반감기 3번 후 남은 비율",
     a: "After n half-lives the fraction remaining is (1/2)^n, so after three half-lives it is [[1/8|12.5%|0.125|one-eighth]].",
     ko: "(1/2)³ = 1/8 = 12.5 %." },
@@ -183,6 +183,11 @@ window.CONCEPTS = [
     q: "How can experimental evidence support a proposed mechanism?", qk: "메커니즘의 실험적 근거 (범위 제외 표시)",
     a: "By [[detecting|identifying|isolating]] a proposed [[intermediate]] in the reacting mixture, or by testing a [[prediction|predicted effect]] of the mechanism, e.g. irradiating I2 produces I atoms and speeds up HI formation.",
     ko: "중간체를 직접 검출하거나, 메커니즘이 예측하는 현상(빛을 쬐면 I 원자 증가 → HI 생성 가속)을 확인한다." },
+
+  { id: "k36", ch: 13, topic: "13.4 Arrhenius",
+    q: "In k = A e^(−Ea/RT), what happens to k when the activation energy increases? When the temperature increases?", qk: "Ea↑, T↑ 일 때 k 는? (슬라이드 필기: 오답률 80 % 문항)",
+    a: "When Ea [[increases]], −Ea/RT becomes more [[negative]], so e^(−Ea/RT) becomes [[smaller]] and k [[decreases]]. When the [[temperature]] increases, −Ea/RT becomes less negative, so e^(−Ea/RT) becomes [[larger]] and k [[increases]].",
+    ko: "Ea↑ → 지수가 더 음수 → e^(−Ea/RT)↓ → k↓. T↑ → 지수가 덜 음수 → e^(−Ea/RT)↑ → k↑." },
 
   /* ===================== 14 Chemical Equilibrium ===================== */
   { id: "e01", ch: 14, topic: "14.1 Equilibrium",
