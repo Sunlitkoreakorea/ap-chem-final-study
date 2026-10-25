@@ -151,9 +151,8 @@
         </div><p class="readout" aria-live="polite"></p>`;
       const out = $(".readout", el);
       const unit = ["M s<sup>−1</sup>", "s<sup>−1</sup>", "M<sup>−1</sup>s<sup>−1</sup>", "M<sup>−2</sup>s<sup>−1</sup>"];
-      const half = ["t<sub>½</sub> = [A]<sub>0</sub>/2k (농도에 비례)", "t<sub>½</sub> = 0.693/k (농도 무관)", "t<sub>½</sub> = 1/(k[A]<sub>0</sub>) (농도에 반비례)", "(교재 범위 밖)"];
       function upd() {
-        out.innerHTML = `속도는 ${f}<sup>${n}</sup> = <b>× ${Math.pow(f, n)}</b> 배. &nbsp; k 의 단위: ${unit[n]} &nbsp; · 반감기: ${half[n]}`;
+        out.innerHTML = `속도는 ${f}<sup>${n}</sup> = <b>× ${Math.pow(f, n)}</b> 배. &nbsp; k 의 단위: ${unit[n]}`;
         $$("button[data-n]", el).forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.n === n)));
       }
       el.addEventListener("click", e => { const b = e.target.closest("button[data-n]"); if (b) { n = +b.dataset.n; upd(); } });
@@ -248,6 +247,8 @@
   /* ============================== MEMORIZE ============================== */
   const MEM_KEY = "apchem.mem.v1";
   let memStatus = store.get(MEM_KEY, {});
+  // 시험 범위 밖 항목: 슬라이드의 빨간 X(x), 선생님 안내로 제외된 부분(out), 슬라이드에 없는 교재 보충(sup)
+  const isOut = o => !!(o.x || o.out || o.sup);
   const mem = { mode: store.get("apchem.mem.mode", "flash"), ch: "all", showX: false, status: "all", idx: 0, flipped: false, order: null, search: "", written: "", checked: null, revealed: {} };
 
   function parseA(a) {
@@ -288,7 +289,7 @@
   }
 
   function memPool() {
-    let list = CONCEPTS.filter(c => (mem.showX || !c.x) && (mem.ch === "all" || c.ch === +mem.ch));
+    let list = CONCEPTS.filter(c => (mem.showX || !isOut(c)) && (mem.ch === "all" || c.ch === +mem.ch));
     if (mem.status !== "all") list = list.filter(c => (memStatus[c.id] || "new") === mem.status);
     if (mem.order) {
       const pos = new Map(mem.order.map((id, i) => [id, i]));
@@ -371,7 +372,7 @@
   }
 
   function memStats() {
-    const all = CONCEPTS.filter(c => (mem.showX || !c.x) && (mem.ch === "all" || c.ch === +mem.ch));
+    const all = CONCEPTS.filter(c => (mem.showX || !isOut(c)) && (mem.ch === "all" || c.ch === +mem.ch));
     let known = 0, unsure = 0;
     all.forEach(c => { const s = memStatus[c.id]; if (s === "known") known++; else if (s === "unsure") unsure++; });
     return { total: all.length, known, unsure, fresh: all.length - known - unsure };
@@ -397,7 +398,7 @@
         <div class="grp"><label class="lbl" for="memStatus">상태</label>
           <select id="memStatus" class="search" style="flex:none;max-width:none">
             ${[["all", "전체"], ["new", "아직 안 봄"], ["unsure", "헷갈려요"], ["known", "알아요"]].map(([k, l]) => `<option value="${k}"${mem.status === k ? " selected" : ""}>${l}</option>`).join("")}</select></div>
-        <label class="switch"><input type="checkbox" id="memShowX"${mem.showX ? " checked" : ""}> 범위 제외(X) 항목 포함</label>
+        <label class="switch"><input type="checkbox" id="memShowX"${mem.showX ? " checked" : ""}> 범위 밖 항목 포함 <span class="muted" style="font-size:.8rem">(X 표시 · 1·2차 반응 · 교재 보충)</span></label>
         <span class="spacer"></span>
         <button type="button" class="btn" data-m="${mem.order ? "reset-order" : "shuffle"}">${mem.order ? "순서대로" : "섞기"}</button>
         <button type="button" class="btn" data-m="wipe">진행 초기화</button>
@@ -408,7 +409,7 @@
   }
 
   function tagsHTML(c) {
-    return `<span class="badge ch${c.ch}">${c.ch}단원</span><span class="badge">${esc(c.topic)}</span>${c.x ? '<span class="badge hw">범위 제외 표시</span>' : ""}${c.sup ? '<span class="badge">교재 보충</span>' : ""}`;
+    return `<span class="badge ch${c.ch}">${c.ch}단원</span><span class="badge">${esc(c.topic)}</span>${c.x ? '<span class="badge hw">범위 제외 표시(X)</span>' : ""}${c.out ? `<span class="badge hw">범위 밖: ${esc(c.out)}</span>` : ""}${c.sup ? '<span class="badge">교재 보충 · 범위 밖</span>' : ""}`;
   }
 
   function renderMemBody() {
@@ -477,7 +478,7 @@
   /* ============================== PRACTICE ============================== */
   const PROB_KEY = "apchem.prob.v1";
   let probState = store.get(PROB_KEY, {});
-  const prac = { mode: store.get("apchem.prac.mode", "bank"), ch: "all", src: "all", state: "all", page: 1, order: null, gen: "all", genProb: null, genStats: store.get("apchem.gen.v1", { ok: 0, tot: 0 }) };
+  const prac = { mode: store.get("apchem.prac.mode", "bank"), ch: "all", src: "all", state: "all", page: 1, order: null, gen: "all", showOut: false, genProb: null, genStats: store.get("apchem.gen.v1", { ok: 0, tot: 0 }) };
   const PAGE = 8;
   const SRC_LABEL = { book: ["book", "교재"], hw: ["hw", "숙제(HW)"], ap: ["ap", "AP 스타일"], concept: ["", "개념 확인"], gen: ["gen", "랜덤"] };
 
@@ -538,12 +539,17 @@
       if (e.target.id === "gSel") { prac.gen = e.target.value; prac.genProb = null; renderPractice(); }
       if (e.target.id === "sSel") { prac.src = e.target.value; prac.page = 1; renderPractice(); }
       if (e.target.id === "stSel") { prac.state = e.target.value; prac.page = 1; renderPractice(); }
+      if (e.target.id === "pShowOut") {
+        prac.showOut = e.target.checked; prac.page = 1; prac.genProb = null;
+        if (prac.gen !== "all" && !GENERATORS.some(g => g.key === prac.gen && genOK(g))) prac.gen = "all";
+        renderPractice();
+      }
     });
     renderPractice();
   }
 
   function bankList() {
-    let list = PROBLEMS.filter(p => (prac.ch === "all" || p.ch === +prac.ch) && (prac.src === "all" || p.src === prac.src));
+    let list = PROBLEMS.filter(p => (prac.showOut || !isOut(p)) && (prac.ch === "all" || p.ch === +prac.ch) && (prac.src === "all" || p.src === prac.src));
     if (prac.mode === "wrong") list = list.filter(p => overall(p, getPS(p.id)) === "bad");
     else if (prac.state === "todo") list = list.filter(p => overall(p, getPS(p.id)) == null);
     else if (prac.state === "bad") list = list.filter(p => overall(p, getPS(p.id)) === "bad");
@@ -563,9 +569,9 @@
         <div class="grp"><label class="lbl" for="stSel">상태</label><select id="stSel" class="search" style="flex:none;max-width:none">${[["all", "전체"], ["todo", "안 푼 문제"], ["bad", "틀린 문제"], ["ok", "푼 문제"]].map(([k, l]) => `<option value="${k}"${prac.state === k ? " selected" : ""}>${l}</option>`).join("")}</select></div>
         <span class="spacer"></span><button type="button" class="btn" data-p="${prac.order ? "unshuffle" : "shuffle"}">${prac.order ? "순서대로" : "섞기"}</button>`;
     }
-    html += `</div>`;
+    html += `<label class="switch" style="margin-left:auto"><input type="checkbox" id="pShowOut"${prac.showOut ? " checked" : ""}> 범위 밖 문제 포함</label></div>`;
     if (prac.mode === "gen") {
-      const gens = GENERATORS.filter(g => prac.ch === "all" || g.ch === +prac.ch);
+      const gens = GENERATORS.filter(g => genOK(g) && (prac.ch === "all" || g.ch === +prac.ch));
       html += `<div class="gen-bar"><label class="lbl" for="gSel" style="font-size:.78rem;font-weight:800;color:var(--muted)">유형</label><select id="gSel" class="search" style="flex:none;max-width:none"><option value="all">전체 섞어서</option>${gens.map(g => `<option value="${g.key}"${prac.gen === g.key ? " selected" : ""}>${g.ch}단원 · ${g.label}</option>`).join("")}</select>
         <button type="button" class="btn btn-primary" data-p="newgen">새 문제 ▸</button><span class="muted" style="margin-left:auto">누적 <b>${prac.genStats.ok}</b> / ${prac.genStats.tot} 문제 첫 시도 정답</span></div>`;
     }
@@ -594,22 +600,27 @@
     renderPracStats();
   }
 
+  const genOK = g => prac.showOut || !g.out;
   function makeGen() {
-    const gens = GENERATORS.filter(g => (prac.ch === "all" || g.ch === +prac.ch) && (prac.gen === "all" || g.key === prac.gen));
+    const gens = GENERATORS.filter(g => genOK(g) && (prac.ch === "all" || g.ch === +prac.ch) && (prac.gen === "all" || g.key === prac.gen));
     if (!gens.length) return null;
-    return gens[Math.floor(Math.random() * gens.length)].make();
+    const g = gens[Math.floor(Math.random() * gens.length)];
+    const prob = g.make();
+    if (g.out) prob.out = g.out;
+    return prob;
   }
 
   function renderPracStats() {
     const box = $("#pStats"); if (!box) return;
     const rows = [13, 14, 15].map(ch => {
-      const ps = PROBLEMS.filter(p => p.ch === ch);
+      const ps = PROBLEMS.filter(p => p.ch === ch && !isOut(p));
       const ok = ps.filter(p => overall(p, getPS(p.id)) === "ok").length;
       const bad = ps.filter(p => overall(p, getPS(p.id)) === "bad").length;
       return `<div class="r"><span class="badge ch${ch}">${ch}단원</span><div class="progress"><i style="width:${ps.length ? ok / ps.length * 100 : 0}%;background:var(--c${ch})"></i></div><span>${ok}/${ps.length}${bad ? ` · <span style="color:var(--red)">✗${bad}</span>` : ""}</span></div>`;
     });
-    const okAll = PROBLEMS.filter(p => overall(p, getPS(p.id)) === "ok").length;
-    box.innerHTML = `<div class="ring-row">${rows.join("")}</div><p style="margin:10px 0 0;font-size:.88rem">전체 <b>${okAll}</b> / ${PROBLEMS.length} 문제 완료</p>
+    const scope = PROBLEMS.filter(p => !isOut(p));
+    const okAll = scope.filter(p => overall(p, getPS(p.id)) === "ok").length;
+    box.innerHTML = `<div class="ring-row">${rows.join("")}</div><p style="margin:10px 0 0;font-size:.88rem">시험 범위 문제 <b>${okAll}</b> / ${scope.length} 완료</p>
       <button type="button" class="btn" style="margin-top:8px" data-p="wipe">기록 초기화</button>`;
   }
 
@@ -618,7 +629,7 @@
     if (t) {
       const a = t.dataset.p;
       if (a === "mode") { prac.mode = t.dataset.v; store.set("apchem.prac.mode", prac.mode); prac.page = 1; prac.genProb = null; renderPractice(); }
-      else if (a === "ch") { prac.ch = t.dataset.v; prac.page = 1; prac.genProb = null; if (prac.gen !== "all" && !GENERATORS.some(g => g.key === prac.gen && (prac.ch === "all" || g.ch === +prac.ch))) prac.gen = "all"; renderPractice(); }
+      else if (a === "ch") { prac.ch = t.dataset.v; prac.page = 1; prac.genProb = null; if (prac.gen !== "all" && !GENERATORS.some(g => g.key === prac.gen && genOK(g) && (prac.ch === "all" || g.ch === +prac.ch))) prac.gen = "all"; renderPractice(); }
       else if (a === "more") { prac.page++; renderPractice(); }
       else if (a === "shuffle") { prac.order = shuffle(PROBLEMS.map(p => p.id)); prac.page = 1; renderPractice(); }
       else if (a === "unshuffle") { prac.order = null; prac.page = 1; renderPractice(); }
@@ -639,7 +650,7 @@
     const lv = "●".repeat(p.level || 1) + "○".repeat(3 - (p.level || 1));
     const num = (p.id.match(/p(\d+)-(\d+)/) || []);
     const idTxt = persist && num.length ? `${num[1]}-${+num[2]}` : "";
-    card.innerHTML = `<div class="prob-head">${idTxt ? `<span class="pid">${idTxt}</span>` : ""}<span class="badge ${sl[0]}">${esc(p.srcLabel || sl[1])}</span><span class="badge ch${p.ch}">${esc(p.topic)}</span><span class="badge" title="난이도">${lv}</span><span class="state"></span></div>
+    card.innerHTML = `<div class="prob-head">${idTxt ? `<span class="pid">${idTxt}</span>` : ""}<span class="badge ${sl[0]}">${esc(p.srcLabel || sl[1])}</span><span class="badge ch${p.ch}">${esc(p.topic)}</span><span class="badge" title="난이도">${lv}</span>${isOut(p) ? `<span class="badge hw" title="${esc(p.out || "")}">범위 밖${p.out ? ": " + esc(p.out) : ""}</span>` : ""}<span class="state"></span></div>
       <div class="stem">${p.stem}</div>
       ${p.parts.map((pt, i) => partHTML(pt, i)).join("")}
       <div class="prob-actions"><button type="button" class="btn" data-a="sol">풀이 보기</button><button type="button" class="btn" data-a="reset">다시 풀기</button>${opt.persist ? "" : '<button type="button" class="btn btn-primary hide" data-a="next">다음 문제 ▸</button>'}</div>

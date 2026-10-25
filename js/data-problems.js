@@ -82,12 +82,12 @@
       parts: [{ type: "mc", options: [R`rate $=k[\mathrm A]$`, R`rate $=k[\mathrm A]^2$`, R`rate $=k[\mathrm B]$`, R`rate $=k[\mathrm A][\mathrm B]$`], answer: 2 }],
       solution: R`<p>Exp 1→2: [B] ×2, 속도 ×2 ⇒ B 1차. Exp 2→3: [A] ×2 인데 속도 <b>변화 없음</b> ⇒ A 0차 → rate $=k[\mathrm B]$.</p>` },
 
-    { id: "p13-09", ch: 13, topic: "13.3 농도–시간", src: "ap", srcLabel: "AP 스타일 MC", level: 1,
+    { id: "p13-09", out: "1·2차 반응", ch: 13, topic: "13.3 농도–시간", src: "ap", srcLabel: "AP 스타일 MC", level: 1,
       stem: R`<p>$\ce{A -> B + C}$, rate $=k[\mathrm A]^2$. 이 반응에서 얻은 데이터로 그릴 수 있는 그래프는?</p>`,
       parts: [{ type: "mc", options: [R`$[\mathrm A]$ vs $t$ : 수평선`, R`$[\mathrm A]$ vs $t$ : 우하향 직선`, R`$\ln[\mathrm A]$ vs $t$ : 우하향 직선`, R`$1/[\mathrm A]$ vs $t$ : 우상향 직선`], answer: 3 }],
       solution: R`<p>2차: $\dfrac1{[\mathrm A]_t}=kt+\dfrac1{[\mathrm A]_0}$ ⇒ $1/[\mathrm A]$ 대 $t$ 는 <b>기울기 $+k$ 인 우상향 직선</b>. ($[\mathrm A]$ vs $t$ 직선은 0차, $\ln[\mathrm A]$ vs $t$ 직선은 1차.)</p>` },
 
-    { id: "p13-10", ch: 13, topic: "13.3 농도–시간", src: "hw", srcLabel: "교재 Ex 13.4 (HW)", level: 2,
+    { id: "p13-10", out: "1·2차 반응", ch: 13, topic: "13.3 농도–시간", src: "hw", srcLabel: "교재 Ex 13.4 (HW)", level: 2,
       stem: R`<p>기상 시클로프로판 → 프로펜은 1차 반응이며 500 °C 에서 $k=6.7\times10^{-4}\ \mathrm{s^{-1}}$ 이다.</p>`,
       parts: [
         { label: "(a)", prompt: "처음 0.25 M 일 때 8.8 min 후의 농도", type: "num", answer: 0.1755, unit: "M", tol: 0.03 },
@@ -98,12 +98,12 @@
         <p>(b) $t=\dfrac1k\ln\dfrac{0.25}{0.15}=\dfrac{0.511}{6.7\times10^{-4}}=763\ \mathrm s=12.7$ min</p>
         <p>(c) 남은 비율 0.26: $t=\dfrac1k\ln\dfrac1{0.26}=\dfrac{1.347}{6.7\times10^{-4}}=2.0\times10^3\ \mathrm s=33.5$ min</p>` },
 
-    { id: "p13-11", ch: 13, topic: "13.3 농도–시간", src: "book", srcLabel: "교재 Ex 13.6 유형", level: 1,
+    { id: "p13-11", out: "1·2차 반응", ch: 13, topic: "13.3 농도–시간", src: "book", srcLabel: "교재 Ex 13.6 유형", level: 1,
       stem: R`<p>$\ce{C2H6(g) -> 2CH3(g)}$ 는 700 °C 에서 1차이고 $k=5.36\times10^{-4}\ \mathrm{s^{-1}}$ 이다. 반감기를 분(min)으로 구하시오.</p>`,
       parts: [{ type: "num", answer: 21.55, unit: "min", tol: 0.02 }],
       solution: R`<p>$t_{1/2}=\dfrac{0.693}{k}=\dfrac{0.693}{5.36\times10^{-4}}=1.29\times10^3\ \mathrm s=21.6$ min</p>` },
 
-    { id: "p13-12", ch: 13, topic: "13.3 농도–시간", src: "hw", srcLabel: "교재 Ex 13.7 (HW)", level: 2,
+    { id: "p13-12", out: "1·2차 반응", ch: 13, topic: "13.3 농도–시간", src: "hw", srcLabel: "교재 Ex 13.7 (HW)", level: 2,
       stem: R`<p>$\ce{I(g) + I(g) -> I2(g)}$ 는 2차이며 23 °C 에서 $k=7.0\times10^{9}\ \mathrm{M^{-1}s^{-1}}$ 이다.</p>`,
       parts: [
         { label: "(a)", prompt: R`$[\mathrm I]_0=0.086$ M 일 때 2.0 min 후의 농도`, type: "num", answer: 1.19e-12, unit: "M", tol: 0.03 },
@@ -113,19 +113,19 @@
       solution: R`<p>(a) $\dfrac1{[\mathrm I]_t}=kt+\dfrac1{[\mathrm I]_0}=(7.0\times10^9)(120)+11.6\approx8.4\times10^{11}$ ⇒ $[\mathrm I]_t=1.2\times10^{-12}$ M</p>
         <p>(b)(c) $t_{1/2}=\dfrac1{k[\mathrm I]_0}$: 0.60 M → $2.4\times10^{-10}$ s, 0.42 M → $3.4\times10^{-10}$ s. 농도가 낮을수록 반감기가 <b>길다</b>(2차의 특징).</p>` },
 
-    { id: "p13-13", ch: 13, topic: "13.3 농도–시간", src: "book", srcLabel: "교재 13.28 유형", level: 2,
+    { id: "p13-13", out: "1·2차 반응", ch: 13, topic: "13.3 농도–시간", src: "book", srcLabel: "교재 13.28 유형", level: 2,
       stem: R`<p>2차 반응 $\ce{2NO2(g) -> 2NO(g) + O2(g)}$ 의 속도 상수가 300 °C 에서 $0.54\ \mathrm{M^{-1}s^{-1}}$ 이다. [NO<sub>2</sub>] 가 0.62 M → 0.28 M 로 줄어드는 데 몇 초 걸리는가?</p>`,
       parts: [{ type: "num", answer: 3.627, unit: "s", tol: 0.03 }],
       solution: R`<p>$\dfrac1{[\mathrm A]_t}-\dfrac1{[\mathrm A]_0}=kt\ \Rightarrow\ t=\dfrac{1/0.28-1/0.62}{0.54}=\dfrac{3.571-1.613}{0.54}=3.6\ \mathrm s$</p>` },
 
     { id: "p13-14", ch: 13, topic: "13.4 활성화 에너지", src: "hw", srcLabel: "교재 Ex 13.9 (HW)", level: 2,
-      stem: R`<p>1차 반응의 속도 상수가 298 K 에서 $3.46\times10^{-2}\ \mathrm{s^{-1}}$ 이다. 활성화 에너지가 50.2 kJ/mol 일 때 350 K 에서의 속도 상수는?</p>`,
+      stem: R`<p>어떤 반응의 속도 상수가 298 K 에서 $3.46\times10^{-2}\ \mathrm{s^{-1}}$ 이다. 활성화 에너지가 50.2 kJ/mol 일 때 350 K 에서의 속도 상수는?</p>`,
       parts: [{ type: "num", answer: 0.702, unit: "s<sup>−1</sup>", tol: 0.03 }],
       solution: R`<p>$\ln\dfrac{k_2}{k_1}=\dfrac{E_a}{R}\left(\dfrac1{T_1}-\dfrac1{T_2}\right)=\dfrac{50200}{8.314}\left(\dfrac1{298}-\dfrac1{350}\right)=3.01$</p>
         <p>$k_2=(3.46\times10^{-2})e^{3.01}=0.70\ \mathrm{s^{-1}}$</p>` },
 
     { id: "p13-15", ch: 13, topic: "13.4 활성화 에너지", src: "book", srcLabel: "교재 13.40 유형", level: 3,
-      stem: R`<p>1차 반응 $\ce{2N2O5(g) -> 2N2O4(g) + O2(g)}$ 의 온도별 속도 상수이다. $\ln k$ 대 $1/T$ 그래프로 활성화 에너지를 구하시오.</p>` +
+      stem: R`<p>$\ce{2N2O5(g) -> 2N2O4(g) + O2(g)}$ 의 온도별 속도 상수이다. $\ln k$ 대 $1/T$ 그래프로 활성화 에너지를 구하시오.</p>` +
         T(["T (K)", "298", "308", "318", "328", "338"], [["k (s<sup>−1</sup>)", R`$1.74\times10^{-5}$`, R`$6.61\times10^{-5}$`, R`$2.51\times10^{-4}$`, R`$7.59\times10^{-4}$`, R`$2.40\times10^{-3}$`]]),
       parts: [{ prompt: "활성화 에너지 $E_a$", type: "num", answer: 103, unit: "kJ/mol", tol: 0.06, hint: "양 끝점만 써도 됩니다: ln(k₃₃₈/k₂₉₈) = (Ea/R)(1/298 − 1/338)" }],
       solution: R`<p>5개 점을 $(1/T,\ \ln k)$ 로 바꿔 직선 회귀하면 기울기 $\approx-1.24\times10^{4}$ K.</p>
@@ -173,7 +173,7 @@
         <p>(c) Br<sub>2</sub> 0.02 → 0.01 (0.01 M 소모). 계수비 NO : Br<sub>2</sub> = 2 : 1 ⇒ NO 0.02 M 소모 ⇒ $0.04-0.02=0.02$ M.</p>
         <p>(d) <b>I</b>: rds 의 rate $=k_2[\ce{N2O2}][\ce{Br2}]$, 평형 $[\ce{N2O2}]=K[\ce{NO}]^2$ ⇒ $k[\ce{NO}]^2[\ce{Br2}]$ ✓. <b>II</b>: rate $=k[\ce{Br2}]$ ✗ (NO 가 안 나옴).</p>` },
 
-    { id: "p13-19", ch: 13, topic: "13.3 농도–시간", src: "ap", srcLabel: "AP FRQ 스타일", level: 3,
+    { id: "p13-19", out: "1·2차 반응", ch: 13, topic: "13.3 농도–시간", src: "ap", srcLabel: "AP FRQ 스타일", level: 3,
       stem: R`<p>$\ce{2N2O5(g) -> 4NO2(g) + O2(g)}$ 는 40 °C 에서 1차 반응이며 다음 데이터를 얻었다.</p>` +
         T(["[N<sub>2</sub>O<sub>5</sub>] (M)", "0.400", "0.289", "0.209", "0.151", "0.109"], [["Time (min)", "0.0", "20.0", "40.0", "60.0", "80.0"]]),
       parts: [
@@ -189,7 +189,7 @@
         <p>(d) $\text{rate}=k[\mathrm A]_0=(0.01625)(0.400)=6.5\times10^{-3}$ M/min</p>
         <p>(e) $t_{1/2}=\dfrac{0.693}{0.01625}=42.7$ min</p>` },
 
-    { id: "p13-20", ch: 13, topic: "13.3 농도–시간", src: "concept", srcLabel: "개념 확인", level: 1,
+    { id: "p13-20", out: "1·2차 반응", ch: 13, topic: "13.3 농도–시간", src: "concept", srcLabel: "개념 확인", level: 1,
       stem: R`<p>어떤 1차 반응의 반감기가 20.0 min 이다.</p>`,
       parts: [
         { label: "(a)", prompt: "속도 상수 k", type: "num", answer: 0.03466, unit: "min<sup>−1</sup>", tol: 0.02 },
@@ -197,7 +197,7 @@
       ],
       solution: R`<p>(a) $k=\dfrac{0.693}{20.0}=3.47\times10^{-2}\ \mathrm{min^{-1}}$ &nbsp; (b) 60 min = 반감기 3번 ⇒ $(1/2)^3=1/8=0.125$</p>` },
 
-    { id: "p13-21", ch: 13, topic: "13.3 농도–시간", src: "concept", srcLabel: "개념 확인", level: 2,
+    { id: "p13-21", out: "1·2차 반응", ch: 13, topic: "13.3 농도–시간", src: "concept", srcLabel: "개념 확인", level: 2,
       stem: R`<p>0차 반응에서 $k=0.025\ \mathrm{M\,s^{-1}}$, $[\mathrm A]_0=0.50$ M 이다.</p>`,
       parts: [
         { label: "(a)", prompt: "반감기", type: "num", answer: 10, unit: "s", tol: 0.02 },
@@ -205,7 +205,7 @@
       ],
       solution: R`<p>(a) $t_{1/2}=\dfrac{[\mathrm A]_0}{2k}=\dfrac{0.50}{2(0.025)}=10$ s &nbsp; (b) $[\mathrm A]_t=0$ ⇒ $t=\dfrac{[\mathrm A]_0}{k}=20$ s (반감기의 2배: 0차는 반감기가 짧아지므로 두 번째 반감기는 5 s, … 합이 20 s).</p>` },
 
-    { id: "p13-22", ch: 13, topic: "13.3 농도–시간", src: "concept", srcLabel: "개념 확인", level: 2,
+    { id: "p13-22", out: "1·2차 반응", ch: 13, topic: "13.3 농도–시간", src: "concept", srcLabel: "개념 확인", level: 2,
       stem: R`<p>2차 반응($\ce{A -> product}$)에서 $[\mathrm A]_0=0.20$ M 일 때 첫 번째 반감기가 100 s 였다. 그 다음(두 번째) 반감기는 얼마인가?</p>`,
       parts: [{ type: "mc", options: ["50 s", "100 s", "200 s", "400 s"], answer: 2 }],
       solution: R`<p>2차: $t_{1/2}=\dfrac1{k[\mathrm A]_0}$. 두 번째 반감기의 시작 농도는 $0.10$ M 로 절반이므로 반감기는 <b>2배(200 s)</b>.</p>` },
@@ -213,7 +213,7 @@
     { id: "p13-23", ch: 13, topic: "13.2 속도 법칙", src: "concept", srcLabel: "개념 확인", level: 1,
       stem: R`<p>같은 온도에서 어떤 반응물의 농도를 2배로 했을 때, 반응 속도 상수 $k$ 는 어떻게 되는가?</p>`,
       parts: [{ type: "mc", options: ["2배가 된다", "절반이 된다", "변하지 않는다", "차수에 따라 달라진다"], answer: 2 }],
-      solution: R`<p>$k$ 는 온도(와 촉매)에만 의존하며 <b>농도와 무관</b>합니다. 농도를 바꾸면 <b>속도(rate)</b>가 변하지 $k$ 가 변하지 않아요.</p>` },
+      solution: R`<p>$k$ 는 온도에 의존하며 <b>농도와 무관</b>합니다. 농도를 바꾸면 <b>속도(rate)</b>가 변하지 $k$ 가 변하지 않아요.</p>` },
 
     /* ===================== 14 Chemical Equilibrium ===================== */
     { id: "p14-01", ch: 14, topic: "14.1 평형과 K", src: "concept", srcLabel: "개념 확인", level: 1,
@@ -241,7 +241,7 @@
       parts: [{ type: "num", answer: 2.398e33, unit: "", tol: 0.03 }],
       solution: R`<p>반응을 <b>뒤집으면 역수</b>: $K'=1/K=\dfrac{1}{4.17\times10^{-34}}=2.40\times10^{33}$ (HCl 생성이 매우 유리)</p>` },
 
-    { id: "p14-06", ch: 14, topic: "14.1 평형과 K", src: "book", srcLabel: "교재 14.22 유형", level: 2,
+    { id: "p14-06", out: "Heterogeneous equilibria (X 표시)", ch: 14, topic: "14.1 평형과 K", src: "book", srcLabel: "교재 14.22 유형", level: 2,
       stem: R`<p>$\ce{CaCO3(s) <=> CaO(s) + CO2(g)}$ 의 평형 압력(CO<sub>2</sub>)이 350 °C 에서 0.105 atm 이다. 이 반응의 $K_P$ 와 $K_c$ 를 구하시오. <span class="muted">(순수한 고체는 K 식에서 제외)</span></p>`,
       parts: [
         { label: "(a)", prompt: R`$K_P$`, type: "num", answer: 0.105, unit: "", tol: 0.02 },
@@ -340,8 +340,8 @@
 
     { id: "p14-19", ch: 14, topic: "14.5 Le Châtelier", src: "concept", srcLabel: "개념 확인", level: 1,
       stem: R`<p>발열 반응에서 <b>평형 상수 K 의 값을 바꾸는</b> 것은?</p>`,
-      parts: [{ type: "mc", options: ["반응물의 농도를 높인다", "용기의 부피를 줄인다", "온도를 높인다", "촉매를 넣는다"], answer: 2 }],
-      solution: R`<p>K 를 바꾸는 요인은 <b>온도뿐</b>. 농도·부피(압력)는 평형 위치만 이동시키고, 촉매는 정·역반응을 똑같이 빠르게 할 뿐 K 와 위치를 바꾸지 않습니다.</p>` },
+      parts: [{ type: "mc", options: ["반응물의 농도를 높인다", "용기의 부피를 줄인다", "온도를 높인다", "생성물을 일부 제거한다"], answer: 2 }],
+      solution: R`<p>K 를 바꾸는 요인은 <b>온도뿐</b>. 농도 변화(반응물 추가·생성물 제거)와 부피(압력) 변화는 평형 위치만 이동시키고 K 값은 그대로예요.</p>` },
 
     { id: "p14-20", ch: 14, topic: "14.1 평형과 K", src: "concept", srcLabel: "개념 확인", level: 2,
       stem: R`<p>$\ce{N2(g) + 3H2(g) <=> 2NH3(g)}$ 의 $K_c=0.50$ (400 °C = 673 K). 같은 온도에서 $K_P$ 는?</p>`,

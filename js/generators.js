@@ -33,7 +33,7 @@
   /* ====================== 13 ====================== */
   const gens = [];
 
-  gens.push({ key: "k1", label: "1차 반응: 농도·반감기", ch: 13, make() {
+  gens.push({ key: "k1", out: "1·2차 반응", label: "1차 반응: 농도·반감기", ch: 13, make() {
     const k = pw(rint(11, 98) / 10, -rint(2, 4));
     const A0 = sig(rnd(0.1, 2.0), 2);
     const kt = rnd(0.4, 2.6);
@@ -51,7 +51,7 @@
     });
   } });
 
-  gens.push({ key: "k2", label: "1차 반응: 몇 %가 남을 때까지", ch: 13, make() {
+  gens.push({ key: "k2", out: "1·2차 반응", label: "1차 반응: 몇 %가 남을 때까지", ch: 13, make() {
     const unit = pick(["s", "min", "h"]);
     const th = sig(rnd(5, 60), 2);
     const Y = pick([50, 25, 12.5, 10, 5, 20, 40]);
@@ -65,7 +65,7 @@
     });
   } });
 
-  gens.push({ key: "k3", label: "2차 반응: 농도·반감기", ch: 13, make() {
+  gens.push({ key: "k3", out: "1·2차 반응", label: "2차 반응: 농도·반감기", ch: 13, make() {
     const k = sig(rnd(0.05, 5), 2);
     const A0 = sig(rnd(0.1, 1.0), 2);
     const kA = rnd(0.5, 5);
@@ -122,13 +122,13 @@
     const ratio = Math.exp(Ea * 1000 / RGAS * (1 / T1 - 1 / T2));
     const k2 = k1 * ratio;
     return base("a1", 13, "13.4 활성화 에너지", {
-      stem: R`<p>1차 반응의 활성화 에너지는 ${Ea} kJ/mol 이고 ${T1} K 에서 $k=${fmt(k1)}\ \mathrm{s^{-1}}$ 이다.</p>`,
+      stem: R`<p>어떤 반응의 활성화 에너지는 ${Ea} kJ/mol 이고 ${T1} K 에서 속도 상수 $k=${fmt(k1)}$ (단위는 생략) 이다.</p>`,
       parts: [
-        { label: "(a)", prompt: `${T2} K 에서의 k`, type: "num", answer: k2, unit: "s<sup>−1</sup>", tol: 0.03 },
+        { label: "(a)", prompt: `${T2} K 에서의 k`, type: "num", answer: k2, unit: "", tol: 0.03 },
         { label: "(b)", prompt: "속도 상수는 몇 배가 되었는가?", type: "num", answer: ratio, unit: "배", tol: 0.03 }
       ],
       solution: R`<p>$\ln\dfrac{k_2}{k_1}=\dfrac{E_a}{R}\left(\dfrac1{T_1}-\dfrac1{T_2}\right)=\dfrac{${Ea * 1000}}{8.314}\left(\dfrac1{${T1}}-\dfrac1{${T2}}\right)=${fmt(Math.log(ratio))}$</p>
-        <p>$k_2/k_1=${fmt(ratio)}$ ⇒ $k_2=${fmt(k2)}\ \mathrm{s^{-1}}$ &nbsp;(Ea 를 J 로 바꾸는 것 잊지 말기!)</p>`
+        <p>$k_2/k_1=${fmt(ratio)}$ ⇒ $k_2=${fmt(k2)}$ &nbsp;(Ea 를 J 로 바꾸는 것 잊지 말기!)</p>`
     });
   } });
 

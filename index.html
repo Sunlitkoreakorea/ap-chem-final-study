@@ -54,7 +54,7 @@
       <a href="#ch13">13단원 개요</a>
       <a href="#s13-1" class="sub">13.1 반응 속도</a>
       <a href="#s13-2" class="sub">13.2 속도 법칙</a>
-      <a href="#s13-3" class="sub">13.3 농도–시간</a>
+      <a href="#s13-3" class="sub out">13.3 농도–시간 (제외)</a>
       <a href="#s13-4" class="sub">13.4 활성화 에너지</a>
       <a href="#s13-5" class="sub">13.5 반응 메커니즘</a>
       <a href="#sum13" class="sub">13 요약표</a>
@@ -95,7 +95,7 @@
           <ul>
             <li>13.1 Reaction rate</li>
             <li>13.2 Rate law</li>
-            <li>13.3 농도–시간 관계 · 반감기</li>
+            <li class="x">13.3 농도–시간 관계 (0·1·2차 반응 · 반감기)</li>
             <li>13.4 Arrhenius · 활성화 에너지</li>
             <li>13.5 Reaction mechanism</li>
             <li class="x">Experimental support for mechanisms</li>
@@ -129,7 +129,7 @@
           </ul>
         </div>
       </div>
-      <p class="legend">취소선 항목은 수업 슬라이드에서 <b>빨간 X</b>가 표시된 부분이에요(시험 범위 제외로 보임). 그래도 참고용으로 짧게 적어 두었으니 ‘범위 제외’ 상자에서 확인하세요. * 단, 교재 문제 14.22(CaCO<sub>3</sub>)가 이 개념을 쓰기 때문에 한 줄만 알아두면 안전해요.</p>
+      <p class="legend">취소선 항목은 시험 범위 밖이에요 — 수업 슬라이드에 <b>빨간 X</b>가 표시된 부분과, 선생님이 범위가 아니라고 하신 <b>1·2차 반응(13.3)</b>이에요. 참고용으로만 ‘범위 제외’ 상자에 접어 두었어요. 개념 암기·문제 풀이 탭에서도 이런 항목은 기본으로 숨겨져 있고, 필요하면 ‘범위 밖 항목 포함’을 켜서 볼 수 있어요.</p>
 
       <div class="callout tip" style="margin-top:18px">
         <span class="ttl">이 사이트 쓰는 법</span>
@@ -146,7 +146,7 @@
       <article class="chapter c13" id="ch13">
         <header class="chapter-head">
           <div class="num">13</div>
-          <div><h2>Chemical Kinetics</h2><p>반응이 <b>얼마나 빠르게</b> 일어나는가 — 속도, 속도 법칙, 반감기, 온도 의존성, 메커니즘</p></div>
+          <div><h2>Chemical Kinetics</h2><p>반응이 <b>얼마나 빠르게</b> 일어나는가 — 속도, 속도 법칙, 온도 의존성(Arrhenius), 메커니즘</p></div>
         </header>
 
         <section class="sec" id="s13-1">
@@ -308,7 +308,12 @@
         </section>
 
         <section class="sec" id="s13-3">
-          <h3><span class="sn">13.3</span> 농도와 시간의 관계 (Integrated Rate Laws)</h3>
+          <h3 class="out-title"><span class="sn">13.3</span> <span class="strike">농도와 시간의 관계 (Integrated Rate Laws)</span> <span class="badge hw">범위 제외</span></h3>
+          <div class="callout excl"><span class="ttl">범위 제외 (선생님 안내)</span>
+            <p><b>1차·2차 반응</b>(적분 속도식 · 반감기 · 직선 그래프로 차수 찾기)과 같은 묶음인 <b>0차 반응 · Table 13.3</b> 은 시험 범위가 아니에요. 참고용으로만 아래에 접어 두었으니 공부할 필요는 없어요.</p>
+          </div>
+          <details class="sol-toggle plain excl-sec"><summary>참고용으로 펼쳐 보기 — 0·1·2차 적분 속도식, 반감기</summary>
+          <div class="ex-body">
           <p>속도 법칙을 시간에 대해 적분하면 “시간 $t$ 에서의 농도”를 구하는 식이 나와요. 차수마다 <b>직선이 되는 그래프</b>가 다르다는 게 핵심입니다.</p>
 
           <h4>① 1차 반응 (First-order)</h4>
@@ -397,6 +402,8 @@
             <p>$[\mathrm A]$, $\ln[\mathrm A]$, $1/[\mathrm A]$ 를 각각 $t$ 에 대해 그려 <b>직선이 나오는 것</b>이 그 반응의 차수. (AP 객관식에서 “2차 반응이면 어떤 그래프?” → $1/[\mathrm A]$ vs $t$, 우상향 직선.)</p>
           </div>
           <div class="widget" data-widget="order-plots"></div>
+          </div>
+          </details>
         </section>
 
         <section class="sec" id="s13-4">
@@ -455,7 +462,7 @@
 
           <div class="exbox">
             <div class="ex-head"><span class="badge book">교재 Ex 13.9</span><span class="badge hw">HW</span> 다른 온도에서의 k</div>
-            <div class="ex-q"><p>1차 반응의 속도 상수가 298 K에서 $3.46\times10^{-2}\ \mathrm{s^{-1}}$. $E_a=50.2$ kJ/mol 일 때 350 K 에서의 $k$ 는?</p></div>
+            <div class="ex-q"><p>어떤 반응의 속도 상수가 298 K에서 $3.46\times10^{-2}\ \mathrm{s^{-1}}$. $E_a=50.2$ kJ/mol 일 때 350 K 에서의 $k$ 는?</p></div>
             <details class="sol-toggle"><summary>풀이 보기</summary>
               <div class="ex-body">
                 <p>$\ln\dfrac{k_2}{k_1}=\dfrac{E_a}{R}\left(\dfrac1{T_1}-\dfrac1{T_2}\right)=\dfrac{50200}{8.314}\left(\dfrac1{298}-\dfrac1{350}\right)=6.04\times10^3\times4.99\times10^{-4}=3.01$</p>
@@ -570,9 +577,6 @@
           <div class="cheat">
             <div class="card"><h4>속도 정의</h4>$\text{rate}=-\tfrac1a\tfrac{\Delta[\mathrm A]}{\Delta t}=\tfrac1c\tfrac{\Delta[\mathrm C]}{\Delta t}$<br>단위 M/s</div>
             <div class="card"><h4>속도 법칙</h4>$\text{rate}=k[\mathrm A]^x[\mathrm B]^y$<br>차수는 <b>실험</b>으로. 초기 속도법: 한 변수씩 바꾼다.</div>
-            <div class="card"><h4>1차</h4>$\ln[\mathrm A]_t=-kt+\ln[\mathrm A]_0$<br>$t_{1/2}=0.693/k$ (농도 무관)</div>
-            <div class="card"><h4>2차</h4>$1/[\mathrm A]_t=kt+1/[\mathrm A]_0$<br>$t_{1/2}=1/(k[\mathrm A]_0)$</div>
-            <div class="card"><h4>0차</h4>$[\mathrm A]_t=-kt+[\mathrm A]_0$<br>$t_{1/2}=[\mathrm A]_0/2k$</div>
             <div class="card"><h4>Arrhenius</h4>$\ln k=\ln A-E_a/RT$<br>$\ln(k_1/k_2)=\tfrac{E_a}{R}\tfrac{T_1-T_2}{T_1T_2}$</div>
             <div class="card"><h4>메커니즘</h4>느린 단계 = rds. 중간체는 속도식에서 제거(빠른 평형 이용). 단계의 합 = 전체 반응식.</div>
           </div>
@@ -702,7 +706,7 @@
             <div class="ex-head"><span class="badge book">교재 Review of Concepts</span> k<sub>r</sub> 구하기</div>
             <div class="ex-q"><p>$\ce{A <=> B + C}$ 의 $K_c=4.8\times10^{-2}$ (80 °C). 정반응 속도 상수 $k_f=3.2\times10^2\ \mathrm{s^{-1}}$ 일 때 역반응 속도 상수는?</p></div>
             <details class="sol-toggle"><summary>풀이 보기</summary>
-              <div class="ex-body"><p>$k_r=\dfrac{k_f}{K_c}=\dfrac{3.2\times10^2}{4.8\times10^{-2}}=\mathbf{6.7\times10^{3}\ M^{-1}s^{-1}}$ (역반응은 2차이므로 단위가 M<sup>−1</sup>s<sup>−1</sup>)</p></div>
+              <div class="ex-body"><p>$k_r=\dfrac{k_f}{K_c}=\dfrac{3.2\times10^2}{4.8\times10^{-2}}=\mathbf{6.7\times10^{3}\ M^{-1}s^{-1}}$ (역반응 속도식이 $k_r[\mathrm B][\mathrm C]$ 이므로 단위가 M<sup>−1</sup>s<sup>−1</sup>)</p></div>
             </details>
           </div>
         </section>
@@ -799,8 +803,6 @@
               <tr><td class="l">온도 ↑ — <b>흡열</b>($\Delta H>0$)</td><td class="l">→ 오른쪽 (열을 흡수하는 방향)</td><td><b>K 증가</b></td></tr>
               <tr><td class="l">온도 ↑ — <b>발열</b>($\Delta H<0$)</td><td class="l">← 왼쪽</td><td><b>K 감소</b></td></tr>
               <tr><td class="l">온도 ↓ — 흡열 / 발열</td><td class="l">← 왼쪽 / → 오른쪽</td><td>K 감소 / 증가</td></tr>
-              <tr><td class="l">촉매 <span class="badge">교재 보충</span></td><td class="l">이동 없음 (평형에 더 빨리 도달할 뿐)</td><td>없음</td></tr>
-              <tr><td class="l">비활성 기체를 <b>부피 일정</b>하게 추가 <span class="badge">교재 보충</span></td><td class="l">이동 없음 (반응 기체들의 부분압·농도가 그대로)</td><td>없음</td></tr>
             </tbody>
           </table></div>
           <div class="callout warn"><span class="ttl">핵심</span>
@@ -815,6 +817,9 @@
           </ul>
           <div class="callout tip"><span class="ttl">풀이 요령</span>
             <p>열을 <b>반응물 또는 생성물</b>처럼 취급하세요. 흡열 반응은 “열 + 반응물 ⇌ 생성물”, 발열 반응은 “반응물 ⇌ 생성물 + 열”. 그러면 열을 가하는 건 “반응물/생성물 추가”와 똑같이 생각할 수 있어요.</p>
+          </div>
+          <div class="callout excl"><span class="ttl">범위 밖 (슬라이드에 없는 교재 내용)</span>
+            <p>촉매를 넣거나, 부피를 고정한 채 비활성 기체를 넣는 경우에는 평형 위치가 이동하지 않아요. 수업 슬라이드에 나오지 않아 시험 범위가 아닌 것으로 두었어요.</p>
           </div>
         </section>
 
@@ -1116,15 +1121,13 @@
             <li><b>차수 ≠ 계수.</b> 속도 법칙의 지수는 실험(초기 속도법)으로만 정한다. 단, <i>elementary step 하나</i>일 때는 계수가 곧 차수.</li>
             <li><b>속도를 계수로 나누기.</b> $-\tfrac1a\Delta[\mathrm A]/\Delta t=\tfrac1c\Delta[\mathrm C]/\Delta t$. $\ce{2A -> B}$ 에서 A 는 B 보다 2배 빨리 사라진다.</li>
             <li><b>k 의 단위</b>로 차수를 역추적: s<sup>−1</sup> → 1차, M<sup>−1</sup>s<sup>−1</sup> → 2차, M s<sup>−1</sup> → 0차.</li>
-            <li><b>시간 단위 통일.</b> k 가 s<sup>−1</sup> 인데 시간이 분이면 ×60 (또는 k 를 min<sup>−1</sup> 로).</li>
-            <li><b>ln 과 log 구분.</b> 적분식과 Arrhenius 는 자연로그 ln. pH 는 상용로그 log.</li>
+            <li><b>ln 과 log 구분.</b> Arrhenius 는 자연로그 ln. pH 는 상용로그 log.</li>
             <li><b>Arrhenius</b>: T 는 K, $E_a$ kJ → J 변환, $R=8.314$ J/(mol·K).</li>
-            <li><b>반감기</b>: 1차는 농도 무관(0.693/k). 2차·0차는 <b>초기 농도</b>를 꼭 넣는다.</li>
             <li><b>메커니즘</b>: rds 의 속도식에 <b>중간체</b>가 나오면 앞 단계의 빠른 평형으로 치환한다.</li>
             <li><b>K 식</b>: 평형 농도만! 생성물/반응물, 계수는 지수. (순수 고체·액체는 제외.) 반응식을 뒤집거나 곱하면 K 도 변한다.</li>
             <li><b>Q 를 쓸 때는 mol 이 아니라 농도(M)</b>. 부피로 나눴는지 확인.</li>
             <li><b>$\Delta n$</b> 은 기체 mol 수만. $K_P=K_c(0.0821T)^{\Delta n}$, T 는 K.</li>
-            <li><b>Le Châtelier</b>: K 가 바뀌는 건 오직 <b>온도</b>. 압력 변화는 기체 몰수가 다를 때만 영향, 촉매는 위치를 못 바꾼다.</li>
+            <li><b>Le Châtelier</b>: K 가 바뀌는 건 오직 <b>온도</b>. 압력 변화는 기체 몰수가 다를 때만 평형 위치에 영향을 준다.</li>
             <li><b>약산 근사</b>는 5 % 검사 후에만 사용. $x$ 가 크면 이차방정식(음수 해는 버린다).</li>
             <li><b>염기 문제</b>는 pOH 먼저 → 14 에서 빼서 pH. Ba(OH)<sub>2</sub> 는 OH<sup>−</sup> 가 <b>2배</b>.</li>
             <li><b>H<sub>2</sub>SO<sub>4</sub></b> 는 1단계는 강산(완전), 2단계(HSO<sub>4</sub><sup>−</sup>)는 약산 $K_a=1.3\times10^{-2}$.</li>

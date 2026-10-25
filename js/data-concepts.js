@@ -41,7 +41,7 @@ window.CONCEPTS = [
 
   { id: "k07", ch: 13, topic: "13.2 Rate law",
     q: "What is the rate constant, and what does it depend on?", qk: "rate constant k 란? 무엇에 의존하나?",
-    a: "The [[rate constant]] k is the [[proportionality constant|constant of proportionality]] between the rate and the reactant concentrations. It is [[independent of|not affected by|does not depend on]] concentration but depends on [[temperature|온도]] (and on a catalyst), and its [[units]] depend on the overall order.",
+    a: "The [[rate constant]] k is the [[proportionality constant|constant of proportionality]] between the rate and the reactant concentrations. It is [[independent of|not affected by|does not depend on]] concentration but depends on [[temperature|온도]], and its [[units]] depend on the overall order.",
     ko: "속도와 농도를 이어주는 비례상수. 농도와 무관, 온도에 의존. 단위는 전체 차수에 따라 달라진다." },
 
   { id: "k08", ch: 13, topic: "13.2 Rate law",
@@ -60,56 +60,56 @@ window.CONCEPTS = [
     ko: "한 번에 한 반응물만 농도를 바꾸고 나머지는 고정, 초기 속도를 비교. rate 비 = (농도 비)^차수." },
 
   { id: "k11", ch: 13, topic: "13.2 Rate law",
-    q: "State the units of the rate constant for a zero-, first- and second-order reaction.", qk: "0·1·2차 반응 k 의 단위",
-    a: "Zero order: [[M/s|M s-1]]. First order: [[s-1|1/s|per second]]. Second order: [[M-1 s-1|1/(M·s)|1/M·s|per molar per second]]. In general the units are M^(1−n) s^-1 for order n.",
-    ko: "0차 M/s, 1차 s⁻¹, 2차 M⁻¹s⁻¹. 일반적으로 M^(1−n)·s⁻¹." },
+    q: "How do the units of the rate constant k depend on the overall order of the rate law?", qk: "전체 차수에 따른 k 의 단위",
+    a: "Substitute the units into the rate law: for overall order 0, k is in [[M/s|M s-1]]; for overall order 1, [[s-1|1/s|per second]]; for overall order 2, [[M-1 s-1|1/(M·s)|1/M·s|per molar per second]]. In general the units are M^(1−n) s^-1 for overall order n.",
+    ko: "속도식에 단위를 대입해 구한다. 전체 0차 M/s, 1차 s⁻¹, 2차 M⁻¹s⁻¹ (일반적으로 M^(1−n)·s⁻¹). 전체 3차는 M⁻²s⁻¹." },
 
   { id: "k12", ch: 13, topic: "13.2 Rate law",
     q: "If doubling the concentration of A quadruples the rate, what is the order with respect to A? Explain.", qk: "농도 2배 → 속도 4배이면?",
     a: "The reaction is [[second order|second-order|2nd order]] in A, because rate ∝ [A]^n and 2^n = [[4]] gives n = 2.",
     ko: "2^n = 4 → n = 2 (2차)." },
 
-  { id: "k13", ch: 13, topic: "13.3 Integrated rate laws",
+  { id: "k13", ch: 13, out: "1·2차 반응", topic: "13.3 Integrated rate laws",
     q: "Write the integrated rate law for a first-order reaction and state which plot is a straight line.", qk: "1차 반응의 적분 속도식과 직선 그래프",
     a: "ln[A]t = −kt + ln[A]0 (equivalently ln([A]t/[A]0) = −kt). A plot of [[ln[A]|ln of concentration|natural log of concentration|ln 농도]] versus [[time]] is a straight line whose [[slope]] is [[−k|-k|negative k|minus k]].",
     ko: "ln[A] 대 t 가 직선, 기울기 = −k, 절편 = ln[A]₀." },
 
-  { id: "k14", ch: 13, topic: "13.3 Integrated rate laws",
+  { id: "k14", ch: 13, out: "1·2차 반응", topic: "13.3 Integrated rate laws",
     q: "Write the integrated rate law for a second-order reaction (A → products) and describe its linear plot.", qk: "2차 반응의 적분 속도식",
     a: "1/[A]t = kt + 1/[A]0. A plot of the [[reciprocal|1/[A]|inverse]] of the concentration versus [[time]] is a straight line with a [[positive]] slope equal to k and an intercept of 1/[A]0.",
     ko: "1/[A] 대 t 가 직선, 기울기 = +k, 절편 = 1/[A]₀." },
 
-  { id: "k15", ch: 13, topic: "13.3 Integrated rate laws",
+  { id: "k15", ch: 13, out: "1·2차 반응", topic: "13.3 Integrated rate laws",
     q: "Write the integrated rate law for a zero-order reaction and describe its linear plot.", qk: "0차 반응의 적분 속도식",
     a: "[A]t = −kt + [A]0. A plot of [[concentration|농도]] (not its logarithm or reciprocal) versus [[time]] is a straight line with a [[negative|−k|minus]] slope. The rate is [[constant|independent of concentration|does not depend on concentration]].",
     ko: "[A] 대 t 가 직선, 기울기 = −k. 속도는 농도와 무관한 상수." },
 
-  { id: "k16", ch: 13, topic: "13.3 Integrated rate laws",
+  { id: "k16", ch: 13, out: "1·2차 반응", topic: "13.3 Integrated rate laws",
     q: "How can the order of a reaction be identified from concentration–time data?", qk: "그래프로 차수 판별",
     a: "Plot the concentration, the [[natural logarithm|ln|log]] of the concentration, and the [[reciprocal|inverse|1/]] of the concentration against time. The plot that is a straight line identifies the order: concentration → [[zero]], ln → [[first]], reciprocal → [[second]].",
     ko: "[A], ln[A], 1/[A] 를 각각 t 에 대해 그려 직선이 되는 것이 차수(0, 1, 2차)." },
 
-  { id: "k17", ch: 13, topic: "13.3 Half-life",
+  { id: "k17", ch: 13, out: "1·2차 반응", topic: "13.3 Half-life",
     q: "Define half-life.", qk: "반감기의 정의",
     a: "The [[half-life]] (t1/2) is the [[time]] required for the [[concentration]] of a reactant to decrease to [[half|one-half|50%|1/2]] of its [[initial|original|starting]] value.",
     ko: "반응물 농도가 처음의 절반이 되는 데 걸리는 시간." },
 
-  { id: "k18", ch: 13, topic: "13.3 Half-life",
+  { id: "k18", ch: 13, out: "1·2차 반응", topic: "13.3 Half-life",
     q: "Give the half-life expression for a first-order reaction and explain what is special about it.", qk: "1차 반응의 반감기",
     a: "t1/2 = [[0.693/k|ln 2/k|ln2/k]]. It is [[independent of|does not depend on|not dependent on]] the initial concentration, so every successive half-life is the [[same|constant|equal]].",
     ko: "t½ = 0.693/k. 초기 농도와 무관 → 반감기마다 항상 절반." },
 
-  { id: "k19", ch: 13, topic: "13.3 Half-life",
+  { id: "k19", ch: 13, out: "1·2차 반응", topic: "13.3 Half-life",
     q: "Give the half-life expression for a second-order reaction and describe how it changes as the reaction proceeds.", qk: "2차 반응의 반감기",
     a: "t1/2 = 1/(k[A]0). It is [[inversely proportional|inverse]] to the initial concentration, so each successive half-life is [[longer|doubles|twice as long]] than the one before.",
     ko: "t½ = 1/(k[A]₀). 농도가 묽어질수록 반감기가 길어진다(다음 반감기는 2배)." },
 
-  { id: "k20", ch: 13, topic: "13.3 Half-life",
+  { id: "k20", ch: 13, out: "1·2차 반응", topic: "13.3 Half-life",
     q: "Give the half-life expression for a zero-order reaction and describe how it changes as the reaction proceeds.", qk: "0차 반응의 반감기",
     a: "t1/2 = [A]0/2k. It is [[directly proportional|proportional]] to the initial concentration, so successive half-lives become [[shorter|smaller|halve]].",
     ko: "t½ = [A]₀/2k. 초기 농도에 비례, 반응이 진행될수록 반감기가 짧아진다." },
 
-  { id: "k21", ch: 13, topic: "13.3 Half-life",
+  { id: "k21", ch: 13, out: "1·2차 반응", topic: "13.3 Half-life",
     q: "What fraction of a first-order reactant remains after three half-lives?", qk: "1차 반응, 반감기 3번 후 남은 비율",
     a: "After n half-lives the fraction remaining is (1/2)^n, so after three half-lives it is [[1/8|12.5%|0.125|one-eighth]].",
     ko: "(1/2)³ = 1/8 = 12.5 %." },

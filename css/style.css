@@ -194,6 +194,7 @@ main { max-width: 1120px; margin: 0 auto; padding: 20px 16px 80px; }
 .toc a:hover { background: var(--surface-2); }
 .toc a.active { background: var(--primary-weak); color: var(--primary); font-weight: 700; border-left-color: var(--primary); }
 .toc a.sub { padding-left: 22px; font-size: .84rem; color: var(--muted); }
+.toc a.out { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--red) 60%, transparent); opacity: .7; }
 @media (max-width: 960px) {
   .study-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .toc {
@@ -243,6 +244,10 @@ main { max-width: 1120px; margin: 0 auto; padding: 20px 16px 80px; }
 }
 .sec > h3 .sn { color: var(--accent); font-weight: 800; font-size: .95em; margin-right: .5em; }
 .sec h4 { margin: 22px 0 6px; font-size: 1.02rem; }
+.sec > h3.out-title { color: var(--muted); }
+.sec > h3.out-title .strike { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--red) 60%, transparent); }
+.sec > h3.out-title .badge { vertical-align: 2px; margin-left: 6px; }
+details.excl-sec { opacity: .92; }
 .sec p { margin: 8px 0; }
 .sec ul, .sec ol { margin: 8px 0; padding-left: 1.3em; }
 .sec li { margin: 3px 0; }
