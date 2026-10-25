@@ -189,7 +189,7 @@
         <p>(d) $\text{rate}=k[\mathrm A]_0=(0.01625)(0.400)=6.5\times10^{-3}$ M/min</p>
         <p>(e) $t_{1/2}=\dfrac{0.693}{0.01625}=42.7$ min</p>` },
 
-    { id: "p13-20", ch: 13, topic: "13.3 농도–시간", src: "concept", srcLabel: "개념 확인", level: 1,
+    { id: "p13-20", out: "1차 반응", ch: 13, topic: "13.3 농도–시간", src: "concept", srcLabel: "개념 확인", level: 1,
       stem: R`<p>어떤 1차 반응의 반감기가 20.0 min 이다.</p>`,
       parts: [
         { label: "(a)", prompt: "속도 상수 k", type: "num", answer: 0.03466, unit: "min<sup>−1</sup>", tol: 0.02 },

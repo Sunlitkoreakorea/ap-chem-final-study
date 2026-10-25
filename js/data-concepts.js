@@ -94,7 +94,7 @@ window.CONCEPTS = [
     a: "The [[half-life]] (t1/2) is the [[time]] required for the [[concentration]] of a reactant to decrease to [[half|one-half|50%|1/2]] of its [[initial|original|starting]] value.",
     ko: "반응물 농도가 처음의 절반이 되는 데 걸리는 시간." },
 
-  { id: "k18", ch: 13, topic: "13.3 Half-life",
+  { id: "k18", ch: 13, out: "1차 반응", topic: "13.3 Half-life",
     q: "Give the half-life expression for a first-order reaction and explain what is special about it.", qk: "1차 반응의 반감기",
     a: "t1/2 = [[0.693/k|ln 2/k|ln2/k]]. It is [[independent of|does not depend on|not dependent on]] the initial concentration, so every successive half-life is the [[same|constant|equal]].",
     ko: "t½ = 0.693/k. 초기 농도와 무관 → 반감기마다 항상 절반." },
