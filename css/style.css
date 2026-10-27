@@ -276,7 +276,7 @@ details.excl-sec { opacity: .92; }
 .callout p:first-of-type { margin-top: 0; } .callout p:last-child { margin-bottom: 0; }
 .callout ul { margin: 4px 0; }
 
-.tbl-wrap { overflow-x: auto; margin: 12px 0; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.tbl-wrap { position: relative; overflow-x: auto; margin: 12px 0; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
 table.tbl { border-collapse: collapse; width: 100%; font-size: .93rem; font-variant-numeric: tabular-nums; }
 .tbl th, .tbl td { padding: 8px 12px; text-align: center; border-bottom: 1px solid var(--line); vertical-align: middle; }
 .tbl th { background: var(--surface-2); font-size: .82rem; letter-spacing: .02em; font-weight: 700; white-space: nowrap; }
@@ -436,20 +436,24 @@ details.sol-toggle.plain > summary { border-top: 0; background: var(--surface-2)
 .prob.done-ok { border-color: color-mix(in srgb, var(--green) 55%, var(--line)); }
 .prob.done-bad { border-color: color-mix(in srgb, var(--red) 55%, var(--line)); }
 .prob-head { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
-.prob-head .pid { font-weight: 800; font-size: .95rem; margin-right: 4px; }
+.prob-head .pid { font-weight: 800; font-size: .95rem; margin-right: 4px; color: var(--muted); }
+.prob-head .pid.pdfnum { color: var(--text); background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 1px 9px; font-size: 1rem; }
+.prob-head .pdfpg { font-size: .72rem; font-weight: 700; color: var(--muted); margin-right: 4px; }
+.search.numsearch { flex: 0 1 190px; min-width: 150px; }
 .prob-head .state { margin-left: auto; font-size: .8rem; font-weight: 800; }
 .prob-head .state.ok { color: var(--green); } .prob-head .state.bad { color: var(--red); }
 .stem { margin: 6px 0 10px; }
 .stem p { margin: 6px 0; }
 .part { margin: 12px 0; padding: 10px 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; }
 .part .plabel { font-weight: 800; color: var(--accent); margin-right: 6px; }
-.opts { display: grid; gap: 6px; margin-top: 8px; }
+.opts { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; margin-top: 8px; }
 .opt {
-  display: flex; gap: 10px; align-items: flex-start; text-align: left; width: 100%;
+  display: flex; gap: 10px; align-items: flex-start; text-align: left; width: 100%; min-width: 0;
   border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 8px 12px; transition: all .12s;
 }
 .opt:hover:not([disabled]) { border-color: var(--primary); background: var(--primary-weak); }
-.opt > span:last-child { line-height: 2.3; min-width: 0; }
+/* 긴 식이 좁은 화면에서 버튼 밖으로 삐져나가지 않고 그 안에서 가로 스크롤되도록 (세로는 KaTeX 분수의 여유분만 허용) */
+.opt > span:last-child { position: relative; line-height: 2.3; min-width: 0; overflow-x: auto; overflow-y: hidden; padding-bottom: 5px; margin-bottom: -5px; }
 .opt .k { flex: none; width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--muted); display: grid; place-items: center; font-size: .78rem; font-weight: 800; color: var(--muted); }
 .opt.right { border-color: var(--green); background: var(--green-weak); } .opt.right .k { background: var(--green); border-color: var(--green); color: #fff; }
 .opt.wrong { border-color: var(--red); background: var(--red-weak); } .opt.wrong .k { background: var(--red); border-color: var(--red); color: #fff; }
@@ -481,7 +485,7 @@ code { font-family: var(--mono); background: var(--surface-2); padding: 1px 6px;
 .ptxt { margin-bottom: 2px; }
 .study-main, .p-main { min-width: 0; }
 .katex { font-size: 1.06em; }
-.katex-display { overflow-x: auto; overflow-y: hidden; max-width: 100%; padding: 2px 0; }
+.katex-display { position: relative; overflow-x: auto; overflow-y: hidden; max-width: 100%; padding: 2px 0; }
 .eq .katex-display { margin: .4em 0; }
 @media (max-width: 520px) {
   main { padding-inline: 12px; }
