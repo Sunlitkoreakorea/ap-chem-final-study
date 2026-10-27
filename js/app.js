@@ -485,6 +485,7 @@
   PROBLEMS.forEach((p, i) => { p._i = i; });
   PROBLEMS.sort((a, b) => a.ch - b.ch || (!a.pg - !b.pg) || (a.pg - b.pg) || a._i - b._i);
   const normNum = s => String(s || "").toLowerCase().replace(/\s+/g, "");
+  const bankLike = () => prac.mode === "bank" || prac.mode === "explain";
 
   function parseNum(str) {
     if (!str) return NaN;
@@ -556,28 +557,28 @@
   }
 
   function bankList() {
-    const q = prac.mode === "bank" ? normNum(prac.q) : "";
+    const q = bankLike() ? normNum(prac.q) : "";
     let list = PROBLEMS.filter(p => (prac.showOut || !isOut(p)) && (prac.ch === "all" || p.ch === +prac.ch) &&
-      (prac.src === "all" || (prac.src === "pdf" ? !!p.pg : p.src === prac.src)) && (!q || normNum(p.num).includes(q)));
+      (prac.src === "all" || (prac.src === "pdf" ? !!p.pg : p.src === prac.src)) && (!q || normNum(cardNum(p)).includes(q)));
     if (prac.mode === "wrong") list = list.filter(p => overall(p, getPS(p.id)) === "bad");
-    else if (prac.state === "todo") list = list.filter(p => overall(p, getPS(p.id)) == null);
-    else if (prac.state === "bad") list = list.filter(p => overall(p, getPS(p.id)) === "bad");
-    else if (prac.state === "ok") list = list.filter(p => overall(p, getPS(p.id)) === "ok");
-    if (prac.order) { const pos = new Map(prac.order.map((id, i) => [id, i])); list = list.slice().sort((a, b) => pos.get(a.id) - pos.get(b.id)); }
+    else if (prac.mode === "bank" && prac.state === "todo") list = list.filter(p => overall(p, getPS(p.id)) == null);
+    else if (prac.mode === "bank" && prac.state === "bad") list = list.filter(p => overall(p, getPS(p.id)) === "bad");
+    else if (prac.mode === "bank" && prac.state === "ok") list = list.filter(p => overall(p, getPS(p.id)) === "ok");
+    if (prac.mode === "bank" && prac.order) { const pos = new Map(prac.order.map((id, i) => [id, i])); list = list.slice().sort((a, b) => pos.get(a.id) - pos.get(b.id)); }
     return list;
   }
 
   function renderPractice() {
     const ctr = $("#pControls");
-    const modes = [["bank", "문제 은행"], ["gen", "랜덤 생성"], ["wrong", "오답 노트"]];
+    const modes = [["bank", "문제 은행"], ["explain", "해설 보기"], ["gen", "랜덤 생성"], ["wrong", "오답 노트"]];
     const chips = [["all", "전체", ""], ["13", "13", "c13"], ["14", "14", "c14"], ["15", "15", "c15"]];
     let html = `<div class="mode-seg">${modes.map(([k, l]) => `<button type="button" class="btn" data-p="mode" data-v="${k}" aria-pressed="${prac.mode === k}">${l}</button>`).join("")}</div>
       <div class="toolbar"><div class="grp"><span class="lbl">단원</span>${chips.map(([k, l, c]) => `<button type="button" class="chip ${c}" data-p="ch" data-v="${k}" aria-pressed="${prac.ch === k}">${l}</button>`).join("")}</div>`;
-    if (prac.mode === "bank") {
+    if (bankLike()) {
       html += `<div class="grp"><label class="lbl" for="sSel">출처</label><select id="sSel" class="search" style="flex:none;max-width:none">${[["all", "전체"], ["pdf", "PDF 문제 (원래 번호)"], ["book", "교재"], ["hw", "숙제(HW)"], ["ap", "AP 문제"], ["concept", "추가 연습"]].map(([k, l]) => `<option value="${k}"${prac.src === k ? " selected" : ""}>${l}</option>`).join("")}</select></div>
         <div class="grp"><label class="lbl" for="pNum">번호</label><input id="pNum" class="search numsearch" type="search" inputmode="text" autocomplete="off" spellcheck="false" placeholder="예: 13.16 · Ex 14.9 · AP 6" value="${esc(prac.q)}"></div>
-        <div class="grp"><label class="lbl" for="stSel">상태</label><select id="stSel" class="search" style="flex:none;max-width:none">${[["all", "전체"], ["todo", "안 푼 문제"], ["bad", "틀린 문제"], ["ok", "푼 문제"]].map(([k, l]) => `<option value="${k}"${prac.state === k ? " selected" : ""}>${l}</option>`).join("")}</select></div>
-        <span class="spacer"></span><button type="button" class="btn" data-p="${prac.order ? "unshuffle" : "shuffle"}">${prac.order ? "순서대로" : "섞기"}</button>`;
+        ${prac.mode === "bank" ? `<div class="grp"><label class="lbl" for="stSel">상태</label><select id="stSel" class="search" style="flex:none;max-width:none">${[["all", "전체"], ["todo", "안 푼 문제"], ["bad", "틀린 문제"], ["ok", "푼 문제"]].map(([k, l]) => `<option value="${k}"${prac.state === k ? " selected" : ""}>${l}</option>`).join("")}</select></div>
+        <span class="spacer"></span><button type="button" class="btn" data-p="${prac.order ? "unshuffle" : "shuffle"}">${prac.order ? "순서대로" : "섞기"}</button>` : ""}`;
     }
     html += `<label class="switch" style="margin-left:auto"><input type="checkbox" id="pShowOut"${prac.showOut ? " checked" : ""}> 범위 밖 문제 포함</label></div>`;
     if (prac.mode === "gen") {
@@ -601,12 +602,12 @@
       const shown = all.slice(0, prac.page * PAGE);
       if (!all.length) {
         let msg = prac.mode === "wrong" ? "아직 틀린 문제가 없어요. 문제 은행에서 풀어 보세요!" : "조건에 맞는 문제가 없어요.";
-        const q = prac.mode === "bank" ? normNum(prac.q) : "";
-        if (q && !prac.showOut && PROBLEMS.some(p => isOut(p) && normNum(p.num).includes(q))) msg = `‘${esc(prac.q.trim())}’ 은(는) 시험 범위 밖 문제예요. 위의 “범위 밖 문제 포함”을 켜면 볼 수 있어요.`;
+        const q = bankLike() ? normNum(prac.q) : "";
+        if (q && !prac.showOut && PROBLEMS.some(p => isOut(p) && normNum(cardNum(p)).includes(q))) msg = `‘${esc(prac.q.trim())}’ 은(는) 시험 범위 밖 문제예요. 위의 “범위 밖 문제 포함”을 켜면 볼 수 있어요.`;
         list.innerHTML = `<div class="empty">${msg}</div>`;
       }
       const frag = document.createDocumentFragment();
-      shown.forEach(p => frag.appendChild(problemCard(p, { persist: true })));
+      shown.forEach(p => frag.appendChild(prac.mode === "explain" ? explainCard(p) : problemCard(p, { persist: true })));
       list.appendChild(frag);
       if (all.length > shown.length) {
         const more = document.createElement("div"); more.style.textAlign = "center";
@@ -649,6 +650,13 @@
       const a = t.dataset.p;
       if (a === "mode") { prac.mode = t.dataset.v; store.set("apchem.prac.mode", prac.mode); prac.page = 1; prac.genProb = null; renderPractice(); }
       else if (a === "ch") { prac.ch = t.dataset.v; prac.page = 1; prac.genProb = null; if (prac.gen !== "all" && !GENERATORS.some(g => g.key === prac.gen && genOK(g) && (prac.ch === "all" || g.ch === +prac.ch))) prac.gen = "all"; renderPractice(); }
+      else if (a === "try") {
+        // 해설 → 같은 번호의 문제를 은행에서 바로 풀어 보기
+        prac.mode = "bank"; store.set("apchem.prac.mode", prac.mode);
+        prac.q = t.dataset.num || ""; prac.src = "all"; prac.ch = "all"; prac.state = "all"; prac.page = 1;
+        if (t.dataset.out === "1") prac.showOut = true;
+        renderPractice(); $("#pControls").scrollIntoView({ block: "start" });
+      }
       else if (a === "more") { prac.page++; renderPractice(); }
       else if (a === "shuffle") { prac.order = shuffle(PROBLEMS.map(p => p.id)); prac.page = 1; renderPractice(); }
       else if (a === "unshuffle") { prac.order = null; prac.page = 1; renderPractice(); }
@@ -659,19 +667,49 @@
   }
 
   /* ---------- problem card ---------- */
+  // 카드에 보이는 번호: PDF 문제는 슬라이드의 원래 번호, 보충 문제는 '추가 13-23'
+  function cardNum(p) {
+    if (p.num) return p.num;
+    const m = p.id.match(/p(\d+)-(\d+)/);
+    return m ? `추가 ${m[1]}-${+m[2]}` : "";
+  }
+  function probHead(p, showNum) {
+    const sl = SRC_LABEL[p.src] || ["", p.src];
+    const lv = "●".repeat(p.level || 1) + "○".repeat(3 - (p.level || 1));
+    const idTxt = showNum ? cardNum(p) : "";
+    const pgTxt = showNum && p.pg ? `<span class="pdfpg" title="PDF ${p.pg}쪽에 있는 문제">PDF p.${p.pg}</span>` : "";
+    return `${idTxt ? `<span class="pid${p.num ? " pdfnum" : ""}">${esc(idTxt)}</span>` : ""}${pgTxt}<span class="badge ${sl[0]}">${esc(p.srcLabel || sl[1])}</span><span class="badge ch${p.ch}">${esc(p.topic)}</span><span class="badge" title="난이도">${lv}</span>${isOut(p) ? `<span class="badge hw" title="${esc(p.out || "")}">범위 밖${p.out ? ": " + esc(p.out) : ""}</span>` : ""}`;
+  }
+
+  /* ---------- 해설 카드: 문제 + 정답 + 풀이를 한 번에, 채점·기록 없음 ---------- */
+  function explainCard(p) {
+    const card = document.createElement("article");
+    card.className = `prob exp c${p.ch}`;
+    card.dataset.id = p.id;
+    const parts = p.parts.map(pt => {
+      const head = `<div class="ptxt">${pt.label ? `<span class="plabel">${pt.label}</span>` : ""}${pt.prompt || ""}</div>`;
+      if (pt.type === "mc") {
+        return `<div class="part">${head}<div class="opts">${pt.options.map((o, j) => `<div class="opt ro${j === pt.answer ? " right" : ""}"><span class="k">${"ABCDEF"[j]}</span><span>${o}</span></div>`).join("")}</div>
+          <div class="fb ok">정답: <b>${"ABCDEF"[pt.answer]}</b></div></div>`;
+      }
+      if (pt.type === "num") return `<div class="part">${head}<div class="fb ok">정답: <b>${fmtVal(pt.answer)}</b> ${pt.unit || ""}</div></div>`;
+      return `<div class="part">${head}</div>`;
+    }).join("");
+    card.innerHTML = `<div class="prob-head">${probHead(p, true)}</div>
+      <div class="stem">${p.stem}</div>${parts}
+      <div class="sol"><h5>풀이</h5>${p.solution || ""}</div>
+      <div class="prob-actions"><button type="button" class="btn btn-primary" data-p="try" data-num="${esc(cardNum(p))}" data-out="${isOut(p) ? 1 : 0}">이 문제 풀어 보기 ▸</button></div>`;
+    renderMath(card);
+    return card;
+  }
+
   function problemCard(p, opt) {
     const persist = opt.persist;
     const ps = persist ? getPS(p.id) : (p._ps || (p._ps = { parts: [], seen: false }));
     const card = document.createElement("article");
     card.className = `prob c${p.ch}`;
     card.dataset.id = p.id;
-    const sl = SRC_LABEL[p.src] || ["", p.src];
-    const lv = "●".repeat(p.level || 1) + "○".repeat(3 - (p.level || 1));
-    const idm = p.id.match(/p(\d+)-(\d+)/);
-    // PDF 문제는 슬라이드의 원래 번호, 보충 문제는 '추가 13-23' 처럼 표시
-    const idTxt = !persist ? "" : p.num ? p.num : idm ? `추가 ${idm[1]}-${+idm[2]}` : "";
-    const pgTxt = persist && p.pg ? `<span class="pdfpg" title="PDF ${p.pg}쪽에 있는 문제">PDF p.${p.pg}</span>` : "";
-    card.innerHTML = `<div class="prob-head">${idTxt ? `<span class="pid${p.num ? " pdfnum" : ""}">${esc(idTxt)}</span>` : ""}${pgTxt}<span class="badge ${sl[0]}">${esc(p.srcLabel || sl[1])}</span><span class="badge ch${p.ch}">${esc(p.topic)}</span><span class="badge" title="난이도">${lv}</span>${isOut(p) ? `<span class="badge hw" title="${esc(p.out || "")}">범위 밖${p.out ? ": " + esc(p.out) : ""}</span>` : ""}<span class="state"></span></div>
+    card.innerHTML = `<div class="prob-head">${probHead(p, persist)}<span class="state"></span></div>
       <div class="stem">${p.stem}</div>
       ${p.parts.map((pt, i) => partHTML(pt, i)).join("")}
       <div class="prob-actions"><button type="button" class="btn" data-a="sol">풀이 보기</button><button type="button" class="btn" data-a="reset">다시 풀기</button>${opt.persist ? "" : '<button type="button" class="btn btn-primary hide" data-a="next">다음 문제 ▸</button>'}</div>
